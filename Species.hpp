@@ -8,9 +8,6 @@
 
 class Firemon : public Engimon {
     protected:
-        string species;
-        string parentName;
-        string parentSpecies;
         // Skill* learnedSkill;
         // Element* elements;
         int countSkill;
@@ -24,9 +21,6 @@ class Firemon : public Engimon {
 
 class Watermon : public Engimon {
     protected:
-        string species;
-        string parentName;
-        string parentSpecies;
         // Skill* learnedSkill;
         // Element* elements;
         int countSkill;
@@ -40,9 +34,6 @@ class Watermon : public Engimon {
 
 class Electricmon : public Engimon {
     protected:
-        string species;
-        string parentName;
-        string parentSpecies;
         // Skill* learnedSkill;
         // Element* elements;
         int countSkill;
@@ -56,9 +47,6 @@ class Electricmon : public Engimon {
 
 class Groundmon : public Engimon {
     protected:
-        string species;
-        string parentName;
-        string parentSpecies;
         // Skill* learnedSkill;
         // Element* elements;
         int countSkill;
@@ -72,9 +60,6 @@ class Groundmon : public Engimon {
 
 class Icemon : public Engimon {
     protected:
-        string species;
-        string parentName;
-        string parentSpecies;
         // Skill* learnedSkill;
         // Element* elements;
         int countSkill;

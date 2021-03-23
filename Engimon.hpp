@@ -8,6 +8,9 @@ using namespace std;
 class Engimon {
     protected:
         string name;
+        string species;
+        string parentName;
+        string parentSpecies;
         // parent name, species belum tau
         // Skill* learnedSkill;
         // Element* elements;
@@ -18,7 +21,7 @@ class Engimon {
         static int maxCumulativeExperience;
 
     public:
-        Engimon(string);
+        Engimon(string, string, string, string);
         virtual ~Engimon();
         void addExperience(int);
         void levelUp();

@@ -3,10 +3,7 @@
 
 using namespace std;
 
-Firemon::Firemon(string name, string _parentName, string _parentSpecies) : Engimon(name){
-    this->species = "Firemon";
-    this->parentName = _parentName;
-    this->parentSpecies = _parentSpecies;
+Firemon::Firemon(string _name, string _parentName, string _parentSpecies) : Engimon(_name, "Firemon", _parentName, _parentSpecies){
     // Skill *learnedSkill[4];
     // Skill skillfire(); ???
     // learnedSkill[0] = skillfire
@@ -24,12 +21,11 @@ Firemon::~Firemon(){
 
 void Firemon::death(){
     cout << "Firemon " << this->name << " mati." << endl;
-    this->death();
+    this->~Firemon();
 }
 
 void Firemon::showDetail(){
-    cout << "Nama " << this->name << endl;
-    cout << "Nama parent " << this->parentName << " spesiesnya " << this->parentSpecies << "." << endl;
+    Engimon::showDetail();
     cout << "Skill ";
     // for (int i=0; i < this->countSkill; i++){
     //     cout << learnedSkill[i];
@@ -44,15 +40,9 @@ void Firemon::showDetail(){
     //         cout << ", ";
     // }
     cout << endl;
-    cout << "Level " << this->level << endl;
-    cout << "Current Exp " << this->experience << endl;
-    cout << "Akumulasi Exp " << this->maxCumulativeExperience << endl;
 }
 
-Watermon::Watermon(string name, string _parentName, string _parentSpecies) : Engimon(name){
-    this->species = "Watermon";
-    this->parentName = _parentName;
-    this->parentSpecies = _parentSpecies;
+Watermon::Watermon(string _name, string _parentName, string _parentSpecies) : Engimon(_name, "Watermon", _parentName, _parentSpecies){
     // Skill *learnedSkill[4];
     // Skill skillfire(); ???
     // learnedSkill[0] = skillfire
@@ -70,12 +60,11 @@ Watermon::~Watermon(){
 
 void Watermon::death(){
     cout << "Watermon " << this->name << " mati." << endl;
-    this->death();
+    this->~Watermon();
 }
 
 void Watermon::showDetail(){
-    cout << "Nama " << this->name << endl;
-    cout << "Nama parent " << this->parentName << " spesiesnya " << this->parentSpecies << "." << endl;
+    Engimon::showDetail();
     cout << "Skill ";
     // for (int i=0; i < this->countSkill; i++){
     //     cout << learnedSkill[i];
@@ -90,15 +79,9 @@ void Watermon::showDetail(){
     //         cout << ", ";
     // }
     cout << endl;
-    cout << "Level " << this->level << endl;
-    cout << "Current Exp " << this->experience << endl;
-    cout << "Akumulasi Exp " << this->maxCumulativeExperience << endl;
 }
 
-Electricmon::Electricmon(string name, string _parentName, string _parentSpecies) : Engimon(name){
-    this->species = "Electricmon";
-    this->parentName = _parentName;
-    this->parentSpecies = _parentSpecies;
+Electricmon::Electricmon(string _name, string _parentName, string _parentSpecies) : Engimon(_name, "Electricmon", _parentName, _parentSpecies){
     // Skill *learnedSkill[4];
     // Skill skillfire(); ???
     // learnedSkill[0] = skillfire
@@ -116,12 +99,11 @@ Electricmon::~Electricmon(){
 
 void Electricmon::death(){
     cout << "Electricmon " << this->name << " mati." << endl;
-    this->death();
+    this->~Electricmon();
 }
 
 void Electricmon::showDetail(){
-    cout << "Nama " << this->name << endl;
-    cout << "Nama parent " << this->parentName << " spesiesnya " << this->parentSpecies << "." << endl;
+    Engimon::showDetail();
     cout << "Skill ";
     // for (int i=0; i < this->countSkill; i++){
     //     cout << learnedSkill[i];
@@ -136,15 +118,9 @@ void Electricmon::showDetail(){
     //         cout << ", ";
     // }
     cout << endl;
-    cout << "Level " << this->level << endl;
-    cout << "Current Exp " << this->experience << endl;
-    cout << "Akumulasi Exp " << this->maxCumulativeExperience << endl;
 }
 
-Groundmon::Groundmon(string name, string _parentName, string _parentSpecies) : Engimon(name){
-    this->species = "Groundmon";
-    this->parentName = _parentName;
-    this->parentSpecies = _parentSpecies;
+Groundmon::Groundmon(string _name, string _parentName, string _parentSpecies) : Engimon(_name, "Groundmon", _parentName, _parentSpecies){
     // Skill *learnedSkill[4];
     // Skill skillfire(); ???
     // learnedSkill[0] = skillfire
@@ -162,12 +138,11 @@ Groundmon::~Groundmon(){
 
 void Groundmon::death(){
     cout << "Groundmon " << this->name << " mati." << endl;
-    this->death();
+    this->~Groundmon();
 }
 
 void Groundmon::showDetail(){
-    cout << "Nama " << this->name << endl;
-    cout << "Nama parent " << this->parentName << " spesiesnya " << this->parentSpecies << "." << endl;
+    Engimon::showDetail();
     cout << "Skill ";
     // for (int i=0; i < this->countSkill; i++){
     //     cout << learnedSkill[i];
@@ -182,15 +157,9 @@ void Groundmon::showDetail(){
     //         cout << ", ";
     // }
     cout << endl;
-    cout << "Level " << this->level << endl;
-    cout << "Current Exp " << this->experience << endl;
-    cout << "Akumulasi Exp " << this->maxCumulativeExperience << endl;
 }
 
-Icemon::Icemon(string name, string _parentName, string _parentSpecies) : Engimon(name){
-    this->species = "Icemon";
-    this->parentName = _parentName;
-    this->parentSpecies = _parentSpecies;
+Icemon::Icemon(string _name, string _parentName, string _parentSpecies) : Engimon(_name, "Icemon", _parentName, _parentSpecies){
     // Skill *learnedSkill[4];
     // Skill skillfire(); ???
     // learnedSkill[0] = skillfire
@@ -208,12 +177,11 @@ Icemon::~Icemon(){
 
 void Icemon::death(){
     cout << "Icemon " << this->name << " mati." << endl;
-    this->death();
+    this->~Icemon();
 }
 
 void Icemon::showDetail(){
-    cout << "Nama " << this->name << endl;
-    cout << "Nama parent " << this->parentName << " spesiesnya " << this->parentSpecies << "." << endl;
+    Engimon::showDetail();
     cout << "Skill ";
     // for (int i=0; i < this->countSkill; i++){
     //     cout << learnedSkill[i];
@@ -228,7 +196,4 @@ void Icemon::showDetail(){
     //         cout << ", ";
     // }
     cout << endl;
-    cout << "Level " << this->level << endl;
-    cout << "Current Exp " << this->experience << endl;
-    cout << "Akumulasi Exp " << this->maxCumulativeExperience << endl;
 }
