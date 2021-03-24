@@ -4,196 +4,116 @@
 using namespace std;
 
 Firemon::Firemon(string _name, string _parentName, string _parentSpecies) : Engimon(_name, "Firemon", _parentName, _parentSpecies){
-    // Skill *learnedSkill[4];
-    // Skill skillfire(); ???
-    // learnedSkill[0] = skillfire
-    // element pake list kayanya ya ? declare elements
-    // Element elementfire(); ???
-    // elements[0] = elementfire
     this->countSkill = 1;
+    this->learnedSkills = new Skill[4];
+    Skill Fireball("Fireball", 0, 100, 0); // gatau parameter 4 asli nan :(
+    this->learnedSkills[0] = Fireball; 
+    
     this->countElement = 1;
+    this->elements = new Element[3];
+    Element Fire(0, "Fire");
+    this->elements[0] = Fire;
 }
 
-Firemon::~Firemon(){
-    // delete[] learnedSkill ??
-    // delete[] elements ??
-}
+Firemon::~Firemon(){}
 
 void Firemon::death(){
     cout << "Firemon " << this->name << " mati." << endl;
     this->~Firemon();
 }
 
-void Firemon::showDetail(){
-    Engimon::showDetail();
-    cout << "Skill ";
-    // for (int i=0; i < this->countSkill; i++){
-    //     cout << learnedSkill[i];
-    //     if (i != this->countSkill-1) {
-    //         cout << ", ";
-    // }
-    cout << endl;
-    cout << "Element ";
-    // for (int i=0; i < this->countElement; i++){
-    //     cout << elements[i];
-    //     if (i != this->countElement-1) {
-    //         cout << ", ";
-    // }
-    cout << endl;
+void Firemon::interact(){
+    cout << this->name << ": " << "Ready to burn down the forest, bos?" << endl;
 }
 
 Watermon::Watermon(string _name, string _parentName, string _parentSpecies) : Engimon(_name, "Watermon", _parentName, _parentSpecies){
-    // Skill *learnedSkill[4];
-    // Skill skillfire(); ???
-    // learnedSkill[0] = skillfire
-    // element pake list kayanya ya ? declare elements
-    // Element elementfire(); ???
-    // elements[0] = elementfire
     this->countSkill = 1;
+    this->learnedSkills = new Skill[4];
+    Skill Waterbom("Waterbom", 0, 100, 0); // gatau parameter 4 asli nan :(
+    this->learnedSkills[0] = Waterbom; 
+    
     this->countElement = 1;
+    this->elements = new Element[3];
+    Element Water(1, "Water");
+    this->elements[0] = Water;
 }
 
-Watermon::~Watermon(){
-    // delete[] learnedSkill ??
-    // delete[] elements ??
-}
+Watermon::~Watermon(){}
 
 void Watermon::death(){
     cout << "Watermon " << this->name << " mati." << endl;
     this->~Watermon();
 }
 
-void Watermon::showDetail(){
-    Engimon::showDetail();
-    cout << "Skill ";
-    // for (int i=0; i < this->countSkill; i++){
-    //     cout << learnedSkill[i];
-    //     if (i != this->countSkill-1) {
-    //         cout << ", ";
-    // }
-    cout << endl;
-    cout << "Element ";
-    // for (int i=0; i < this->countElement; i++){
-    //     cout << elements[i];
-    //     if (i != this->countElement-1) {
-    //         cout << ", ";
-    // }
-    cout << endl;
+void Watermon::interact(){
+    cout << this->name << ": " << "Even the atlantis was drowned." << endl;
 }
 
 Electricmon::Electricmon(string _name, string _parentName, string _parentSpecies) : Engimon(_name, "Electricmon", _parentName, _parentSpecies){
-    // Skill *learnedSkill[4];
-    // Skill skillfire(); ???
-    // learnedSkill[0] = skillfire
-    // element pake list kayanya ya ? declare elements
-    // Element elementfire(); ???
-    // elements[0] = elementfire
     this->countSkill = 1;
+    this->learnedSkills = new Skill[4];
+    Skill Chidori("Chidori", 0, 100, 0); // gatau parameter 4 asli nan :(
+    this->learnedSkills[0] = Chidori; 
+    
     this->countElement = 1;
+    this->elements = new Element[3];
+    Element Electric(2, "Electric");
+    this->elements[0] = Electric;
 }
 
-Electricmon::~Electricmon(){
-    // delete[] learnedSkill ??
-    // delete[] elements ??
-}
+Electricmon::~Electricmon(){}
 
 void Electricmon::death(){
     cout << "Electricmon " << this->name << " mati." << endl;
     this->~Electricmon();
 }
 
-void Electricmon::showDetail(){
-    Engimon::showDetail();
-    cout << "Skill ";
-    // for (int i=0; i < this->countSkill; i++){
-    //     cout << learnedSkill[i];
-    //     if (i != this->countSkill-1) {
-    //         cout << ", ";
-    // }
-    cout << endl;
-    cout << "Element ";
-    // for (int i=0; i < this->countElement; i++){
-    //     cout << elements[i];
-    //     if (i != this->countElement-1) {
-    //         cout << ", ";
-    // }
-    cout << endl;
+void Electricmon::interact(){
+    cout << this->name << ": " << "I'm the core of everything." << endl;
 }
 
 Groundmon::Groundmon(string _name, string _parentName, string _parentSpecies) : Engimon(_name, "Groundmon", _parentName, _parentSpecies){
-    // Skill *learnedSkill[4];
-    // Skill skillfire(); ???
-    // learnedSkill[0] = skillfire
-    // element pake list kayanya ya ? declare elements
-    // Element elementfire(); ???
-    // elements[0] = elementfire
     this->countSkill = 1;
+    this->learnedSkills = new Skill[4];
+    Skill Pakubumi("Pakubumi", 0, 100, 0); // gatau parameter 4 asli nan :(
+    this->learnedSkills[0] = Pakubumi; 
+    
     this->countElement = 1;
+    this->elements = new Element[3];
+    Element Ground(3, "Ground");
+    this->elements[0] = Ground;
 }
 
-Groundmon::~Groundmon(){
-    // delete[] learnedSkill ??
-    // delete[] elements ??
-}
+Groundmon::~Groundmon(){}
 
 void Groundmon::death(){
     cout << "Groundmon " << this->name << " mati." << endl;
     this->~Groundmon();
 }
 
-void Groundmon::showDetail(){
-    Engimon::showDetail();
-    cout << "Skill ";
-    // for (int i=0; i < this->countSkill; i++){
-    //     cout << learnedSkill[i];
-    //     if (i != this->countSkill-1) {
-    //         cout << ", ";
-    // }
-    cout << endl;
-    cout << "Element ";
-    // for (int i=0; i < this->countElement; i++){
-    //     cout << elements[i];
-    //     if (i != this->countElement-1) {
-    //         cout << ", ";
-    // }
-    cout << endl;
+void Groundmon::interact(){
+    cout << this->name << ": " << "Rule no.1: you make mistake, you grounded." << endl;
 }
 
 Icemon::Icemon(string _name, string _parentName, string _parentSpecies) : Engimon(_name, "Icemon", _parentName, _parentSpecies){
-    // Skill *learnedSkill[4];
-    // Skill skillfire(); ???
-    // learnedSkill[0] = skillfire
-    // element pake list kayanya ya ? declare elements
-    // Element elementfire(); ???
-    // elements[0] = elementfire
     this->countSkill = 1;
+    this->learnedSkills = new Skill[4];
+    Skill Freeze("Freeze", 0, 100, 0); // gatau parameter 4 asli nan :(
+    this->learnedSkills[0] = Freeze; 
+    
     this->countElement = 1;
+    this->elements = new Element[3];
+    Element Ice(4, "Ice");
+    this->elements[0] = Ice;
 }
 
-Icemon::~Icemon(){
-    // delete[] learnedSkill ??
-    // delete[] elements ??
-}
+Icemon::~Icemon(){}
 
 void Icemon::death(){
     cout << "Icemon " << this->name << " mati." << endl;
     this->~Icemon();
 }
 
-void Icemon::showDetail(){
-    Engimon::showDetail();
-    cout << "Skill ";
-    // for (int i=0; i < this->countSkill; i++){
-    //     cout << learnedSkill[i];
-    //     if (i != this->countSkill-1) {
-    //         cout << ", ";
-    // }
-    cout << endl;
-    cout << "Element ";
-    // for (int i=0; i < this->countElement; i++){
-    //     cout << elements[i];
-    //     if (i != this->countElement-1) {
-    //         cout << ", ";
-    // }
-    cout << endl;
+void Icemon::interact(){
+    cout << this->name << ": " << "Icy bitsy spider." << endl;
 }

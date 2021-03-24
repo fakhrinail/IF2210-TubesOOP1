@@ -2,6 +2,8 @@
 #define __ENGIMON__HPP__
 
 #include <iostream>
+#include "Skill.hpp"
+#include "Element.hpp"
 
 using namespace std;
 
@@ -11,9 +13,10 @@ class Engimon {
         string species;
         string parentName;
         string parentSpecies;
-        // parent name, species belum tau
-        // Skill* learnedSkill;
-        // Element* elements;
+        int countElement;
+        int countSkill;
+        Element *elements;
+        Skill *learnedSkills;
         int level;
         int experience;
         int cumulativeExperience;
@@ -21,14 +24,25 @@ class Engimon {
         static int maxCumulativeExperience;
 
     public:
+        // 4 sekawan
         Engimon(string, string, string, string);
+        Engimon(const Engimon&);
+        Engimon& operator=(const Engimon&);
         virtual ~Engimon();
+        // getter setter
+        string getName() const;
+        int getCountElement();
+        int getCountSkill();
+        // method lain
+        virtual void interact();
         void addExperience(int);
         void levelUp();
         virtual void death();
-        virtual void showDetail();
-        void breed();
-
+        void showDetail();
+        void learnSkill(Skill&);
+        Engimon& operator+(Engimon&);
+        bool operator==(const Engimon&) const;
+        friend ostream& operator<<(ostream&, const Engimon&);
 };
 
 #endif
