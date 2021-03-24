@@ -2,6 +2,7 @@
 #define __INVENTORY_HPP__
 
 #include <iostream>
+#include "Skill.hpp"
 using namespace std;
 
 template <class	T>
@@ -21,3 +22,4 @@ class Inventory {
 		void removeItem(int idx);
 		T getItem(int idx);
 };
+#endif

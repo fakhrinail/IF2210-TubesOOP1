@@ -6,24 +6,26 @@ using namespace std;
 
 class Skill {
 protected:
-    char* skillName;
+    string skillName;
     int masteryLevel;
     float basePower;
-    bool compatibleElements[5];
+    int compatibleElements; //bernilai 0-31, tiap digit dalam representasi binernya menandakan kompatibilitas untuk setiap elemen
 public:
     //4 Sekawan
     Skill(); //Perlu karena ada array of string nantinya
-    Skill(char* name, int ml, float bp, bool *ce); //Diasumsikan panjang array boolean ialah 5 
+    Skill(string name, int ml, float bp, int ce); //Diasumsikan panjang array boolean ialah 5 
     Skill& operator=(const Skill& other); //Perlu cctor saat membuat salinan skill drop
     ~Skill();
     //Getters
-    char* getSkillName();
+    string getSkillName() const;
     int getMasteryLevel();
     float getBasePower();
     //Methods
     void addMasteryLevel();
     float totalPower() const;
     bool learnable(const Element& e) const;
+    bool operator==(const Skill& other) const;
+    friend ostream& operator<<(ostream& os, const Skill& s);
 };
 
 #endif

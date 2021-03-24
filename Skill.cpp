@@ -2,44 +2,29 @@
 using namespace std;
 
 Skill::Skill(){
-    this->skillName = new char[0];
+    this->skillName = "";
     this->masteryLevel = 0;
     this->basePower = 0;
-    for(int i=0; i<5; i++){
-        this->compatibleElements[i] = false;
-    }
+    this->compatibleElements = 0;
 }
-Skill::Skill(char* name, int ml, float bp, bool* ce){
-    int len = strlen(name);
-    this->skillName = new char[len];
-    for(int i=0; i<len; i++){
-        this->skillName[i] = name[i];
-    }
+Skill::Skill(string name, int ml, float bp, int ce){
+    this->skillName = name;
     this->masteryLevel = ml;
     this->basePower = bp;
-    for(int i=0; i<5; i++){
-        this->compatibleElements[i] = ce[i];
-    }
+    this->compatibleElements = ce;
 }
 Skill& Skill::operator=(const Skill& other){
-    int len = strlen(other.skillName);
-    this->skillName = new char[len];
-    for(int i=0; i<len; i++){
-        this->skillName[i] = other.skillName[i];
-    }
+    this->skillName = other.skillName;
     this->masteryLevel = other.masteryLevel;
     this->basePower = other.basePower;
-    for(int i=0; i<5; i++){
-        this->compatibleElements[i] = other.compatibleElements[i];
-    }
+    this->compatibleElements = other.compatibleElements;
     return *this;
 }
 Skill::~Skill(){
-    delete[] this->skillName;
 }
 
 //Getters
-char* Skill::getSkillName(){
+string Skill::getSkillName() const{
     return this->skillName;
 }
 int Skill::getMasteryLevel(){
@@ -57,5 +42,12 @@ float Skill::totalPower() const{
     return ((float) this->masteryLevel) * (this->basePower);
 }
 bool Skill::learnable(const Element& e) const {
-    return this->compatibleElements[e.getElementID()];
+    return this->compatibleElements & (1<<e.getElementID());
+}
+bool Skill::operator==(const Skill& other) const {
+    return this->skillName == other.skillName;
+}
+ostream& operator<<(ostream& os, const Skill& s){
+    os << s.getSkillName();
+    return os;
 }
