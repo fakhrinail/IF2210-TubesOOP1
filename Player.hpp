@@ -3,15 +3,15 @@
 
 #include "Engimon.hpp"
 #include "Inventory.hpp"
-#include <utility>
+#include "point.h"
 #include <iostream>
 using namespace std;
 
 class Player {
     private :
         Engimon activeEngimon;
-        pair<int, int> playerPosition;
-        pair<int, int> activeEngimonPos;
+        point playerPosition;
+        point activeEngimonPos;
         Inventory<Engimon> inventoryE;
         Inventory<Skill> inventoryS;
 
@@ -28,8 +28,8 @@ class Player {
         void useSkill();
         Engimon getActiveEngimon();
         Engimon breeding(Engimon a, Engimon b);
-        pair<int, int> getPlayerPosition();
-        pair<int, int> getActiveEngimonPos();
+        point getPlayerPosition();
+        point getActiveEngimonPos();
         // masih kurang commands
 };
 

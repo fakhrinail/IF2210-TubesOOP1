@@ -30,15 +30,15 @@ point::~point() {
 
 }
 
-point::point(const point &p) {
-    this->x = p.x;
-    this->y = p.y;
+point::point(const point& p) {
+	this->x = p.x;
+	this->y = p.y;
 }
 
-point &point::operator=(const point &p) {
-    this->x = p.x;
-    this->y = p.y;
-    return *this;
+point& point::operator=(const point& p) {
+	this->x = p.x;
+	this->y = p.y;
+	return *this;
 }
 
 point::point(){

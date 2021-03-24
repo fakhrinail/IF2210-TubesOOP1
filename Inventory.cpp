@@ -81,36 +81,3 @@ T Inventory<T>::getItem(int idx){
 	this->removeItem(idx);
 	return take;
 }
-
-int main(){
-    Skill Skill1("Earthquake", 0, 100, 31);
-    Skill Skill2("Shadow Dance", 0, 50, 23);
-    Skill Skill3("Mindbreak", 0, 200, 4);
-	cout << Skill1.getSkillName() << endl;
-	cout << Skill2.getSkillName() << endl;
-	cout << Skill3.getSkillName() << endl;
-    Inventory<Skill> skillInventory;
-    skillInventory.printItem();
-    skillInventory.addItem(Skill1);
-    skillInventory.addItem(Skill2);
-    skillInventory.addItem(Skill1);
-    skillInventory.addItem(Skill2);
-	skillInventory.addItem(Skill3);
-	skillInventory.printItem();
-	skillInventory.removeItem(1);
-	skillInventory.removeItem(1);
-	cout << endl;
-	skillInventory.printItem();
-	skillInventory.addItem(Skill1);
-	cout << endl;
-	skillInventory.printItem();
-	for(int i=0; i<30; i++){
-		try{
-			skillInventory.addItem(Skill1);
-		}catch(char const* err){
-			cout << err << endl;
-		}
-	}
-	cout << endl;
-	skillInventory.printItem();
-}

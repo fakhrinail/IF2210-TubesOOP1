@@ -5,10 +5,10 @@ using namespace std;
 
 Player::Player(Engimon basic) {
     this->activeEngimon = basic;
-    this->playerPosition.first = 0;
-    this->playerPosition.second = 0;
-    this->activeEngimonPos.first = 1;
-    this->activeEngimonPos.second = 0;
+    this->playerPosition.setX(0)
+    this->playerPosition.setY(0);
+    this->activeEngimonPos.setX(0);
+    this->activeEngimonPos.setY(0);
 }
 
 Player::~Player() {}
