@@ -1,0 +1,3 @@
+D:/1. mydata/3.School/aKuliah/pbo/IF2210-TubesOOP1/cmake-build-debug/CMakeFiles/IF2210_TubesOOP1.dir
+D:/1. mydata/3.School/aKuliah/pbo/IF2210-TubesOOP1/cmake-build-debug/CMakeFiles/edit_cache.dir
+D:/1. mydata/3.School/aKuliah/pbo/IF2210-TubesOOP1/cmake-build-debug/CMakeFiles/rebuild_cache.dir

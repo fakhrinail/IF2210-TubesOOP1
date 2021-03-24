@@ -2,14 +2,15 @@
 #define __ENGIMON__HPP__
 
 #include <iostream>
-// #include "Skill.hpp"
-// #include "Element.hpp"
 
 using namespace std;
 
 class Engimon {
-    private:
+    protected:
         string name;
+        string species;
+        string parentName;
+        string parentSpecies;
         // parent name, species belum tau
         // Skill* learnedSkill;
         // Element* elements;
@@ -20,12 +21,12 @@ class Engimon {
         static int maxCumulativeExperience;
 
     public:
-        Engimon(string);
-        ~Engimon();
+        Engimon(string, string, string, string);
+        virtual ~Engimon();
         void addExperience(int);
         void levelUp();
-        void death();
-        void showDetail();
+        virtual void death();
+        virtual void showDetail();
         void breed();
 
 };
