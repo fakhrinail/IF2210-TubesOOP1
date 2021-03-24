@@ -50,7 +50,12 @@ void Inventory::printItem() {
 }
 
 void Inventory::removeItem(int idx){
-	delete this->items[idx];
+	if (this->items[idx].second > 1){
+		this->items[idx].second--;
+	} else {
+		delete this->items[idx];
+	}
+
 	for (int i = idx; i < this->nbItems; i++){
 		this->items[i] = this->items[i+1]
 	}
