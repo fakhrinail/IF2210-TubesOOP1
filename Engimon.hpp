@@ -20,21 +20,22 @@ class Engimon {
         int level;
         int experience;
         int cumulativeExperience;
-        static int maxLevel;
         static int maxCumulativeExperience;
 
     public:
         // 4 sekawan
+        Engimon();
         Engimon(string, string, string, string, int);
         Engimon(const Engimon&);
         Engimon& operator=(const Engimon&);
         virtual ~Engimon();
         // getter setter
         string getName() const;
-        int getCountElement();
-        int getCountSkill();
-        Element* getElements();
-        Skill* getLearnedSkills();
+        int getCountElement() const;
+        int getCountSkill() const;
+        int getLevel() const;
+        Element* getElements() const;
+        Skill* getLearnedSkills() const;
         // method lain
         virtual void interact();
         void addExperience(int);
