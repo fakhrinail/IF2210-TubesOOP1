@@ -127,32 +127,32 @@ IF2210_TubesOOP1\fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\IF2210_TubesOOP1.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\IF2210_TubesOOP1.dir\build
 .PHONY : IF2210_TubesOOP1\fast
 
-Battle.obj: Battle.cpp.obj
+Element.obj: Element.cpp.obj
 
-.PHONY : Battle.obj
+.PHONY : Element.obj
 
 # target to build an object file
-Battle.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\IF2210_TubesOOP1.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\IF2210_TubesOOP1.dir\Battle.cpp.obj
-.PHONY : Battle.cpp.obj
+Element.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\IF2210_TubesOOP1.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\IF2210_TubesOOP1.dir\Element.cpp.obj
+.PHONY : Element.cpp.obj
 
-Battle.i: Battle.cpp.i
+Element.i: Element.cpp.i
 
-.PHONY : Battle.i
+.PHONY : Element.i
 
 # target to preprocess a source file
-Battle.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\IF2210_TubesOOP1.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\IF2210_TubesOOP1.dir\Battle.cpp.i
-.PHONY : Battle.cpp.i
+Element.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\IF2210_TubesOOP1.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\IF2210_TubesOOP1.dir\Element.cpp.i
+.PHONY : Element.cpp.i
 
-Battle.s: Battle.cpp.s
+Element.s: Element.cpp.s
 
-.PHONY : Battle.s
+.PHONY : Element.s
 
 # target to generate assembly for a file
-Battle.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\IF2210_TubesOOP1.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\IF2210_TubesOOP1.dir\Battle.cpp.s
-.PHONY : Battle.cpp.s
+Element.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\IF2210_TubesOOP1.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\IF2210_TubesOOP1.dir\Element.cpp.s
+.PHONY : Element.cpp.s
 
 Engimon.obj: Engimon.cpp.obj
 
@@ -181,6 +181,33 @@ Engimon.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\IF2210_TubesOOP1.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\IF2210_TubesOOP1.dir\Engimon.cpp.s
 .PHONY : Engimon.cpp.s
 
+Inventory.obj: Inventory.cpp.obj
+
+.PHONY : Inventory.obj
+
+# target to build an object file
+Inventory.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\IF2210_TubesOOP1.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\IF2210_TubesOOP1.dir\Inventory.cpp.obj
+.PHONY : Inventory.cpp.obj
+
+Inventory.i: Inventory.cpp.i
+
+.PHONY : Inventory.i
+
+# target to preprocess a source file
+Inventory.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\IF2210_TubesOOP1.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\IF2210_TubesOOP1.dir\Inventory.cpp.i
+.PHONY : Inventory.cpp.i
+
+Inventory.s: Inventory.cpp.s
+
+.PHONY : Inventory.s
+
+# target to generate assembly for a file
+Inventory.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\IF2210_TubesOOP1.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\IF2210_TubesOOP1.dir\Inventory.cpp.s
+.PHONY : Inventory.cpp.s
+
 Maps.obj: Maps.cpp.obj
 
 .PHONY : Maps.obj
@@ -207,6 +234,87 @@ Maps.s: Maps.cpp.s
 Maps.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\IF2210_TubesOOP1.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\IF2210_TubesOOP1.dir\Maps.cpp.s
 .PHONY : Maps.cpp.s
+
+Player.obj: Player.cpp.obj
+
+.PHONY : Player.obj
+
+# target to build an object file
+Player.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\IF2210_TubesOOP1.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\IF2210_TubesOOP1.dir\Player.cpp.obj
+.PHONY : Player.cpp.obj
+
+Player.i: Player.cpp.i
+
+.PHONY : Player.i
+
+# target to preprocess a source file
+Player.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\IF2210_TubesOOP1.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\IF2210_TubesOOP1.dir\Player.cpp.i
+.PHONY : Player.cpp.i
+
+Player.s: Player.cpp.s
+
+.PHONY : Player.s
+
+# target to generate assembly for a file
+Player.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\IF2210_TubesOOP1.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\IF2210_TubesOOP1.dir\Player.cpp.s
+.PHONY : Player.cpp.s
+
+Skill.obj: Skill.cpp.obj
+
+.PHONY : Skill.obj
+
+# target to build an object file
+Skill.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\IF2210_TubesOOP1.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\IF2210_TubesOOP1.dir\Skill.cpp.obj
+.PHONY : Skill.cpp.obj
+
+Skill.i: Skill.cpp.i
+
+.PHONY : Skill.i
+
+# target to preprocess a source file
+Skill.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\IF2210_TubesOOP1.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\IF2210_TubesOOP1.dir\Skill.cpp.i
+.PHONY : Skill.cpp.i
+
+Skill.s: Skill.cpp.s
+
+.PHONY : Skill.s
+
+# target to generate assembly for a file
+Skill.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\IF2210_TubesOOP1.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\IF2210_TubesOOP1.dir\Skill.cpp.s
+.PHONY : Skill.cpp.s
+
+Species.obj: Species.cpp.obj
+
+.PHONY : Species.obj
+
+# target to build an object file
+Species.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\IF2210_TubesOOP1.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\IF2210_TubesOOP1.dir\Species.cpp.obj
+.PHONY : Species.cpp.obj
+
+Species.i: Species.cpp.i
+
+.PHONY : Species.i
+
+# target to preprocess a source file
+Species.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\IF2210_TubesOOP1.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\IF2210_TubesOOP1.dir\Species.cpp.i
+.PHONY : Species.cpp.i
+
+Species.s: Species.cpp.s
+
+.PHONY : Species.s
+
+# target to generate assembly for a file
+Species.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\IF2210_TubesOOP1.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\IF2210_TubesOOP1.dir\Species.cpp.s
+.PHONY : Species.cpp.s
 
 main.obj: main.cpp.obj
 
@@ -235,6 +343,33 @@ main.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\IF2210_TubesOOP1.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\IF2210_TubesOOP1.dir\main.cpp.s
 .PHONY : main.cpp.s
 
+point.obj: point.cpp.obj
+
+.PHONY : point.obj
+
+# target to build an object file
+point.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\IF2210_TubesOOP1.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\IF2210_TubesOOP1.dir\point.cpp.obj
+.PHONY : point.cpp.obj
+
+point.i: point.cpp.i
+
+.PHONY : point.i
+
+# target to preprocess a source file
+point.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\IF2210_TubesOOP1.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\IF2210_TubesOOP1.dir\point.cpp.i
+.PHONY : point.cpp.i
+
+point.s: point.cpp.s
+
+.PHONY : point.s
+
+# target to generate assembly for a file
+point.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\IF2210_TubesOOP1.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\IF2210_TubesOOP1.dir\point.cpp.s
+.PHONY : point.cpp.s
+
 # Help Target
 help:
 	@echo The following are some of the valid targets for this Makefile:
@@ -244,18 +379,33 @@ help:
 	@echo ... edit_cache
 	@echo ... rebuild_cache
 	@echo ... IF2210_TubesOOP1
-	@echo ... Battle.obj
-	@echo ... Battle.i
-	@echo ... Battle.s
+	@echo ... Element.obj
+	@echo ... Element.i
+	@echo ... Element.s
 	@echo ... Engimon.obj
 	@echo ... Engimon.i
 	@echo ... Engimon.s
+	@echo ... Inventory.obj
+	@echo ... Inventory.i
+	@echo ... Inventory.s
 	@echo ... Maps.obj
 	@echo ... Maps.i
 	@echo ... Maps.s
+	@echo ... Player.obj
+	@echo ... Player.i
+	@echo ... Player.s
+	@echo ... Skill.obj
+	@echo ... Skill.i
+	@echo ... Skill.s
+	@echo ... Species.obj
+	@echo ... Species.i
+	@echo ... Species.s
 	@echo ... main.obj
 	@echo ... main.i
 	@echo ... main.s
+	@echo ... point.obj
+	@echo ... point.i
+	@echo ... point.s
 .PHONY : help
 
 

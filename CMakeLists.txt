@@ -6,9 +6,20 @@ set(CMAKE_CXX_STANDARD 14)
 include_directories(.)
 
 add_executable(IF2210_TubesOOP1
-        Battle.cpp
+        Element.hpp
+        Element.cpp
         Engimon.cpp
         Engimon.hpp
-        main.cpp
+        Inventory.hpp
+        Inventory.cpp
         Maps.cpp
-        Maps.h)
+        Maps.h
+        main.cpp
+        Player.hpp
+        Player.cpp
+        point.h
+        point.cpp
+        Skill.hpp
+        Skill.cpp
+        Species.hpp
+        Species.cpp)

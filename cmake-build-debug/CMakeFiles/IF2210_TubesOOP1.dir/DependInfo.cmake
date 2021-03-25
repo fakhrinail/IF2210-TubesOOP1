@@ -4,10 +4,15 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "D:/1. mydata/3.School/aKuliah/pbo/IF2210-TubesOOP1/Battle.cpp" "D:/1. mydata/3.School/aKuliah/pbo/IF2210-TubesOOP1/cmake-build-debug/CMakeFiles/IF2210_TubesOOP1.dir/Battle.cpp.obj"
+  "D:/1. mydata/3.School/aKuliah/pbo/IF2210-TubesOOP1/Element.cpp" "D:/1. mydata/3.School/aKuliah/pbo/IF2210-TubesOOP1/cmake-build-debug/CMakeFiles/IF2210_TubesOOP1.dir/Element.cpp.obj"
   "D:/1. mydata/3.School/aKuliah/pbo/IF2210-TubesOOP1/Engimon.cpp" "D:/1. mydata/3.School/aKuliah/pbo/IF2210-TubesOOP1/cmake-build-debug/CMakeFiles/IF2210_TubesOOP1.dir/Engimon.cpp.obj"
+  "D:/1. mydata/3.School/aKuliah/pbo/IF2210-TubesOOP1/Inventory.cpp" "D:/1. mydata/3.School/aKuliah/pbo/IF2210-TubesOOP1/cmake-build-debug/CMakeFiles/IF2210_TubesOOP1.dir/Inventory.cpp.obj"
   "D:/1. mydata/3.School/aKuliah/pbo/IF2210-TubesOOP1/Maps.cpp" "D:/1. mydata/3.School/aKuliah/pbo/IF2210-TubesOOP1/cmake-build-debug/CMakeFiles/IF2210_TubesOOP1.dir/Maps.cpp.obj"
+  "D:/1. mydata/3.School/aKuliah/pbo/IF2210-TubesOOP1/Player.cpp" "D:/1. mydata/3.School/aKuliah/pbo/IF2210-TubesOOP1/cmake-build-debug/CMakeFiles/IF2210_TubesOOP1.dir/Player.cpp.obj"
+  "D:/1. mydata/3.School/aKuliah/pbo/IF2210-TubesOOP1/Skill.cpp" "D:/1. mydata/3.School/aKuliah/pbo/IF2210-TubesOOP1/cmake-build-debug/CMakeFiles/IF2210_TubesOOP1.dir/Skill.cpp.obj"
+  "D:/1. mydata/3.School/aKuliah/pbo/IF2210-TubesOOP1/Species.cpp" "D:/1. mydata/3.School/aKuliah/pbo/IF2210-TubesOOP1/cmake-build-debug/CMakeFiles/IF2210_TubesOOP1.dir/Species.cpp.obj"
   "D:/1. mydata/3.School/aKuliah/pbo/IF2210-TubesOOP1/main.cpp" "D:/1. mydata/3.School/aKuliah/pbo/IF2210-TubesOOP1/cmake-build-debug/CMakeFiles/IF2210_TubesOOP1.dir/main.cpp.obj"
+  "D:/1. mydata/3.School/aKuliah/pbo/IF2210-TubesOOP1/point.cpp" "D:/1. mydata/3.School/aKuliah/pbo/IF2210-TubesOOP1/cmake-build-debug/CMakeFiles/IF2210_TubesOOP1.dir/point.cpp.obj"
   )
 set(CMAKE_CXX_COMPILER_ID "MSVC")
 

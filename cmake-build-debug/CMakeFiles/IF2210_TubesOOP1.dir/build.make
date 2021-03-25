@@ -61,23 +61,23 @@ include CMakeFiles\IF2210_TubesOOP1.dir\progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles\IF2210_TubesOOP1.dir\flags.make
 
-CMakeFiles\IF2210_TubesOOP1.dir\Battle.cpp.obj: CMakeFiles\IF2210_TubesOOP1.dir\flags.make
-CMakeFiles\IF2210_TubesOOP1.dir\Battle.cpp.obj: ..\Battle.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="D:\1. mydata\3.School\aKuliah\pbo\IF2210-TubesOOP1\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/IF2210_TubesOOP1.dir/Battle.cpp.obj"
+CMakeFiles\IF2210_TubesOOP1.dir\Element.cpp.obj: CMakeFiles\IF2210_TubesOOP1.dir\flags.make
+CMakeFiles\IF2210_TubesOOP1.dir\Element.cpp.obj: ..\Element.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="D:\1. mydata\3.School\aKuliah\pbo\IF2210-TubesOOP1\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/IF2210_TubesOOP1.dir/Element.cpp.obj"
 	C:\PROGRA~2\MICROS~2\2017\BUILDT~1\VC\Tools\MSVC\1416~1.270\bin\Hostx86\x86\cl.exe @<<
- /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) /FoCMakeFiles\IF2210_TubesOOP1.dir\Battle.cpp.obj /FdCMakeFiles\IF2210_TubesOOP1.dir\ /FS -c "D:\1. mydata\3.School\aKuliah\pbo\IF2210-TubesOOP1\Battle.cpp"
+ /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) /FoCMakeFiles\IF2210_TubesOOP1.dir\Element.cpp.obj /FdCMakeFiles\IF2210_TubesOOP1.dir\ /FS -c "D:\1. mydata\3.School\aKuliah\pbo\IF2210-TubesOOP1\Element.cpp"
 <<
 
-CMakeFiles\IF2210_TubesOOP1.dir\Battle.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/IF2210_TubesOOP1.dir/Battle.cpp.i"
-	C:\PROGRA~2\MICROS~2\2017\BUILDT~1\VC\Tools\MSVC\1416~1.270\bin\Hostx86\x86\cl.exe > CMakeFiles\IF2210_TubesOOP1.dir\Battle.cpp.i @<<
- /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "D:\1. mydata\3.School\aKuliah\pbo\IF2210-TubesOOP1\Battle.cpp"
+CMakeFiles\IF2210_TubesOOP1.dir\Element.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/IF2210_TubesOOP1.dir/Element.cpp.i"
+	C:\PROGRA~2\MICROS~2\2017\BUILDT~1\VC\Tools\MSVC\1416~1.270\bin\Hostx86\x86\cl.exe > CMakeFiles\IF2210_TubesOOP1.dir\Element.cpp.i @<<
+ /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "D:\1. mydata\3.School\aKuliah\pbo\IF2210-TubesOOP1\Element.cpp"
 <<
 
-CMakeFiles\IF2210_TubesOOP1.dir\Battle.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/IF2210_TubesOOP1.dir/Battle.cpp.s"
+CMakeFiles\IF2210_TubesOOP1.dir\Element.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/IF2210_TubesOOP1.dir/Element.cpp.s"
 	C:\PROGRA~2\MICROS~2\2017\BUILDT~1\VC\Tools\MSVC\1416~1.270\bin\Hostx86\x86\cl.exe @<<
- /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) /FoNUL /FAs /FaCMakeFiles\IF2210_TubesOOP1.dir\Battle.cpp.s /c "D:\1. mydata\3.School\aKuliah\pbo\IF2210-TubesOOP1\Battle.cpp"
+ /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) /FoNUL /FAs /FaCMakeFiles\IF2210_TubesOOP1.dir\Element.cpp.s /c "D:\1. mydata\3.School\aKuliah\pbo\IF2210-TubesOOP1\Element.cpp"
 <<
 
 CMakeFiles\IF2210_TubesOOP1.dir\Engimon.cpp.obj: CMakeFiles\IF2210_TubesOOP1.dir\flags.make
@@ -99,23 +99,23 @@ CMakeFiles\IF2210_TubesOOP1.dir\Engimon.cpp.s: cmake_force
  /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) /FoNUL /FAs /FaCMakeFiles\IF2210_TubesOOP1.dir\Engimon.cpp.s /c "D:\1. mydata\3.School\aKuliah\pbo\IF2210-TubesOOP1\Engimon.cpp"
 <<
 
-CMakeFiles\IF2210_TubesOOP1.dir\main.cpp.obj: CMakeFiles\IF2210_TubesOOP1.dir\flags.make
-CMakeFiles\IF2210_TubesOOP1.dir\main.cpp.obj: ..\main.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="D:\1. mydata\3.School\aKuliah\pbo\IF2210-TubesOOP1\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/IF2210_TubesOOP1.dir/main.cpp.obj"
+CMakeFiles\IF2210_TubesOOP1.dir\Inventory.cpp.obj: CMakeFiles\IF2210_TubesOOP1.dir\flags.make
+CMakeFiles\IF2210_TubesOOP1.dir\Inventory.cpp.obj: ..\Inventory.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="D:\1. mydata\3.School\aKuliah\pbo\IF2210-TubesOOP1\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/IF2210_TubesOOP1.dir/Inventory.cpp.obj"
 	C:\PROGRA~2\MICROS~2\2017\BUILDT~1\VC\Tools\MSVC\1416~1.270\bin\Hostx86\x86\cl.exe @<<
- /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) /FoCMakeFiles\IF2210_TubesOOP1.dir\main.cpp.obj /FdCMakeFiles\IF2210_TubesOOP1.dir\ /FS -c "D:\1. mydata\3.School\aKuliah\pbo\IF2210-TubesOOP1\main.cpp"
+ /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) /FoCMakeFiles\IF2210_TubesOOP1.dir\Inventory.cpp.obj /FdCMakeFiles\IF2210_TubesOOP1.dir\ /FS -c "D:\1. mydata\3.School\aKuliah\pbo\IF2210-TubesOOP1\Inventory.cpp"
 <<
 
-CMakeFiles\IF2210_TubesOOP1.dir\main.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/IF2210_TubesOOP1.dir/main.cpp.i"
-	C:\PROGRA~2\MICROS~2\2017\BUILDT~1\VC\Tools\MSVC\1416~1.270\bin\Hostx86\x86\cl.exe > CMakeFiles\IF2210_TubesOOP1.dir\main.cpp.i @<<
- /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "D:\1. mydata\3.School\aKuliah\pbo\IF2210-TubesOOP1\main.cpp"
+CMakeFiles\IF2210_TubesOOP1.dir\Inventory.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/IF2210_TubesOOP1.dir/Inventory.cpp.i"
+	C:\PROGRA~2\MICROS~2\2017\BUILDT~1\VC\Tools\MSVC\1416~1.270\bin\Hostx86\x86\cl.exe > CMakeFiles\IF2210_TubesOOP1.dir\Inventory.cpp.i @<<
+ /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "D:\1. mydata\3.School\aKuliah\pbo\IF2210-TubesOOP1\Inventory.cpp"
 <<
 
-CMakeFiles\IF2210_TubesOOP1.dir\main.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/IF2210_TubesOOP1.dir/main.cpp.s"
+CMakeFiles\IF2210_TubesOOP1.dir\Inventory.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/IF2210_TubesOOP1.dir/Inventory.cpp.s"
 	C:\PROGRA~2\MICROS~2\2017\BUILDT~1\VC\Tools\MSVC\1416~1.270\bin\Hostx86\x86\cl.exe @<<
- /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) /FoNUL /FAs /FaCMakeFiles\IF2210_TubesOOP1.dir\main.cpp.s /c "D:\1. mydata\3.School\aKuliah\pbo\IF2210-TubesOOP1\main.cpp"
+ /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) /FoNUL /FAs /FaCMakeFiles\IF2210_TubesOOP1.dir\Inventory.cpp.s /c "D:\1. mydata\3.School\aKuliah\pbo\IF2210-TubesOOP1\Inventory.cpp"
 <<
 
 CMakeFiles\IF2210_TubesOOP1.dir\Maps.cpp.obj: CMakeFiles\IF2210_TubesOOP1.dir\flags.make
@@ -137,23 +137,128 @@ CMakeFiles\IF2210_TubesOOP1.dir\Maps.cpp.s: cmake_force
  /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) /FoNUL /FAs /FaCMakeFiles\IF2210_TubesOOP1.dir\Maps.cpp.s /c "D:\1. mydata\3.School\aKuliah\pbo\IF2210-TubesOOP1\Maps.cpp"
 <<
 
+CMakeFiles\IF2210_TubesOOP1.dir\main.cpp.obj: CMakeFiles\IF2210_TubesOOP1.dir\flags.make
+CMakeFiles\IF2210_TubesOOP1.dir\main.cpp.obj: ..\main.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="D:\1. mydata\3.School\aKuliah\pbo\IF2210-TubesOOP1\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/IF2210_TubesOOP1.dir/main.cpp.obj"
+	C:\PROGRA~2\MICROS~2\2017\BUILDT~1\VC\Tools\MSVC\1416~1.270\bin\Hostx86\x86\cl.exe @<<
+ /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) /FoCMakeFiles\IF2210_TubesOOP1.dir\main.cpp.obj /FdCMakeFiles\IF2210_TubesOOP1.dir\ /FS -c "D:\1. mydata\3.School\aKuliah\pbo\IF2210-TubesOOP1\main.cpp"
+<<
+
+CMakeFiles\IF2210_TubesOOP1.dir\main.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/IF2210_TubesOOP1.dir/main.cpp.i"
+	C:\PROGRA~2\MICROS~2\2017\BUILDT~1\VC\Tools\MSVC\1416~1.270\bin\Hostx86\x86\cl.exe > CMakeFiles\IF2210_TubesOOP1.dir\main.cpp.i @<<
+ /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "D:\1. mydata\3.School\aKuliah\pbo\IF2210-TubesOOP1\main.cpp"
+<<
+
+CMakeFiles\IF2210_TubesOOP1.dir\main.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/IF2210_TubesOOP1.dir/main.cpp.s"
+	C:\PROGRA~2\MICROS~2\2017\BUILDT~1\VC\Tools\MSVC\1416~1.270\bin\Hostx86\x86\cl.exe @<<
+ /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) /FoNUL /FAs /FaCMakeFiles\IF2210_TubesOOP1.dir\main.cpp.s /c "D:\1. mydata\3.School\aKuliah\pbo\IF2210-TubesOOP1\main.cpp"
+<<
+
+CMakeFiles\IF2210_TubesOOP1.dir\Player.cpp.obj: CMakeFiles\IF2210_TubesOOP1.dir\flags.make
+CMakeFiles\IF2210_TubesOOP1.dir\Player.cpp.obj: ..\Player.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="D:\1. mydata\3.School\aKuliah\pbo\IF2210-TubesOOP1\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/IF2210_TubesOOP1.dir/Player.cpp.obj"
+	C:\PROGRA~2\MICROS~2\2017\BUILDT~1\VC\Tools\MSVC\1416~1.270\bin\Hostx86\x86\cl.exe @<<
+ /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) /FoCMakeFiles\IF2210_TubesOOP1.dir\Player.cpp.obj /FdCMakeFiles\IF2210_TubesOOP1.dir\ /FS -c "D:\1. mydata\3.School\aKuliah\pbo\IF2210-TubesOOP1\Player.cpp"
+<<
+
+CMakeFiles\IF2210_TubesOOP1.dir\Player.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/IF2210_TubesOOP1.dir/Player.cpp.i"
+	C:\PROGRA~2\MICROS~2\2017\BUILDT~1\VC\Tools\MSVC\1416~1.270\bin\Hostx86\x86\cl.exe > CMakeFiles\IF2210_TubesOOP1.dir\Player.cpp.i @<<
+ /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "D:\1. mydata\3.School\aKuliah\pbo\IF2210-TubesOOP1\Player.cpp"
+<<
+
+CMakeFiles\IF2210_TubesOOP1.dir\Player.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/IF2210_TubesOOP1.dir/Player.cpp.s"
+	C:\PROGRA~2\MICROS~2\2017\BUILDT~1\VC\Tools\MSVC\1416~1.270\bin\Hostx86\x86\cl.exe @<<
+ /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) /FoNUL /FAs /FaCMakeFiles\IF2210_TubesOOP1.dir\Player.cpp.s /c "D:\1. mydata\3.School\aKuliah\pbo\IF2210-TubesOOP1\Player.cpp"
+<<
+
+CMakeFiles\IF2210_TubesOOP1.dir\point.cpp.obj: CMakeFiles\IF2210_TubesOOP1.dir\flags.make
+CMakeFiles\IF2210_TubesOOP1.dir\point.cpp.obj: ..\point.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="D:\1. mydata\3.School\aKuliah\pbo\IF2210-TubesOOP1\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/IF2210_TubesOOP1.dir/point.cpp.obj"
+	C:\PROGRA~2\MICROS~2\2017\BUILDT~1\VC\Tools\MSVC\1416~1.270\bin\Hostx86\x86\cl.exe @<<
+ /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) /FoCMakeFiles\IF2210_TubesOOP1.dir\point.cpp.obj /FdCMakeFiles\IF2210_TubesOOP1.dir\ /FS -c "D:\1. mydata\3.School\aKuliah\pbo\IF2210-TubesOOP1\point.cpp"
+<<
+
+CMakeFiles\IF2210_TubesOOP1.dir\point.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/IF2210_TubesOOP1.dir/point.cpp.i"
+	C:\PROGRA~2\MICROS~2\2017\BUILDT~1\VC\Tools\MSVC\1416~1.270\bin\Hostx86\x86\cl.exe > CMakeFiles\IF2210_TubesOOP1.dir\point.cpp.i @<<
+ /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "D:\1. mydata\3.School\aKuliah\pbo\IF2210-TubesOOP1\point.cpp"
+<<
+
+CMakeFiles\IF2210_TubesOOP1.dir\point.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/IF2210_TubesOOP1.dir/point.cpp.s"
+	C:\PROGRA~2\MICROS~2\2017\BUILDT~1\VC\Tools\MSVC\1416~1.270\bin\Hostx86\x86\cl.exe @<<
+ /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) /FoNUL /FAs /FaCMakeFiles\IF2210_TubesOOP1.dir\point.cpp.s /c "D:\1. mydata\3.School\aKuliah\pbo\IF2210-TubesOOP1\point.cpp"
+<<
+
+CMakeFiles\IF2210_TubesOOP1.dir\Skill.cpp.obj: CMakeFiles\IF2210_TubesOOP1.dir\flags.make
+CMakeFiles\IF2210_TubesOOP1.dir\Skill.cpp.obj: ..\Skill.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="D:\1. mydata\3.School\aKuliah\pbo\IF2210-TubesOOP1\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/IF2210_TubesOOP1.dir/Skill.cpp.obj"
+	C:\PROGRA~2\MICROS~2\2017\BUILDT~1\VC\Tools\MSVC\1416~1.270\bin\Hostx86\x86\cl.exe @<<
+ /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) /FoCMakeFiles\IF2210_TubesOOP1.dir\Skill.cpp.obj /FdCMakeFiles\IF2210_TubesOOP1.dir\ /FS -c "D:\1. mydata\3.School\aKuliah\pbo\IF2210-TubesOOP1\Skill.cpp"
+<<
+
+CMakeFiles\IF2210_TubesOOP1.dir\Skill.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/IF2210_TubesOOP1.dir/Skill.cpp.i"
+	C:\PROGRA~2\MICROS~2\2017\BUILDT~1\VC\Tools\MSVC\1416~1.270\bin\Hostx86\x86\cl.exe > CMakeFiles\IF2210_TubesOOP1.dir\Skill.cpp.i @<<
+ /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "D:\1. mydata\3.School\aKuliah\pbo\IF2210-TubesOOP1\Skill.cpp"
+<<
+
+CMakeFiles\IF2210_TubesOOP1.dir\Skill.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/IF2210_TubesOOP1.dir/Skill.cpp.s"
+	C:\PROGRA~2\MICROS~2\2017\BUILDT~1\VC\Tools\MSVC\1416~1.270\bin\Hostx86\x86\cl.exe @<<
+ /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) /FoNUL /FAs /FaCMakeFiles\IF2210_TubesOOP1.dir\Skill.cpp.s /c "D:\1. mydata\3.School\aKuliah\pbo\IF2210-TubesOOP1\Skill.cpp"
+<<
+
+CMakeFiles\IF2210_TubesOOP1.dir\Species.cpp.obj: CMakeFiles\IF2210_TubesOOP1.dir\flags.make
+CMakeFiles\IF2210_TubesOOP1.dir\Species.cpp.obj: ..\Species.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="D:\1. mydata\3.School\aKuliah\pbo\IF2210-TubesOOP1\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/IF2210_TubesOOP1.dir/Species.cpp.obj"
+	C:\PROGRA~2\MICROS~2\2017\BUILDT~1\VC\Tools\MSVC\1416~1.270\bin\Hostx86\x86\cl.exe @<<
+ /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) /FoCMakeFiles\IF2210_TubesOOP1.dir\Species.cpp.obj /FdCMakeFiles\IF2210_TubesOOP1.dir\ /FS -c "D:\1. mydata\3.School\aKuliah\pbo\IF2210-TubesOOP1\Species.cpp"
+<<
+
+CMakeFiles\IF2210_TubesOOP1.dir\Species.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/IF2210_TubesOOP1.dir/Species.cpp.i"
+	C:\PROGRA~2\MICROS~2\2017\BUILDT~1\VC\Tools\MSVC\1416~1.270\bin\Hostx86\x86\cl.exe > CMakeFiles\IF2210_TubesOOP1.dir\Species.cpp.i @<<
+ /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "D:\1. mydata\3.School\aKuliah\pbo\IF2210-TubesOOP1\Species.cpp"
+<<
+
+CMakeFiles\IF2210_TubesOOP1.dir\Species.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/IF2210_TubesOOP1.dir/Species.cpp.s"
+	C:\PROGRA~2\MICROS~2\2017\BUILDT~1\VC\Tools\MSVC\1416~1.270\bin\Hostx86\x86\cl.exe @<<
+ /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) /FoNUL /FAs /FaCMakeFiles\IF2210_TubesOOP1.dir\Species.cpp.s /c "D:\1. mydata\3.School\aKuliah\pbo\IF2210-TubesOOP1\Species.cpp"
+<<
+
 # Object files for target IF2210_TubesOOP1
 IF2210_TubesOOP1_OBJECTS = \
-"CMakeFiles\IF2210_TubesOOP1.dir\Battle.cpp.obj" \
+"CMakeFiles\IF2210_TubesOOP1.dir\Element.cpp.obj" \
 "CMakeFiles\IF2210_TubesOOP1.dir\Engimon.cpp.obj" \
+"CMakeFiles\IF2210_TubesOOP1.dir\Inventory.cpp.obj" \
+"CMakeFiles\IF2210_TubesOOP1.dir\Maps.cpp.obj" \
 "CMakeFiles\IF2210_TubesOOP1.dir\main.cpp.obj" \
-"CMakeFiles\IF2210_TubesOOP1.dir\Maps.cpp.obj"
+"CMakeFiles\IF2210_TubesOOP1.dir\Player.cpp.obj" \
+"CMakeFiles\IF2210_TubesOOP1.dir\point.cpp.obj" \
+"CMakeFiles\IF2210_TubesOOP1.dir\Skill.cpp.obj" \
+"CMakeFiles\IF2210_TubesOOP1.dir\Species.cpp.obj"
 
 # External object files for target IF2210_TubesOOP1
 IF2210_TubesOOP1_EXTERNAL_OBJECTS =
 
-IF2210_TubesOOP1.exe: CMakeFiles\IF2210_TubesOOP1.dir\Battle.cpp.obj
+IF2210_TubesOOP1.exe: CMakeFiles\IF2210_TubesOOP1.dir\Element.cpp.obj
 IF2210_TubesOOP1.exe: CMakeFiles\IF2210_TubesOOP1.dir\Engimon.cpp.obj
-IF2210_TubesOOP1.exe: CMakeFiles\IF2210_TubesOOP1.dir\main.cpp.obj
+IF2210_TubesOOP1.exe: CMakeFiles\IF2210_TubesOOP1.dir\Inventory.cpp.obj
 IF2210_TubesOOP1.exe: CMakeFiles\IF2210_TubesOOP1.dir\Maps.cpp.obj
+IF2210_TubesOOP1.exe: CMakeFiles\IF2210_TubesOOP1.dir\main.cpp.obj
+IF2210_TubesOOP1.exe: CMakeFiles\IF2210_TubesOOP1.dir\Player.cpp.obj
+IF2210_TubesOOP1.exe: CMakeFiles\IF2210_TubesOOP1.dir\point.cpp.obj
+IF2210_TubesOOP1.exe: CMakeFiles\IF2210_TubesOOP1.dir\Skill.cpp.obj
+IF2210_TubesOOP1.exe: CMakeFiles\IF2210_TubesOOP1.dir\Species.cpp.obj
 IF2210_TubesOOP1.exe: CMakeFiles\IF2210_TubesOOP1.dir\build.make
 IF2210_TubesOOP1.exe: CMakeFiles\IF2210_TubesOOP1.dir\objects1.rsp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir="D:\1. mydata\3.School\aKuliah\pbo\IF2210-TubesOOP1\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_5) "Linking CXX executable IF2210_TubesOOP1.exe"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir="D:\1. mydata\3.School\aKuliah\pbo\IF2210-TubesOOP1\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_10) "Linking CXX executable IF2210_TubesOOP1.exe"
 	"C:\Program Files\JetBrains\CLion 2020.3.1\bin\cmake\win\bin\cmake.exe" -E vs_link_exe --intdir=CMakeFiles\IF2210_TubesOOP1.dir --rc=C:\PROGRA~2\WI3CF2~1\10\bin\100177~1.0\x86\rc.exe --mt=C:\PROGRA~2\WI3CF2~1\10\bin\100177~1.0\x86\mt.exe --manifests  -- C:\PROGRA~2\MICROS~2\2017\BUILDT~1\VC\Tools\MSVC\1416~1.270\bin\Hostx86\x86\link.exe /nologo @CMakeFiles\IF2210_TubesOOP1.dir\objects1.rsp @<<
  /out:IF2210_TubesOOP1.exe /implib:IF2210_TubesOOP1.lib /pdb:"D:\1. mydata\3.School\aKuliah\pbo\IF2210-TubesOOP1\cmake-build-debug\IF2210_TubesOOP1.pdb" /version:0.0  /machine:X86 /debug /INCREMENTAL /subsystem:console  kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib 
 <<
