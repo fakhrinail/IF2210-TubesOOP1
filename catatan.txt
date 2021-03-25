@@ -1,0 +1,16 @@
+dorun(maps & map){
+
+    while true {
+        input()
+        if(w)
+            map.isvalid
+        if(a) dst
+
+        map.showmap(this)
+
+        1. player berubah sesuai map terakhir
+        2. posisi player berubah
+        3. map berubah
+    }
+
+}

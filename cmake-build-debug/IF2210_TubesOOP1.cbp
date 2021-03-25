@@ -84,7 +84,10 @@
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="D:/1. mydata/3.School/aKuliah/pbo/IF2210-TubesOOP1/Battle.cpp">
+		<Unit filename="D:/1. mydata/3.School/aKuliah/pbo/IF2210-TubesOOP1/Element.cpp">
+			<Option target="IF2210_TubesOOP1"/>
+		</Unit>
+		<Unit filename="D:/1. mydata/3.School/aKuliah/pbo/IF2210-TubesOOP1/Element.hpp">
 			<Option target="IF2210_TubesOOP1"/>
 		</Unit>
 		<Unit filename="D:/1. mydata/3.School/aKuliah/pbo/IF2210-TubesOOP1/Engimon.cpp">
@@ -93,13 +96,43 @@
 		<Unit filename="D:/1. mydata/3.School/aKuliah/pbo/IF2210-TubesOOP1/Engimon.hpp">
 			<Option target="IF2210_TubesOOP1"/>
 		</Unit>
+		<Unit filename="D:/1. mydata/3.School/aKuliah/pbo/IF2210-TubesOOP1/Inventory.cpp">
+			<Option target="IF2210_TubesOOP1"/>
+		</Unit>
+		<Unit filename="D:/1. mydata/3.School/aKuliah/pbo/IF2210-TubesOOP1/Inventory.hpp">
+			<Option target="IF2210_TubesOOP1"/>
+		</Unit>
 		<Unit filename="D:/1. mydata/3.School/aKuliah/pbo/IF2210-TubesOOP1/Maps.cpp">
 			<Option target="IF2210_TubesOOP1"/>
 		</Unit>
 		<Unit filename="D:/1. mydata/3.School/aKuliah/pbo/IF2210-TubesOOP1/Maps.h">
 			<Option target="IF2210_TubesOOP1"/>
 		</Unit>
+		<Unit filename="D:/1. mydata/3.School/aKuliah/pbo/IF2210-TubesOOP1/Player.cpp">
+			<Option target="IF2210_TubesOOP1"/>
+		</Unit>
+		<Unit filename="D:/1. mydata/3.School/aKuliah/pbo/IF2210-TubesOOP1/Player.hpp">
+			<Option target="IF2210_TubesOOP1"/>
+		</Unit>
+		<Unit filename="D:/1. mydata/3.School/aKuliah/pbo/IF2210-TubesOOP1/Skill.cpp">
+			<Option target="IF2210_TubesOOP1"/>
+		</Unit>
+		<Unit filename="D:/1. mydata/3.School/aKuliah/pbo/IF2210-TubesOOP1/Skill.hpp">
+			<Option target="IF2210_TubesOOP1"/>
+		</Unit>
+		<Unit filename="D:/1. mydata/3.School/aKuliah/pbo/IF2210-TubesOOP1/Species.cpp">
+			<Option target="IF2210_TubesOOP1"/>
+		</Unit>
+		<Unit filename="D:/1. mydata/3.School/aKuliah/pbo/IF2210-TubesOOP1/Species.hpp">
+			<Option target="IF2210_TubesOOP1"/>
+		</Unit>
 		<Unit filename="D:/1. mydata/3.School/aKuliah/pbo/IF2210-TubesOOP1/main.cpp">
+			<Option target="IF2210_TubesOOP1"/>
+		</Unit>
+		<Unit filename="D:/1. mydata/3.School/aKuliah/pbo/IF2210-TubesOOP1/point.cpp">
+			<Option target="IF2210_TubesOOP1"/>
+		</Unit>
+		<Unit filename="D:/1. mydata/3.School/aKuliah/pbo/IF2210-TubesOOP1/point.h">
 			<Option target="IF2210_TubesOOP1"/>
 		</Unit>
 		<Unit filename="D:/1. mydata/3.School/aKuliah/pbo/IF2210-TubesOOP1/CMakeLists.txt">
