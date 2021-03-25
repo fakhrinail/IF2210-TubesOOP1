@@ -55,7 +55,7 @@ class Inventory : public InventoryParent {
 		void printItem(){
 			int lastIdx = this->getLastIdx();
 			if (lastIdx == 0) {
-				cout << "Kosong bro" << endl;
+				cout << "It's empty" << endl;
 			}
 			else {
 				for (int i = 0; i < lastIdx; i++) {

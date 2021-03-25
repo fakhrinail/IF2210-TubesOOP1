@@ -1,1 +1,1 @@
-g++ InventoryDriver.cpp Skill.cpp Element.cpp Engimon.cpp Species.cpp -o InventoryDriver
+g++ Skill.cpp SkillDriver.cpp Element.cpp -o SkillDriver

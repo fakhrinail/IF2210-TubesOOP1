@@ -59,7 +59,24 @@ void Skill::showDetail() const {
     }
     cout << endl;
 }
+bool Skill::operator<(const Skill& other) const{
+    return this->masteryLevel < other.masteryLevel;
+}
+Skill Skill::operator+(const Skill& other) const {
+    if(!(*this == other)){
+        throw ("Skill tidak sejenis");
+    }
+    int newML;
+    if((*this) < other || other < (*this)){
+        newML = max(this->masteryLevel, other.masteryLevel);
+    }else{
+        newML = other.masteryLevel + 1;
+    }
+    Skill result(other.skillName, newML, other.basePower, other.compatibleElements);
+    return result;
+}
 ostream& operator<<(ostream& os, const Skill& s){
     os << s.getSkillName();
     return os;
 }
+

@@ -33,10 +33,9 @@ class Player {
         void showCommands();
         void doCommands(Maps& M const);
         Engimon getActiveEngimon();
-        Engimon breeding(Engimon a, Engimon b);
+        Engimon& breeding(Engimon& a, Engimon& b);
         point getPlayerPosition();
         point getActiveEngimonPos();
-		// masih kurang commands
 };
 
 #endif
