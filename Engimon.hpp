@@ -34,10 +34,10 @@ class Engimon {
         int getCountElement();
         int getCountSkill();
         // method lain
-        virtual void interact();
+        virtual void interact() = 0;
         void addExperience(int);
         void levelUp();
-        virtual void death();
+        virtual void death() = 0;
         void showDetail();
         void learnSkill(Skill&);
         Engimon& operator+(Engimon&);

@@ -100,7 +100,7 @@ void Engimon::showDetail(){
     cout << "Nama parent " << this->parentName << " spesiesnya " << this->parentSpecies << "." << endl;
     cout << "Level " << this->level << endl;
     cout << "Current Exp " << this->experience << endl;
-    cout << "Akumulasi Exp " << this->maxCumulativeExperience << endl;
+    cout << "Akumulasi Exp " << this->cumulativeExperience << endl;
     cout << "Skill ";
     for (int i=0; i < this->countSkill; i++){
         cout << this->learnedSkills[i].getSkillName();
@@ -110,9 +110,9 @@ void Engimon::showDetail(){
     }
     cout << endl;
     cout << "Element ";
-    for (int i=0; i < this->countElement; i++){
-        cout << this->elements[i].getElementName();
-        if (i != this->countElement-1) {
+    for (int j=0; j < this->countElement; j++){
+        cout << this->elements[j].getElementName();
+        if (j != this->countElement-1) {
             cout << ", ";
         }
     }

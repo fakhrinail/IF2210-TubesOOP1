@@ -9,4 +9,5 @@ Element Ice(4, "Ice");
 
 int main(){
     cout << Fire.getAdvantage(Ground) << endl;
+    cout << Fire.getElementName() << endl;
 }
