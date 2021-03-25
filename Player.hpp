@@ -23,7 +23,7 @@ class Player {
         void a();
         void s();
         void d();
-        void battle();
+        void battle(Maps& M);
         void manageActiveEngimon();
         void setActiveEngimon();
         void callEngimon();
