@@ -26,6 +26,8 @@ public:
     void setY(int y);
 
     void randomPoint(int maxX, int maxY);
+
+    bool operator==(const point & p2);
 };
 
 
