@@ -41,6 +41,7 @@ public:
     void engimonRandomMove(Player & p);
     void generateEngimon(Player & p, int round);
     bool isEmpty(int x, int y);
+    bool deleteWildEngimon(point p);
 public:
     const list<pair<Engimon, point>> &getWildEngimons() const;
 

@@ -114,52 +114,54 @@ void Maps::engimonRandomMove(Player & p) {
     this->loadPlayerPos(p);
     list<pair<Engimon,point>>::iterator it;
     for(it=wildEngimons.begin();it!=wildEngimons.end();it++){
-        bool flag;
-        int seedX = (rand()%3)-1;
-        int seedY = (rand()%3)-1;
-        while (seedX==0 && seedY==0){
+        if(it->second.getX()!=-1 && it->second.getY()!=-1){
             int seedX = (rand()%3)-1;
             int seedY = (rand()%3)-1;
-        }
-        //REPLACE THE OLD PLACE WITH x OR o DEPENDS ON ENGIMON ELEMENTS
-        int nElmt = it->first.getCountElement();
-        int E1 = it->first.getElements()[0].getElementID();
-        int tempX = it->second.getX()+seedX;
-        int tempY = it->second.getY()+seedY;
-
-        if(nElmt==1){
-            if(E1 == 1 || E1==3 || E1==4){ //fire electric ground
-                if(mapTemplate[tempX][tempY]==GRASS && mapArea[tempX][tempY]==EMPTY){
-                    it->second.setX(tempX);
-                    it->second.setY(tempY);
-                }
-            }else if(E1==2 || E1 == 5){ //water ice
-                if(mapTemplate[tempX][tempY]==WATER && mapArea[tempX][tempY]==EMPTY){
-                    it->second.setX(tempX);
-                    it->second.setY(tempY);
-                }
+            while (seedX==0 && seedY==0){
+                int seedX = (rand()%3)-1;
+                int seedY = (rand()%3)-1;
             }
-        }else if(nElmt==2){
-            int E2 = it->first.getElements()[1].getElementID();
-            if((E1==1 && E2==3)||(E1==3 && E2==1)){ //itachimon fire - electric
-                if(mapTemplate[tempX][tempY]==GRASS && mapArea[tempX][tempY]==EMPTY){
-                    it->second.setX(tempX);
-                    it->second.setY(tempY);
+            //REPLACE THE OLD PLACE WITH x OR o DEPENDS ON ENGIMON ELEMENTS
+            int nElmt = it->first.getCountElement();
+            int E1 = it->first.getElements()[0].getElementID();
+            int tempX = it->second.getX()+seedX;
+            int tempY = it->second.getY()+seedY;
+
+            if(nElmt==1){
+                if(E1 == 1 || E1==3 || E1==4){ //fire electric ground
+                    if(mapTemplate[tempX][tempY]==GRASS && mapArea[tempX][tempY]==EMPTY){
+                        it->second.setX(tempX);
+                        it->second.setY(tempY);
+                    }
+                }else if(E1==2 || E1 == 5){ //water ice
+                    if(mapTemplate[tempX][tempY]==WATER && mapArea[tempX][tempY]==EMPTY){
+                        it->second.setX(tempX);
+                        it->second.setY(tempY);
+                    }
                 }
-            }else if((E1==2 && E2==4)||(E1==4 && E2==2)){ //narutomon water-ground
-                if(mapArea[tempX][tempY]==EMPTY){
-                    it->second.setX(tempX);
-                    it->second.setY(tempY);
-                }
-            }else if((E1==1 && E2==5)||(E1==5 && E2==1)){ //telermon ice-water
-                if(mapTemplate[tempX][tempY]==WATER && mapArea[tempX][tempY]==EMPTY){
-                    it->second.setX(tempX);
-                    it->second.setY(tempY);
+            }else if(nElmt==2){
+                int E2 = it->first.getElements()[1].getElementID();
+                if((E1==1 && E2==3)||(E1==3 && E2==1)){ //itachimon fire - electric
+                    if(mapTemplate[tempX][tempY]==GRASS && mapArea[tempX][tempY]==EMPTY){
+                        it->second.setX(tempX);
+                        it->second.setY(tempY);
+                    }
+                }else if((E1==2 && E2==4)||(E1==4 && E2==2)){ //narutomon water-ground
+                    if(mapArea[tempX][tempY]==EMPTY){
+                        it->second.setX(tempX);
+                        it->second.setY(tempY);
+                    }
+                }else if((E1==1 && E2==5)||(E1==5 && E2==1)){ //telermon ice-water
+                    if(mapTemplate[tempX][tempY]==WATER && mapArea[tempX][tempY]==EMPTY){
+                        it->second.setX(tempX);
+                        it->second.setY(tempY);
+                    }
                 }
             }
         }
     }
 
+    refreshMap(p);
 
 }
 
@@ -179,7 +181,7 @@ void Maps::generateEngimon(Player & p, int round) {
             int pil = rand()%5+1;
             if(pil==1){
                 wildEngimons.push_back(
-                        pair<Engimon,point>(Groundmon("randommon","","",lvl),loc)
+                        pair<Engimon,point>(Groundmon("randommon","","","","",lvl),loc)
                 );
                 if(lvl>=minLevel){
                     mapArea[loc.getX()][loc.getY()] = 'G';
@@ -188,7 +190,7 @@ void Maps::generateEngimon(Player & p, int round) {
                 }
             }else if(pil==2){
                 wildEngimons.push_back(
-                        pair<Engimon,point>(Electricmon("randommon","","",lvl),loc)
+                        pair<Engimon,point>(Electricmon("randommon","","","","",lvl),loc)
                 );
                 if(lvl>=minLevel){
                     mapArea[loc.getX()][loc.getY()] = 'E';
@@ -197,7 +199,7 @@ void Maps::generateEngimon(Player & p, int round) {
                 }
             }else if(pil==3){
                 wildEngimons.push_back(
-                        pair<Engimon,point>(Firemon("randommon","","",lvl),loc)
+                        pair<Engimon,point>(Firemon("randommon","","","","",lvl),loc)
                 );
                 if(lvl>=minLevel){
                     mapArea[loc.getX()][loc.getY()] = 'F';
@@ -206,7 +208,7 @@ void Maps::generateEngimon(Player & p, int round) {
                 }
             }else if(pil==4){
                 wildEngimons.push_back(
-                        pair<Engimon,point>(Itachimon("randommon","","",lvl),loc)
+                        pair<Engimon,point>(Itachimon("randommon","","","","",lvl),loc)
                 );
                 if(lvl>=minLevel){
                     mapArea[loc.getX()][loc.getY()] = 'L';
@@ -215,7 +217,7 @@ void Maps::generateEngimon(Player & p, int round) {
                 }
             }else if(pil==5){
                 wildEngimons.push_back(
-                        pair<Engimon,point>(Narutomon("randommon","","",lvl),loc)
+                        pair<Engimon,point>(Narutomon("randommon","","","","",lvl),loc)
                 );
                 if(lvl>=minLevel){
                     mapArea[loc.getX()][loc.getY()] = 'N';
@@ -228,7 +230,7 @@ void Maps::generateEngimon(Player & p, int round) {
             int pil = rand()%4+1;
             if(pil==1){
                 wildEngimons.push_back(
-                        pair<Engimon,point>(Watermon("randommon","","",lvl),loc)
+                        pair<Engimon,point>(Watermon("randommon","","","","",lvl),loc)
                 );
                 if(lvl>=minLevel){
                     mapArea[loc.getX()][loc.getY()] = 'W';
@@ -237,7 +239,7 @@ void Maps::generateEngimon(Player & p, int round) {
                 }
             }else if(pil==2){
                 wildEngimons.push_back(
-                        pair<Engimon,point>(Icemon("randommon","","",lvl),loc)
+                        pair<Engimon,point>(Icemon("randommon","","","","",lvl),loc)
                 );
                 if(lvl>=minLevel){
                     mapArea[loc.getX()][loc.getY()] = 'I';
@@ -246,7 +248,7 @@ void Maps::generateEngimon(Player & p, int round) {
                 }
             }else if(pil==3){
                 wildEngimons.push_back(
-                        pair<Engimon,point>(Telermon("randommon","","",lvl),loc)
+                        pair<Engimon,point>(Telermon("randommon","","","","",lvl),loc)
                 );
                 if(lvl>=minLevel){
                     mapArea[loc.getX()][loc.getY()] = 'S';
@@ -255,7 +257,7 @@ void Maps::generateEngimon(Player & p, int round) {
                 }
             }else if(pil==4){
                 wildEngimons.push_back(
-                        pair<Engimon,point>(Narutomon("randommon","","",lvl),loc)
+                        pair<Engimon,point>(Narutomon("randommon","","","","",lvl),loc)
                 );
                 if(lvl>=minLevel){
                     mapArea[loc.getX()][loc.getY()] = 'N';
@@ -367,28 +369,74 @@ void Maps::refreshMap(Player & p){
 
             if(nElmt==1){
                 if(E1 == 1){ //fire
-
+                    if(it->first.getLevel() >= minLevel){
+                        mapArea[it->second.getX()][it->second.getY()]='F';
+                    }else{
+                        mapArea[it->second.getX()][it->second.getY()]='f';
+                    }
                 }else if(E1==2){ //water
-
+                    if(it->first.getLevel() >= minLevel){
+                        mapArea[it->second.getX()][it->second.getY()]='W';
+                    }else{
+                        mapArea[it->second.getX()][it->second.getY()]='w';
+                    }
                 }else if(E1==3){ //electric
-
+                    if(it->first.getLevel() >= minLevel){
+                        mapArea[it->second.getX()][it->second.getY()]='E';
+                    }else{
+                        mapArea[it->second.getX()][it->second.getY()]='e';
+                    }
                 }else if(E1==4){ //ground
-
+                    if(it->first.getLevel() >= minLevel){
+                        mapArea[it->second.getX()][it->second.getY()]='G';
+                    }else{
+                        mapArea[it->second.getX()][it->second.getY()]='g';
+                    }
                 }else if(E1==5){ //ice
-
+                    if(it->first.getLevel() >= minLevel){
+                        mapArea[it->second.getX()][it->second.getY()]='I';
+                    }else{
+                        mapArea[it->second.getX()][it->second.getY()]='i';
+                    }
                 }
             }else if(nElmt==2){
                 int E2 = it->first.getElements()[1].getElementID();
                 if((E1==1 && E2==3)||(E1==3 && E2==1)){ //itachimon fire - electric
-
+                    if(it->first.getLevel() >= minLevel){
+                        mapArea[it->second.getX()][it->second.getY()]='L';
+                    }else{
+                        mapArea[it->second.getX()][it->second.getY()]='l';
+                    }
                 }else if((E1==2 && E2==4)||(E1==4 && E2==2)){ //narutomon water-ground
-
+                    if(it->first.getLevel() >= minLevel){
+                        mapArea[it->second.getX()][it->second.getY()]='N';
+                    }else{
+                        mapArea[it->second.getX()][it->second.getY()]='n';
+                    }
                 }else if((E1==1 && E2==5)||(E1==5 && E2==1)){ //telermon ice-water
-
+                    if(it->first.getLevel() >= minLevel){
+                        mapArea[it->second.getX()][it->second.getY()]='S';
+                    }else{
+                        mapArea[it->second.getX()][it->second.getY()]='s';
+                    }
                 }
             }
         }
     }
 }
 
-
+bool Maps::deleteWildEngimon(point p){
+    bool flag = false;
+    list<pair<Engimon,point>>::iterator it;
+    it = this->wildEngimons.begin();
+    while (it!=wildEngimons.end() && flag==false){
+        if(it->second==p){
+            it->second.setX(-1);
+            it->second.setY(-1);
+            flag =true;
+        }else{
+            it++;
+        }
+    }
+    return flag;
+}
