@@ -11,7 +11,7 @@ Firemon::Firemon(string _name, string _parentName, string _parentSpecies) : Engi
     
     this->countElement = 1;
     this->elements = new Element[3];
-    Element Fire(0, "Fire");
+    Element Fire("Fire");
     this->elements[0] = Fire;
 }
 
@@ -29,7 +29,7 @@ Watermon::Watermon(string _name, string _parentName, string _parentSpecies) : En
     
     this->countElement = 1;
     this->elements = new Element[3];
-    Element Water(1, "Water");
+    Element Water("Water");
     this->elements[0] = Water;
 }
 
@@ -47,7 +47,7 @@ Electricmon::Electricmon(string _name, string _parentName, string _parentSpecies
     
     this->countElement = 1;
     this->elements = new Element[3];
-    Element Electric(2, "Electric");
+    Element Electric("Electric");
     this->elements[0] = Electric;
 }
 
@@ -65,7 +65,7 @@ Groundmon::Groundmon(string _name, string _parentName, string _parentSpecies) : 
     
     this->countElement = 1;
     this->elements = new Element[3];
-    Element Ground(3, "Ground");
+    Element Ground("Ground");
     this->elements[0] = Ground;
 }
 
@@ -83,7 +83,7 @@ Icemon::Icemon(string _name, string _parentName, string _parentSpecies) : Engimo
     
     this->countElement = 1;
     this->elements = new Element[3];
-    Element Ice(4, "Ice");
+    Element Ice("Ice");
     this->elements[0] = Ice;
 }
 
