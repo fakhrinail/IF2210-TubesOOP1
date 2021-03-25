@@ -21,7 +21,7 @@ private:
     int totalColumn;
     int totalEngimonSpawned;
     int minLevel;
-
+    pair<point,char> prevPlayerLocation;
 public:
     int getTotalEngimonSpawned() const;
     void setTotalEngimonSpawned(int totalEngimonSpawned);
@@ -36,6 +36,9 @@ public:
     void engimonRandomMove(Player & p);
     void generateEngimon(Player & p);
     bool isEmpty(int x, int y);
+public:
+    const list<pair<Engimon, point>> &getWildEngimons() const;
+
 private:
     bool loadfile(string filename);
 

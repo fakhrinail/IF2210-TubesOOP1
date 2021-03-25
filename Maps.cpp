@@ -15,6 +15,8 @@ using namespace std;
 Maps::Maps(string filename, int spawnEngi, int minLevel) {
     totalEngimonSpawned = spawnEngi;
     this->minLevel = minLevel;
+    prevPlayerLocation.first= point(-1,-1);
+    prevPlayerLocation.second = '-';
     if(!this->loadfile(filename)){
         throw "gagal load file";
     }
@@ -35,6 +37,26 @@ Maps::Maps(const Maps &map) {
 }
 
 void Maps::showMap(Player & p) {
+    if(p.getPlayerPosition().getX()>=0 && p.getPlayerPosition().getX()<totalRow && p.getPlayerPosition().getY()>=0 && p.getPlayerPosition().getY()<totalColumn){
+        if(prevPlayerLocation.first.getX()==-1 && prevPlayerLocation.first.getY()==-1){
+            prevPlayerLocation.first = p.getPlayerPosition();
+            prevPlayerLocation.second = mapArea[p.getPlayerPosition().getX()][p.getPlayerPosition().getY()];
+            mapArea[p.getPlayerPosition().getX()][p.getPlayerPosition().getY()]='P';
+        }else{
+            if(!(mapArea[p.getPlayerPosition().getX()][p.getPlayerPosition().getY()]=='x' ||mapArea[p.getPlayerPosition().getX()][p.getPlayerPosition().getY()]=='o')){
+                throw ("player menabrak sesuatu");
+            }else{
+                mapArea[prevPlayerLocation.first.getX()][prevPlayerLocation.first.getY()]=prevPlayerLocation.second;
+                prevPlayerLocation.first = p.getPlayerPosition();
+                prevPlayerLocation.second = mapArea[p.getPlayerPosition().getX()][p.getPlayerPosition().getY()];
+                mapArea[p.getPlayerPosition().getX()][p.getPlayerPosition().getY()]='P';
+            }
+        }
+
+    }else{
+        throw ("posisi player invalid!");
+    }
+
     for(int i=0;i<totalRow;i++){
         for(int j=0;j<totalColumn;j++){
             cout<<mapArea[i][j];
@@ -93,6 +115,7 @@ void Maps::engimonRandomMove(Player & p) {
         bool flag = it->second.getX()<totalRow && it->second.getY()<totalColumn;
         flag = flag && (mapArea[it->second.getX()][it->second.getY()]=='o' || mapArea[it->second.getX()][it->second.getY()]=='x');
         flag = flag && (seedX!=0 || seedY!=0);
+        flag = flag && it->second==p.getActiveEngimonPos() && it->second==p.getPlayerPosition();
 
         while(!flag){
             seedX = (rand()%3)-1;
@@ -102,6 +125,7 @@ void Maps::engimonRandomMove(Player & p) {
             flag = it->second.getX()<totalRow && it->second.getY()<totalColumn;
             flag = flag && (mapArea[it->second.getX()][it->second.getY()]=='o' || mapArea[it->second.getX()][it->second.getY()]=='x');
             flag = flag && (seedX!=0 || seedY!=0);
+            flag = flag && it->second==p.getActiveEngimonPos() && it->second==p.getPlayerPosition();
         }
         mapArea[it->second.getX()][it->second.getY()] = 'e';
     }
@@ -113,7 +137,10 @@ void Maps::generateEngimon(Player & p) {
         loc.randomPoint(totalRow,totalColumn);
 
         //UNTUK MEMASTIKAN DIGENERATE DI LAHAN KOSONG
-        while (!(mapArea[loc.getX()][loc.getY()]=='o' || mapArea[loc.getX()][loc.getY()]=='x')){
+        while (
+                (!(mapArea[loc.getX()][loc.getY()]=='o' || mapArea[loc.getX()][loc.getY()]=='x')) &&
+                loc==p.getPlayerPosition() && loc==p.getActiveEngimonPos()
+        ){
             //TAMBAHKAN JUGA APAKAH DIA CRASH SAMA ENGIMON LAIN TIDAK.
             //BILA CRAASH ULANGI SAMPAI NDAK CRASH
             loc.randomPoint(totalRow,totalColumn);
@@ -167,3 +194,9 @@ bool Maps::isEmpty(int x, int y){
         return false;
     }
 }
+
+const list<pair<Engimon, point>> &Maps::getWildEngimons() const {
+    return wildEngimons;
+}
+
+

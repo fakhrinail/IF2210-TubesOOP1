@@ -25,7 +25,7 @@ class Engimon {
 
     public:
         // 4 sekawan
-        Engimon(string, string, string, string);
+        Engimon(string, string, string, string, int);
         Engimon(const Engimon&);
         Engimon& operator=(const Engimon&);
         virtual ~Engimon();
@@ -33,8 +33,10 @@ class Engimon {
         string getName() const;
         int getCountElement();
         int getCountSkill();
+        Element* getElements();
+        Skill* getLeanedSkills();
         // method lain
-        virtual void interact() = 0;
+        virtual void interact();
         void addExperience(int);
         void levelUp();
         void death();
