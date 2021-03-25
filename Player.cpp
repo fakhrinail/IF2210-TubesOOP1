@@ -106,6 +106,46 @@ void Player::printAllInventory() {
     this->inventoryS.printItem();
     cout << "\n" << "List Engimon : \n";
     this->inventoryE.printItem();
+    cout << endl;
+}
+
+void Player::detailsMenu() {
+    this->printAllInventory();
+    int entry;
+    pair<char, int> codeEntry;
+    while (true) {
+		cout << "Choose action : \n";
+		cout << "1. Inventory Details\n";
+		cout << "2. Show Inventory Again\n";
+		cout << "3. Back\n";
+		cout << "(choose the number)\n";
+        cout << "Command : ";
+        cin >> entry;
+        if (entry == 1) {
+            cout << "Entry code : \n";
+            cout << "Engimon/Skill (input E/S) :";
+            cin >> codeEntry.first;
+            cout << "\n" << "Item number : ";
+            cin >> codeEntry.second;
+            cout >> endl;
+            if (codeEntry.first == 'E') {
+                this->inventoryE.showDetail(codeEntry.second);
+            }
+            else if (codeEntry.first == 'S') {
+                this->inventoryS.showDetail(codeEntry.second);
+            }
+            else {
+                cout << "Invalid code\n";
+            }
+        }
+        else if (entry == 2) {
+            this->printAllInventory();
+        } else if (entry == 3) break;
+        else
+        {
+            cout << "Invalid command\n";
+        }
+    }    
 }
 
 void Player::useSkill(){
@@ -202,7 +242,7 @@ void Player::doCommands(Maps& M const){
                 this->showCommands();
 			}
             else if (entry == 6) {
-                this->printAllInventory();
+                this->detailsMenu();
             }
 			else if (entry == 7) {
 				this->useSkill();
