@@ -53,3 +53,19 @@ void point::randomPoint(int maxX, int maxY){
 bool point::operator==(const point & p2){
     return this->x==p2.getX() && this->y==p2.getY();
 }
+
+void point::incrementX() {
+    this->x++;
+}
+
+void point::incrementY() {
+	this->y++;
+}
+
+void point::decrementX() {
+	this->x--;
+}
+
+void point::decrementY() {
+	this->y--;
+}

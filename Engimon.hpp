@@ -11,8 +11,8 @@ class Engimon {
     protected:
         string name;
         string species;
-        string parentName;
-        string parentSpecies;
+        string *parentName;
+        string *parentSpecies;
         int countElement;
         int countSkill;
         Element *elements;
@@ -20,21 +20,22 @@ class Engimon {
         int level;
         int experience;
         int cumulativeExperience;
-        static int maxLevel;
         static int maxCumulativeExperience;
 
     public:
         // 4 sekawan
-        Engimon(string, string, string, string, int);
+        Engimon();
+        Engimon(string, string, string, string, string, string, int);
         Engimon(const Engimon&);
         Engimon& operator=(const Engimon&);
         virtual ~Engimon();
         // getter setter
         string getName() const;
-        int getCountElement();
-        int getCountSkill();
-        Element* getElements();
-        Skill* getLeanedSkills();
+        int getCountElement() const;
+        int getCountSkill() const;
+        int getLevel() const;
+        Element* getElements() const;
+        Skill* getLearnedSkills() const;
         // method lain
         virtual void interact();
         void addExperience(int);

@@ -384,7 +384,7 @@ void Maps::refreshMap(Player & p){
                 }else if((E1==2 && E2==4)||(E1==4 && E2==2)){ //narutomon water-ground
 
                 }else if((E1==1 && E2==5)||(E1==5 && E2==1)){ //telermon ice-water
-                    
+
                 }
             }
         }

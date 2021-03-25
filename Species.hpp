@@ -9,7 +9,7 @@
 // element fire
 class Firemon : public Engimon {
     public:
-        Firemon(string, string, string, int);
+        Firemon(string, string, string, string, string, int);
         ~Firemon();
         void interact();
 };
@@ -17,7 +17,7 @@ class Firemon : public Engimon {
 // element water
 class Watermon : public Engimon {
     public:
-        Watermon(string, string, string, int);
+        Watermon(string, string, string, string, string, int);
         ~Watermon();
         void interact();
 };
@@ -25,7 +25,7 @@ class Watermon : public Engimon {
 // element electric
 class Electricmon : public Engimon {
     public:
-        Electricmon(string, string, string, int);
+        Electricmon(string, string, string, string, string, int);
         ~Electricmon();
         void interact();
 };
@@ -33,7 +33,7 @@ class Electricmon : public Engimon {
 // element ground
 class Groundmon : public Engimon {
     public:
-        Groundmon(string, string, string, int);
+        Groundmon(string, string, string, string, string, int);
         ~Groundmon();
         void interact();
 };
@@ -41,7 +41,7 @@ class Groundmon : public Engimon {
 // element ice
 class Icemon : public Engimon {
     public:
-        Icemon(string, string, string, int);
+        Icemon(string, string, string, string, string, int);
         ~Icemon();
         void interact();
 };
@@ -49,7 +49,7 @@ class Icemon : public Engimon {
 // element fire, electric
 class Itachimon : public Engimon {
     public:
-        Itachimon(string, string, string, int);
+        Itachimon(string, string, string, string, string, int);
         ~Itachimon();
         void interact();
 };
@@ -57,7 +57,7 @@ class Itachimon : public Engimon {
 // element water, ice
 class Telermon : public Engimon {
     public:
-        Telermon(string, string, string, int);
+        Telermon(string, string, string, string, string, int);
         ~Telermon();
         void interact();
 };
@@ -65,7 +65,7 @@ class Telermon : public Engimon {
 // element water, ground
 class Narutomon : public Engimon {
     public:
-        Narutomon(string, string, string, int);
+        Narutomon(string, string, string, string, string, int);
         ~Narutomon();
         void interact();
 };

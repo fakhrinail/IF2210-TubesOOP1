@@ -23,20 +23,20 @@ class Player {
         void a();
         void s();
         void d();
-        void battle();
+        void battle(Maps& M);
         void manageActiveEngimon();
         void setActiveEngimon();
         void callEngimon();
         void printAllInventory();
+        void detailsMenu();
         void useSkill();
         void breedingMenu();
         void showCommands();
         void doCommands(Maps& M const);
         Engimon getActiveEngimon();
-        Engimon breeding(Engimon a, Engimon b);
+        Engimon& breeding(Engimon& a, Engimon& b);
         point getPlayerPosition();
         point getActiveEngimonPos();
-		// masih kurang commands
 };
 
 #endif
