@@ -1,19 +1,15 @@
 #include "Player.hpp"
-#include "Engimon.hpp"
 #include <iostream>
 using namespace std;
 
-Player::Player(Engimon basic) {
+Player::Player(Engimon basic): playerPosition(), activeEngimonPos(0,1), inventoryE(), inventoryS() {
     this->activeEngimon = basic;
-    this->playerPosition = new point();
-    this->activeEngimonPos = new point(0,1);
-    this->inventoryE = new Inventory<Engimon>();
-    this->inventoryS = new Inventory<Skill>();
 }
 
 Player::~Player() {}
-
+/*
 void Player::w() {
+    this->activeEngimonPos = this->playerPosition;
     this->playerPosition.decrementX();
     if (this->activeEngimonPos.getX() == this->playerPosition.getX()){
         this->activeEngimonPos.incrementX();
@@ -51,6 +47,7 @@ void Player::d() {
 		this->activeEngimonPos.incrementY();
 	}
 }
+*/
 
 void Player::manageActiveEngimon() {
     cout << "Active Engimon : \n";
@@ -83,7 +80,7 @@ void Player::setActiveEngimon(){
     cout << "Choose the engimon number : \n";
     int choosenNum;
     cin >> choosenNum;
-    Engimon choosenEngimon = new this->inventoryE.getItem(choosenNum);
+    Engimon choosenEngimon = this->inventoryE.getItem(choosenNum-1);
     this->inventoryE.addItem(this->activeEngimon);
     this->activeEngimon = choosenEngimon;
     cout << "Change successful\n";
@@ -93,12 +90,11 @@ void Player::callEngimon() {
     cout << "Your active engimon is dead\n";
 	cout << "\n" << "List Engimon : \n";
 	this->inventoryE.printItem();
-	cout << "Choose the engimon number : ";
+	cout << "Choose the engimon number : \n";
 	int choosenNum;
 	cin >> choosenNum;
-	Engimon choosenEngimon = new this->inventoryE.getItem(choosenNum);
-	this->activeEngimon = choosenEngimon;
-	cout << "\n" << "Change successful\n";
+	this->activeEngimon = this->inventoryE.getItem(choosenNum);
+	cout  << "Change successful\n";
 }
 
 void Player::printAllInventory() {
@@ -127,12 +123,12 @@ void Player::detailsMenu() {
             cin >> codeEntry.first;
             cout << "\n" << "Item number : ";
             cin >> codeEntry.second;
-            cout >> endl;
+            cout << endl;
             if (codeEntry.first == 'E') {
-                this->inventoryE.showDetail(codeEntry.second);
+                this->inventoryE.showDetail(codeEntry.second-1);
             }
             else if (codeEntry.first == 'S') {
-                this->inventoryS.showDetail(codeEntry.second);
+                this->inventoryS.showDetail(codeEntry.second-1);
             }
             else {
                 cout << "Invalid code\n";
@@ -154,8 +150,8 @@ void Player::useSkill(){
 	cout << "Choose the item number : \n";
 	int choosenNum;
 	cin >> choosenNum;
-	Skill choosenItem = new this->inventoryS.getItem(choosenNum);
-	this->activeEngimon.learn(choosenItem);
+	Skill choosenItem = this->inventoryS.getItem(choosenNum-1);
+	this->activeEngimon.learnSkill(choosenItem);
 }
 
 void Player::breedingMenu() {
@@ -173,30 +169,27 @@ void Player::breedingMenu() {
             cout << "Parent 1 and parent 2 must be different\n";
         } else break;
     }
-	this->inventoryE.addItem(this->activeEngimon);
-	this->activeEngimon = choosenEngimon;
-	cout << "\n" << "Change successful\n";
     Engimon parent1;
     Engimon parent2;
     if (entry1 == 0) {
-        parent1 = &this->activeEngimon;
+        parent1 = this->activeEngimon;
     }
     else {
-        parent1 = this->inventoryE.getItem(entry1);
+        parent1 = this->inventoryE.getItem(entry1-1);
         if (entry2 > entry1) entry2--;
     }
 	if (entry2 == 0) {
-		parent2 = &this->activeEngimon;
+		parent2 = this->activeEngimon;
 	}
 	else {
-		parent1 = this->inventoryE.getItem(entry2);
+		parent1 = this->inventoryE.getItem(entry2-1);
 	}
-    Engimon child = breeding(parent1, parent2);
-    if (child != NULL){
+    //Engimon child = breeding(parent1, parent2);
+    /*if (child != NULL){
         this->inventoryE.addItem(child);
         if (entry1 != 0) this->inventoryE.addItem(parent1);
         if (entry2 != 0) this->inventoryE.addItem(parent2);
-    }
+    }*/
 }
 
 void Player::showCommands(){
@@ -215,6 +208,21 @@ void Player::showCommands(){
     cout << "(choose the number)\n";
 }
 
+void Player::addEngimon(Engimon e){
+    try{
+		this->inventoryE.addItem(e);
+	}catch(char const* err){
+		throw(err);
+	}
+}
+void Player::addSkill(Skill s){
+    try{
+		this->inventoryS.addItem(s);
+	}catch(char const* err){
+		throw(err);
+	}
+}
+/*
 void Player::doCommands(Maps& M const){
     int entry;
     while (true) {
@@ -268,25 +276,21 @@ void Player::doCommands(Maps& M const){
     }
     cout << "Thanks for playing~~" << endl;
 }
+*/
 
 Engimon Player::getActiveEngimon(){
     return this->activeEngimon;
 }
-
-Engimon& Player::breeding(Engimon& a, Engimon& b){
+/*
+Engimon Player::breeding(Engimon& a, Engimon& b){
     return a + b;
 }
+*/
 
-pair<int, int> Player::getPlayerPosition(){
-	pair<int, int> pos = new pair<int, int>;
-	pos.first = this->playerPosition.first;
-	pos.second = this->playerPosition.second;
-	return pos;
+point Player::getPlayerPosition(){
+	return this->playerPosition;
 }
 
-pair<int,int> Player::getActiveEngimonPos(){
-	pair<int, int> pos = new pair<int, int>;
-	pos.first = this->activeEngimonPos.first;
-	pos.second = this->activeEngimonPos.second;
-	return pos;
+point Player::getActiveEngimonPos(){
+	return this->activeEngimonPos;
 }

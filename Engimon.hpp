@@ -43,7 +43,7 @@ class Engimon {
         void death();
         void showDetail();
         void learnSkill(Skill&);
-        Engimon& operator+(Engimon&);
+        //Engimon operator+(Engimon&);
         bool operator==(const Engimon&) const;
         friend ostream& operator<<(ostream&, const Engimon&);
 };

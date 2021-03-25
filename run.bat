@@ -1,1 +1,1 @@
-g++ Skill.cpp SkillDriver.cpp Element.cpp -o SkillDriver
+g++ Player.cpp PlayerDriver.cpp Engimon.cpp Species.cpp Skill.cpp Element.cpp point.cpp -o PlayerDriver
