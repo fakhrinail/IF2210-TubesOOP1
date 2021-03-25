@@ -101,8 +101,8 @@ Itachimon::Itachimon(string _name, string _parentName, string _parentSpecies, in
     
     this->countElement = 2;
     this->elements = new Element[3];
-    Element Fire(0, "Fire");
-    Element Electric(2, "Electric");
+    Element Fire("Fire");
+    Element Electric("Electric");
     this->elements[0] = Fire;
     this->elements[1] = Electric;
 }
@@ -121,8 +121,8 @@ Telermon::Telermon(string _name, string _parentName, string _parentSpecies, int 
     
     this->countElement = 2;
     this->elements = new Element[3];
-    Element Water(1, "Water");
-    Element Ice(4, "Ice");
+    Element Water("Water");
+    Element Ice("Ice");
     this->elements[0] = Water;
     this->elements[1] = Ice;
 }
@@ -141,8 +141,8 @@ Narutomon::Narutomon(string _name, string _parentName, string _parentSpecies, in
     
     this->countElement = 2;
     this->elements = new Element[3];
-    Element Water(1, "Water");
-    Element Ground(3, "Ground");
+    Element Water("Water");
+    Element Ground("Ground");
     this->elements[0] = Water;
     this->elements[1] = Ground;
 }
