@@ -2,14 +2,17 @@
 #define __INVENTORY_HPP__
 
 #include <iostream>
-#include "Skill.hpp"
 using namespace std;
 
+class InventoryParent {
+public:
+	static int maxCapacity;
+	static int totalLoad;
+};
+
 template <class	T>
-class Inventory {
+class Inventory : public InventoryParent {
 	private:
-		static int maxCapacity;
-		static int totalLoad;
 		int nbItems;
 		pair<T, int>* items;
 	public:
@@ -61,7 +64,6 @@ class Inventory {
 			}
 		}
 		void removeItem(int idx){
-			idx--;
 			if (this->items[idx].second > 1) {
 				this->items[idx].second--;
 			}
@@ -75,9 +77,13 @@ class Inventory {
 			this->nbItems--;
 		}
 		T getItem(int idx){
-			T take = new T(this->items[idx].first);
+			T take = this->items[idx].first;
 			this->removeItem(idx);
 			return take;
+		}
+		void showDetail(int idx){
+			T take = this->items[idx].first;
+			take.showDetail();
 		}
 };
 #endif

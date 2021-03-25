@@ -3,15 +3,18 @@
 
 using namespace std;
 
-int Engimon::maxLevel = 50;
 int Engimon::maxCumulativeExperience = 5000;
 
-Engimon::Engimon(string _name, string _species, string _parentName, string _parentSpecies){
+Engimon::Engimon() : Engimon("engimon", "engimon", "engimon", "engimon", 0){}
+
+Engimon::Engimon(string _name, string _species, string _parentName, string _parentSpecies, int _level){
     this->name = _name;
     this->species = _species;
     this->parentName = _parentName;
     this->parentSpecies = _parentSpecies;
-    this->level = 1;
+    this->learnedSkills = new Skill[4];
+    this->elements = new Element[3];
+    this->level = _level;
     this->experience = 0;
     this->cumulativeExperience = 0;
 }
@@ -67,12 +70,28 @@ string Engimon::getName() const{
     return this->name;
 }
 
-int Engimon::getCountElement(){
+int Engimon::getCountElement() const{
     return this->countElement;
 }
 
-int Engimon::getCountSkill(){
+int Engimon::getCountSkill() const{
     return this->countSkill;
+}
+
+int Engimon::getLevel() const{
+    return this->level;
+}
+
+Element* Engimon::getElements() const{
+    return this->elements;
+}
+
+Skill* Engimon::getLearnedSkills() const{
+    return this->learnedSkills;
+}
+
+void Engimon::interact(){
+    cout << "Hello bos" << endl;
 }
 
 void Engimon::addExperience(int _exp){
@@ -88,7 +107,7 @@ void Engimon::addExperience(int _exp){
 }
 
 void Engimon::levelUp(){
-    if (this->level+1 <= maxLevel && this->cumulativeExperience < maxCumulativeExperience){
+    if (this->cumulativeExperience < maxCumulativeExperience){
         this->level++;
         this->experience = this->experience-100;
     } else {

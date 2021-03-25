@@ -47,6 +47,18 @@ bool Skill::learnable(const Element& e) const {
 bool Skill::operator==(const Skill& other) const {
     return this->skillName == other.skillName;
 }
+void Skill::showDetail() const {
+    cout << "Nama " << this->skillName << endl;
+    cout << "Mastery Level " << this->masteryLevel << endl;
+    cout << "Base Power " << this->basePower << endl;
+    cout << "Compatible Elements:";
+    for(int i=1; i<6; i++){
+        if(this->compatibleElements & (1<<(i-1))){
+            cout << " " << Element::elementNames[i];
+        }
+    }
+    cout << endl;
+}
 ostream& operator<<(ostream& os, const Skill& s){
     os << s.getSkillName();
     return os;
