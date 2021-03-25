@@ -5,12 +5,10 @@ using namespace std;
 
 Firemon::Firemon(string _name, string _parentName, string _parentSpecies, int _level) : Engimon(_name, "Firemon", _parentName, _parentSpecies, _level){
     this->countSkill = 1;
-    this->learnedSkills = new Skill[4];
     Skill Fireball("Fireball", 1, 100, 1);
     this->learnedSkills[0] = Fireball; 
     
     this->countElement = 1;
-    this->elements = new Element[3];
     Element Fire("Fire");
     this->elements[0] = Fire;
 }
@@ -23,12 +21,10 @@ void Firemon::interact(){
 
 Watermon::Watermon(string _name, string _parentName, string _parentSpecies, int _level) : Engimon(_name, "Watermon", _parentName, _parentSpecies, _level){
     this->countSkill = 1;
-    this->learnedSkills = new Skill[4];
     Skill Waterbom("Waterbom", 1, 100, 2);
     this->learnedSkills[0] = Waterbom; 
     
     this->countElement = 1;
-    this->elements = new Element[3];
     Element Water("Water");
     this->elements[0] = Water;
 }
@@ -41,12 +37,10 @@ void Watermon::interact(){
 
 Electricmon::Electricmon(string _name, string _parentName, string _parentSpecies, int _level) : Engimon(_name, "Electricmon", _parentName, _parentSpecies, _level){
     this->countSkill = 1;
-    this->learnedSkills = new Skill[4];
     Skill Chidori("Chidori", 1, 100, 4);
     this->learnedSkills[0] = Chidori; 
     
     this->countElement = 1;
-    this->elements = new Element[3];
     Element Electric("Electric");
     this->elements[0] = Electric;
 }
@@ -59,12 +53,10 @@ void Electricmon::interact(){
 
 Groundmon::Groundmon(string _name, string _parentName, string _parentSpecies, int _level) : Engimon(_name, "Groundmon", _parentName, _parentSpecies, _level){
     this->countSkill = 1;
-    this->learnedSkills = new Skill[4];
     Skill Pakubumi("Pakubumi", 1, 100, 8);
     this->learnedSkills[0] = Pakubumi; 
     
     this->countElement = 1;
-    this->elements = new Element[3];
     Element Ground("Ground");
     this->elements[0] = Ground;
 }
@@ -77,12 +69,10 @@ void Groundmon::interact(){
 
 Icemon::Icemon(string _name, string _parentName, string _parentSpecies, int _level) : Engimon(_name, "Icemon", _parentName, _parentSpecies, _level){
     this->countSkill = 1;
-    this->learnedSkills = new Skill[4];
     Skill Freeze("Freeze", 1, 100, 16);
     this->learnedSkills[0] = Freeze; 
     
     this->countElement = 1;
-    this->elements = new Element[3];
     Element Ice("Ice");
     this->elements[0] = Ice;
 }
@@ -95,12 +85,10 @@ void Icemon::interact(){
 
 Itachimon::Itachimon(string _name, string _parentName, string _parentSpecies, int _level) : Engimon(_name, "Itachimon", _parentName, _parentSpecies, _level){
     this->countSkill = 1;
-    this->learnedSkills = new Skill[4];
     Skill Izanami("Izanami", 1, 100, 5);
     this->learnedSkills[0] = Izanami; 
     
     this->countElement = 2;
-    this->elements = new Element[3];
     Element Fire("Fire");
     Element Electric("Electric");
     this->elements[0] = Fire;
@@ -115,12 +103,10 @@ void Itachimon::interact(){
 
 Telermon::Telermon(string _name, string _parentName, string _parentSpecies, int _level) : Engimon(_name, "Telermon", _parentName, _parentSpecies, _level){
     this->countSkill = 1;
-    this->learnedSkills = new Skill[4];
     Skill Drunk("Drunk", 0, 100, 18);
     this->learnedSkills[0] = Drunk; 
     
     this->countElement = 2;
-    this->elements = new Element[3];
     Element Water("Water");
     Element Ice("Ice");
     this->elements[0] = Water;
@@ -135,12 +121,10 @@ void Telermon::interact(){
 
 Narutomon::Narutomon(string _name, string _parentName, string _parentSpecies, int _level) : Engimon(_name, "Narutomon", _parentName, _parentSpecies, _level){
     this->countSkill = 1;
-    this->learnedSkills = new Skill[4];
     Skill Rasengan("Rasengan", 0, 100, 10);
     this->learnedSkills[0] = Rasengan; 
     
     this->countElement = 2;
-    this->elements = new Element[3];
     Element Water("Water");
     Element Ground("Ground");
     this->elements[0] = Water;
