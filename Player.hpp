@@ -28,6 +28,7 @@ class Player {
         void setActiveEngimon();
         void callEngimon();
         void printAllInventory();
+        void detailsMenu();
         void useSkill();
         void breedingMenu();
         void showCommands();
