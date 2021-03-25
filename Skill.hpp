@@ -26,6 +26,8 @@ public:
     bool learnable(const Element& e) const;
     bool operator==(const Skill& other) const;
     void showDetail() const;
+    bool operator<(const Skill& other) const;
+    Skill operator+(const Skill& other) const;
     friend ostream& operator<<(ostream& os, const Skill& s);
 };
 
