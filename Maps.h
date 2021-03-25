@@ -15,13 +15,18 @@
 using namespace std;
 class Maps {
 private:
+    const char GRASS = '-';
+    const char WATER = 'o';
+    const char EMPTY = '#';
     char ** mapArea;
+    char ** mapTemplate;
     list<pair<Engimon,point>> wildEngimons;
     int totalRow;
     int totalColumn;
     int totalEngimonSpawned;
     int minLevel;
     pair<point,char> prevPlayerLocation;
+    point prevActiveEngimonLoc;
 public:
     int getTotalEngimonSpawned() const;
     void setTotalEngimonSpawned(int totalEngimonSpawned);
@@ -34,15 +39,15 @@ public:
     int getTotalColumn() const;
     void setTotalColumn(int totalColumn);
     void engimonRandomMove(Player & p);
-    void generateEngimon(Player & p);
+    void generateEngimon(Player & p, int round);
     bool isEmpty(int x, int y);
 public:
     const list<pair<Engimon, point>> &getWildEngimons() const;
 
 private:
     bool loadfile(string filename);
-
-
+    void loadPlayerPos(Player & p);
+    void refreshMap(Player & p);
 };
 
 
