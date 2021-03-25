@@ -52,10 +52,21 @@ int Player::calculateMaxAdvantageElement(Engimon sourceEngimon, Engimon compared
     return maxAdvantage;
 }
 
+int Player::calculateSkillPower(Engimon engimon) {
+    int skillPower = 0;
+    Skill* engimonSkills = engimon.getLearnedSkills();
+    for (int i = 0; i < engimon.getCountSkill(); i++)
+    {
+        skillPower += engimonSkills[i].getBasePower()*engimonSkills[i].getMasteryLevel();
+    }
+
+    return skillPower;
+}
+
 void Player::battle(Maps& M) {
     // cek adjacent tiles 
     list<pair<Engimon,point>> wildEngimons = M.getWildEngimons();
-    Engimon opponent("template", "template", "template", "template", 0);
+    Engimon opponent;
     int powerPlayer = 0;
     int powerOpp = 0;
     int maxAdvantagePlayer = -1;
@@ -161,17 +172,19 @@ void Player::battle(Maps& M) {
 
             // hitung total power dari skill
             // TODO : bikin method antara jg
-            Skill* engimonSkills = activeEngimon.getLearnedSkills();
-            for (int i = 0; i < activeEngimon.getCountSkill(); i++)
-            {
-                powerPlayer += engimonSkills[i].getBasePower()*engimonSkills[i].getMasteryLevel();
-            }
+            powerPlayer += calculateSkillPower(activeEngimon);
+            powerOpp += calculateSkillPower(opponent);
+            // Skill* engimonSkills = activeEngimon.getLearnedSkills();
+            // for (int i = 0; i < activeEngimon.getCountSkill(); i++)
+            // {
+            //     powerPlayer += engimonSkills[i].getBasePower()*engimonSkills[i].getMasteryLevel();
+            // }
             
-            Skill * opponentSkills = opponent.getLearnedSkills();
-            for (int i = 0; i < opponent.getCountSkill(); i++)
-            {
-                powerOpp += opponentSkills[i].getBasePower()*opponentSkills[i].getMasteryLevel();
-            }
+            // Skill * opponentSkills = opponent.getLearnedSkills();
+            // for (int i = 0; i < opponent.getCountSkill(); i++)
+            // {
+            //     powerOpp += opponentSkills[i].getBasePower()*opponentSkills[i].getMasteryLevel();
+            // }
 
             powerPlayer += activeEngimon.getLevel()*maxAdvantagePlayer;
             powerOpp += opponent.getLevel()*maxAdvantageOpp;
