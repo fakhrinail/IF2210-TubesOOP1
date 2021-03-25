@@ -2,10 +2,8 @@
 #include "Species.hpp"
 using namespace std;
 
-template<class T>
-int Inventory<T>::maxCapacity = 30;
-template<class T>
-int Inventory<T>::totalLoad = 0;
+int InventoryParent::maxCapacity = 30;
+int InventoryParent::totalLoad = 0;
 
 int main(){
     Skill Skill1("Earthquake", 0, 100, 31);
@@ -39,21 +37,27 @@ int main(){
  	cout << endl;
  	skillInventory.printItem();
 	skillInventory.getItem(2);
+	skillInventory.getItem(2);
+	skillInventory.getItem(2);
 	skillInventory.printItem();
 	skillInventory.showDetail(0);
 	skillInventory.showDetail(1);
 	skillInventory.showDetail(2);
 
-	cout << endl;
+	cout << InventoryParent::totalLoad << endl;
 
-	Firemon fire("fire1", "", "");
-	Electricmon pikachu("pikachu", "", "");
-	Groundmon ningguang("ningguang", "", "groundmon");
+	Firemon fire("fire1", "", "", 1);
+	Electricmon pikachu("pikachu", "", "", 5);
+	Groundmon ningguang("ningguang", "", "groundmon", 3);
 	Inventory<Engimon> engimonInventory;
 	engimonInventory.addItem(fire);
 	engimonInventory.addItem(pikachu);
 	engimonInventory.addItem(ningguang);
-	engimonInventory.addItem(fire);
+	try{
+		engimonInventory.addItem(fire);
+	}catch(char const* err){
+		cout << err << endl;
+	}
 	engimonInventory.printItem();
 	cout << endl;
 	engimonInventory.showDetail(2);

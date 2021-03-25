@@ -47,7 +47,7 @@ bool Skill::learnable(const Element& e) const {
 bool Skill::operator==(const Skill& other) const {
     return this->skillName == other.skillName;
 }
-void Skill::showDetails() const {
+void Skill::showDetail() const {
     cout << "Nama " << this->skillName << endl;
     cout << "Mastery Level " << this->masteryLevel << endl;
     cout << "Base Power " << this->basePower << endl;

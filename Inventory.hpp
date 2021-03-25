@@ -4,11 +4,15 @@
 #include <iostream>
 using namespace std;
 
+class InventoryParent {
+public:
+	static int maxCapacity;
+	static int totalLoad;
+};
+
 template <class	T>
-class Inventory {
+class Inventory : public InventoryParent {
 	private:
-		static int maxCapacity;
-		static int totalLoad;
 		int nbItems;
 		pair<T, int>* items;
 	public:
@@ -79,7 +83,7 @@ class Inventory {
 		}
 		void showDetail(int idx){
 			T take = this->items[idx].first;
-			take.showDetails();
+			take.showDetail();
 		}
 };
 #endif
