@@ -49,3 +49,19 @@ void point::randomPoint(int maxX, int maxY){
     x = rand() % (maxX+1);
     y = rand() % (maxY+1);
 }
+
+void point::incrementX() {
+    this->x++;
+}
+
+void point::incrementY() {
+	this->y++;
+}
+
+void point::decrementX() {
+	this->x--;
+}
+
+void point::decrementY() {
+	this->y--;
+}

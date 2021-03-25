@@ -26,6 +26,11 @@ public:
     void setY(int y);
 
     void randomPoint(int maxX, int maxY);
+
+    void incrementX();
+    void incrementY();
+    void decrementX();
+    void decrementY();
 };
 
 
