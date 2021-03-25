@@ -79,7 +79,7 @@ Element* Engimon::getElements(){
     return this->elements;
 }
 
-Skill* Engimon::getLeanedSkills(){
+Skill* Engimon::getLearnedSkills(){
     return this->learnedSkills;
 }
 

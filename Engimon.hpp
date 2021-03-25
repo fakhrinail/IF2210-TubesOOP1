@@ -34,7 +34,7 @@ class Engimon {
         int getCountElement();
         int getCountSkill();
         Element* getElements();
-        Skill* getLeanedSkills();
+        Skill* getLearnedSkills();
         // method lain
         virtual void interact();
         void addExperience(int);
