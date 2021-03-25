@@ -7,6 +7,7 @@ float Element::advantageChart[6][6] = { {0,0,0,0,0,0},
                                         {0,1,2,1,0,1.5},
                                         {0,1.5,1,2,1,0},
                                         {0,0,1,0.5,2,1}};
+string Element::elementNames[6] = {"None", "Fire", "Water", "Electric", "Ground", "Ice"};
 
 Element::Element(){
     this->elementID = -1;

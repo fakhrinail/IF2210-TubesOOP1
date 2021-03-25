@@ -1,7 +1,7 @@
 #include "Skill.hpp"
 using namespace std;
 
-Element Fire(0, "Fire");
+Element Fire("Fire");
 
 int main(){
     Skill Skill0();

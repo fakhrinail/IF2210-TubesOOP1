@@ -2,7 +2,6 @@
 #define __INVENTORY_HPP__
 
 #include <iostream>
-#include "Skill.hpp"
 using namespace std;
 
 template <class	T>
@@ -61,7 +60,6 @@ class Inventory {
 			}
 		}
 		void removeItem(int idx){
-			idx--;
 			if (this->items[idx].second > 1) {
 				this->items[idx].second--;
 			}
@@ -75,9 +73,13 @@ class Inventory {
 			this->nbItems--;
 		}
 		T getItem(int idx){
-			T take = new T(this->items[idx].first);
+			T take = this->items[idx].first;
 			this->removeItem(idx);
 			return take;
+		}
+		void showDetail(int idx){
+			T take = this->items[idx].first;
+			take.showDetails();
 		}
 };
 #endif

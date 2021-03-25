@@ -1,1 +1,1 @@
-g++ Inventory.cpp Skill.cpp Element.cpp -o InventoryDriver
+g++ InventoryDriver.cpp Skill.cpp Element.cpp -o InventoryDriver

@@ -6,7 +6,6 @@ using namespace std;
 
 class Element {
 protected:
-    static float advantageChart[6][6];
     int elementID;
     string elementName;
 public:
@@ -19,6 +18,9 @@ public:
     string getElementName() const;
     //Methods
     float getAdvantage(const Element& toCompare) const;
+
+    static float advantageChart[6][6];
+    static string elementNames[6];
 };
 
 #endif
