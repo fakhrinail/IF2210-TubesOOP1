@@ -1,1 +1,1 @@
-g++ Player.cpp PlayerDriver.cpp Engimon.cpp Species.cpp Skill.cpp Element.cpp point.cpp -o PlayerDriver
+g++ main.cpp Player.cpp Maps.cpp Battle.cpp Engimon.cpp Species.cpp Skill.cpp Element.cpp point.cpp -o main

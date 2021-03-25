@@ -1,5 +1,14 @@
-//
-// Created by abida on 22/03/2021.
-//
+#include "PlayerMaps.hpp"
+using namespace std;
+
+int InventoryParent::maxCapacity = 30;
+int InventoryParent::totalLoad = 0;
+
+int main(){
+    Maps M("tes.txt", 10, 25);
+    Firemon Kinon("fire1", "Bapak", "Cowok", "Ibu", "Cowok", 25);
+    Player Syamil(Kinon);
+    Syamil.doCommands(M);
+}
 
 

@@ -1,5 +1,5 @@
-#include "Player.hpp"
-#include <iostream>
+#include "PlayerMaps.hpp"
+#include <bits/stdc++.h>
 using namespace std;
 
 Player::Player(Engimon basic): playerPosition(), activeEngimonPos(0,1), inventoryE(), inventoryS() {
@@ -7,7 +7,7 @@ Player::Player(Engimon basic): playerPosition(), activeEngimonPos(0,1), inventor
 }
 
 Player::~Player() {}
-/*
+
 void Player::w() {
     this->activeEngimonPos = this->playerPosition;
     this->playerPosition.decrementX();
@@ -47,7 +47,7 @@ void Player::d() {
 		this->activeEngimonPos.incrementY();
 	}
 }
-*/
+
 
 void Player::manageActiveEngimon() {
     cout << "Active Engimon : \n";
@@ -222,29 +222,47 @@ void Player::addSkill(Skill s){
 		throw(err);
 	}
 }
-/*
-void Player::doCommands(Maps& M const){
+
+void Player::doCommands(Maps& M){
+    int round = 0;
     int entry;
+    M.generateEngimon(this->getPlayerPosition(), this->getActiveEngimonPos(), 5);
+    this->showCommands();
     while (true) {
+        M.showMap(this->getPlayerPosition(), this->getActiveEngimonPos());
         cout << "Enter your commands : ";
         cin >> entry;
         cout << endl;
         try {
+            round++;
             if (entry == 1){
-                if (!M.isValid()) throw("Cant Go That Way");
-                else this->w();
+                try{
+                    this->w();
+                }catch(const char* err){
+                    cout << err << endl;
+                }
             } 
             else if (entry == 2){
-				if (!M.isValid()) throw("Cant Go That Way");
-				else this->a();
+				try{
+                    this->a();
+                }catch(const char* err){
+                    cout << err << endl;
+                }
 			}
 			else if (entry == 3) {
-				if (!M.isValid()) throw("Cant Go That Way");
-				else this->s();
+				try{
+                    this->s();
+                }catch(const char* err){
+                    cout << err << endl;
+                }
 			}
 			else if (entry == 4) {
-				if (!M.isValid()) throw("Cant Go That Way");
-				else this->d();
+				try{
+                    this->d();
+
+                }catch(const char* err){
+                    cout << err << endl;
+                }
 			}
             else if (entry == 5) {
                 this->showCommands();
@@ -263,6 +281,7 @@ void Player::doCommands(Maps& M const){
 			}
 			else if (entry == 10) {
 				this->battle(M);
+                M.generateEngimon(this->getPlayerPosition(), this->getActiveEngimonPos(), round);
 			}
 			else if (entry == 11) {
 				break;
@@ -276,7 +295,6 @@ void Player::doCommands(Maps& M const){
     }
     cout << "Thanks for playing~~" << endl;
 }
-*/
 
 Engimon Player::getActiveEngimon(){
     return this->activeEngimon;
