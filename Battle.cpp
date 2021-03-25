@@ -5,6 +5,19 @@
 #include <cstdlib>
 using namespace std;
 
+void Player::printAsciiArt(string name) {
+    string x;
+    ifstream inFile;
+
+    inFile.open("./ascii/" + name + ".txt");
+
+    while (getline(inFile,x)) {
+        cout << x << endl ;
+    }
+
+    inFile.close();
+}
+
 int Player::calculateMaxAdvantageElement(Engimon sourceEngimon, Engimon comparedEngimon) {
     int advantage1;
     int advantage2;
@@ -69,20 +82,23 @@ void Player::battle(Maps& M) {
     Engimon opponent;
     int powerPlayer = 0;
     int powerOpp = 0;
-    int maxAdvantagePlayer = -1;
-    int maxAdvantageOpp = -1;
+    int maxAdvantagePlayer;
+    int maxAdvantageOpp;
+    int wildEngimonX;
+    int wildEngimonY;
     bool isEngimonAdjacent = false;
     bool battleEnded = false;
 
     // cek tempat engimon
     for (auto const& pairEngimonPoint : wildEngimons)
     {
-        int engimonX = pairEngimonPoint.second.getX();
-        int engimonY = pairEngimonPoint.second.getY();
-        if (abs(engimonX-playerPosition.getX()) <= 1 && abs(engimonY-playerPosition.getY()) <= 1)
+        wildEngimonX = pairEngimonPoint.second.getX();
+        wildEngimonY = pairEngimonPoint.second.getY();
+        if (abs(wildEngimonX-playerPosition.getX()) <= 1 && abs(wildEngimonY-playerPosition.getY()) <= 1)
         {
             isEngimonAdjacent = true;
             Engimon opponent = pairEngimonPoint.first; // pake operator= harusnya
+            printAsciiArt("battle");
             opponent.showDetail();
             break;
         }
@@ -90,7 +106,7 @@ void Player::battle(Maps& M) {
     
     if (!isEngimonAdjacent)
     {
-        cout << "Tidak ada engimon di dekat Anda" << endl;
+        cout << "There is no engimon adjacent to you" << endl;
     }
     else
     {
@@ -98,7 +114,6 @@ void Player::battle(Maps& M) {
         do
         {
             // ambil advantage
-            // TODO : rapiin masukin ke method antara
             maxAdvantagePlayer = calculateMaxAdvantageElement(activeEngimon, opponent);
             maxAdvantageOpp = calculateMaxAdvantageElement(opponent, activeEngimon);
             // Element * activeEngimonElements = activeEngimon.getElements();
@@ -171,7 +186,6 @@ void Player::battle(Maps& M) {
             // }
 
             // hitung total power dari skill
-            // TODO : bikin method antara jg
             powerPlayer += calculateSkillPower(activeEngimon);
             powerOpp += calculateSkillPower(opponent);
             // Skill* engimonSkills = activeEngimon.getLearnedSkills();
@@ -186,30 +200,30 @@ void Player::battle(Maps& M) {
             //     powerOpp += opponentSkills[i].getBasePower()*opponentSkills[i].getMasteryLevel();
             // }
 
+            // hitung total power
             powerPlayer += activeEngimon.getLevel()*maxAdvantagePlayer;
             powerOpp += opponent.getLevel()*maxAdvantageOpp;
+            cout << activeEngimon.getName() << "has " << powerPlayer << " VS " << opponent.getName() << " with " << powerOpp << endl;
 
             // compare stats
-            // bisa draw
             // TODO : bikin condition engimon habis
-            if (powerPlayer < powerOpp)
+            if (powerPlayer < powerOpp) // kalah
             {
-                // TODO : bikin layar ascii 
-                cout << "RIP " << activeEngimon.getName() << ", oh well it's dead" << endl;
-                activeEngimon.death(); // ??? bisa delete langsung atau harus simpan temp dulu
+                printAsciiArt("rip");
+                cout << "RIP " << activeEngimon.getName() << ", oh well anyway" << endl;
                 cout << "Choose a new Engimon!" << endl;
+                activeEngimon.death(); // ??? bisa delete langsung atau harus simpan temp dulu
                 callEngimon();
             }
-            else if (powerPlayer > powerOpp)
+            else if (powerPlayer > powerOpp) // menang
             {
                 try
                 {
-                    // TODO : bikin layar ascii
                     int expEarned = (activeEngimon.getLevel()/opponent.getLevel()) * 100;
-                    cout << "Congrats! You win" << endl;
+                    printAsciiArt("win");
                     cout << "Your " << activeEngimon.getName() << "got " << expEarned << " exp!" << endl;
-                    // TODO : remove dari list wild engimon
                     inventoryE.addItem(opponent);
+                    printAsciiArt("pokeball");
                     cout << "You got " << opponent.getName() << endl;
                 }
                 catch(char* const err)
@@ -219,10 +233,13 @@ void Player::battle(Maps& M) {
 
                 battleEnded = true;
             }
-            else
+            else // seri
             {
-                // TODO : bikin layar ascii
+                printAsciiArt("rip");
                 cout << "Well, you are both dead :(" << endl;
+                activeEngimon.death();
+                point wildEngimonPoint(wildEngimonX, wildEngimonY);
+                M.deleteWildEngimon(wildEngimonPoint);
                 opponent.death();
                 callEngimon();
                 battleEnded = true;
