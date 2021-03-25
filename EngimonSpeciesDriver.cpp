@@ -8,9 +8,9 @@ using namespace std;
 
 int main() {
   Engimon* listEngimon[4];
-  Firemon fire("fire1", "", "", 1);
+  Firemon fire("fire1", "", "", "", "", 1);
   listEngimon[0] = &fire;
-  listEngimon[1] = new Watermon("water1", "bopak", "lady gaga", 1);
+  listEngimon[1] = new Watermon("water1", "bopak", "lady gaga", "", "", 1);
 
   //detail
   listEngimon[0]->showDetail();

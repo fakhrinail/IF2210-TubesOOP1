@@ -3,7 +3,8 @@
 
 using namespace std;
 
-Firemon::Firemon(string _name, string _parentName, string _parentSpecies, int _level) : Engimon(_name, "Firemon", _parentName, _parentSpecies, _level){
+Firemon::Firemon(string _name, string _parentName, string _parentSpecies, string _parentName2, string _parentSpecies2, int _level) 
+: Engimon(_name, "Firemon", _parentName, _parentSpecies, _parentName2, _parentSpecies2,  _level){
     this->countSkill = 1;
     Skill Fireball("Fireball", 1, 100, 1);
     this->learnedSkills[0] = Fireball; 
@@ -19,7 +20,8 @@ void Firemon::interact(){
     cout << this->name << ": " << "Ready to burn down the forest, bos?" << endl;
 }
 
-Watermon::Watermon(string _name, string _parentName, string _parentSpecies, int _level) : Engimon(_name, "Watermon", _parentName, _parentSpecies, _level){
+Watermon::Watermon(string _name, string _parentName, string _parentSpecies, string _parentName2, string _parentSpecies2, int _level) 
+: Engimon(_name, "Watermon", _parentName, _parentSpecies, _parentName2, _parentSpecies2, _level){
     this->countSkill = 1;
     Skill Waterbom("Waterbom", 1, 100, 2);
     this->learnedSkills[0] = Waterbom; 
@@ -35,7 +37,8 @@ void Watermon::interact(){
     cout << this->name << ": " << "Even the atlantis was drowned." << endl;
 }
 
-Electricmon::Electricmon(string _name, string _parentName, string _parentSpecies, int _level) : Engimon(_name, "Electricmon", _parentName, _parentSpecies, _level){
+Electricmon::Electricmon(string _name, string _parentName, string _parentSpecies, string _parentName2, string _parentSpecies2, int _level) 
+: Engimon(_name, "Electricmon", _parentName, _parentSpecies, _parentName2, _parentSpecies2, _level){
     this->countSkill = 1;
     Skill Chidori("Chidori", 1, 100, 4);
     this->learnedSkills[0] = Chidori; 
@@ -51,7 +54,8 @@ void Electricmon::interact(){
     cout << this->name << ": " << "I'm the core of everything." << endl;
 }
 
-Groundmon::Groundmon(string _name, string _parentName, string _parentSpecies, int _level) : Engimon(_name, "Groundmon", _parentName, _parentSpecies, _level){
+Groundmon::Groundmon(string _name, string _parentName, string _parentSpecies, string _parentName2, string _parentSpecies2, int _level) 
+: Engimon(_name, "Groundmon", _parentName, _parentSpecies, _parentName2, _parentSpecies2, _level){
     this->countSkill = 1;
     Skill Pakubumi("Pakubumi", 1, 100, 8);
     this->learnedSkills[0] = Pakubumi; 
@@ -67,7 +71,8 @@ void Groundmon::interact(){
     cout << this->name << ": " << "Rule no.1: you make mistake, you grounded." << endl;
 }
 
-Icemon::Icemon(string _name, string _parentName, string _parentSpecies, int _level) : Engimon(_name, "Icemon", _parentName, _parentSpecies, _level){
+Icemon::Icemon(string _name, string _parentName, string _parentSpecies, string _parentName2, string _parentSpecies2, int _level) 
+: Engimon(_name, "Icemon", _parentName, _parentSpecies, _parentName2, _parentSpecies2, _level){
     this->countSkill = 1;
     Skill Freeze("Freeze", 1, 100, 16);
     this->learnedSkills[0] = Freeze; 
@@ -83,7 +88,8 @@ void Icemon::interact(){
     cout << this->name << ": " << "Icy bitsy spider." << endl;
 }
 
-Itachimon::Itachimon(string _name, string _parentName, string _parentSpecies, int _level) : Engimon(_name, "Itachimon", _parentName, _parentSpecies, _level){
+Itachimon::Itachimon(string _name, string _parentName, string _parentSpecies, string _parentName2, string _parentSpecies2, int _level) 
+: Engimon(_name, "Itachimon", _parentName, _parentSpecies, _parentName2, _parentSpecies2, _level){
     this->countSkill = 1;
     Skill Izanami("Izanami", 1, 100, 5);
     this->learnedSkills[0] = Izanami; 
@@ -101,7 +107,8 @@ void Itachimon::interact(){
     cout << this->name << ": " << "A nameless engimon Who protects peace within its shadows, that is a true engimon." << endl;
 }
 
-Telermon::Telermon(string _name, string _parentName, string _parentSpecies, int _level) : Engimon(_name, "Telermon", _parentName, _parentSpecies, _level){
+Telermon::Telermon(string _name, string _parentName, string _parentSpecies, string _parentName2, string _parentSpecies2, int _level) 
+: Engimon(_name, "Telermon", _parentName, _parentSpecies, _parentName2, _parentSpecies2, _level){
     this->countSkill = 1;
     Skill Drunk("Drunk", 0, 100, 18);
     this->learnedSkills[0] = Drunk; 
@@ -119,7 +126,8 @@ void Telermon::interact(){
     cout << this->name << ": " << "buuurrrrppppp...." << endl;
 }
 
-Narutomon::Narutomon(string _name, string _parentName, string _parentSpecies, int _level) : Engimon(_name, "Narutomon", _parentName, _parentSpecies, _level){
+Narutomon::Narutomon(string _name, string _parentName, string _parentSpecies, string _parentName2, string _parentSpecies2, int _level) 
+: Engimon(_name, "Narutomon", _parentName, _parentSpecies, _parentName2, _parentSpecies2, _level){
     this->countSkill = 1;
     Skill Rasengan("Rasengan", 0, 100, 10);
     this->learnedSkills[0] = Rasengan; 

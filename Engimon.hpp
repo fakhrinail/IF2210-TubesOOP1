@@ -11,8 +11,8 @@ class Engimon {
     protected:
         string name;
         string species;
-        string parentName;
-        string parentSpecies;
+        string *parentName;
+        string *parentSpecies;
         int countElement;
         int countSkill;
         Element *elements;
@@ -25,7 +25,7 @@ class Engimon {
     public:
         // 4 sekawan
         Engimon();
-        Engimon(string, string, string, string, int);
+        Engimon(string, string, string, string, string, string, int);
         Engimon(const Engimon&);
         Engimon& operator=(const Engimon&);
         virtual ~Engimon();
