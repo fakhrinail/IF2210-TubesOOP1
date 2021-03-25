@@ -42,7 +42,7 @@ float Skill::totalPower() const{
     return ((float) this->masteryLevel) * (this->basePower);
 }
 bool Skill::learnable(const Element& e) const {
-    return this->compatibleElements & (1<<e.getElementID());
+    return this->compatibleElements & (1<<(e.getElementID()-1));
 }
 bool Skill::operator==(const Skill& other) const {
     return this->skillName == other.skillName;

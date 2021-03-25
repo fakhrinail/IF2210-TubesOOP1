@@ -1,11 +1,11 @@
 #include "Element.hpp"
 using namespace std;
 
-Element Fire(0, "Fire");
-Element Water(1, "Water");
-Element Electric(2, "Electric");
-Element Ground(3, "Ground");
-Element Ice(4, "Ice");
+Element Fire("Fire");
+Element Water("Water");
+Element Electric("Electric");
+Element Ground("Ground");
+Element Ice("Ice");
 
 int main(){
     cout << Fire.getAdvantage(Ground) << endl;
