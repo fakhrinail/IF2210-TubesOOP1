@@ -124,7 +124,8 @@ void Engimon::death(){
 
 void Engimon::showDetail(){
     cout << "Nama " << this->name << endl;
-    cout << "Nama parent " << this->parentName << " spesiesnya " << this->parentSpecies << "." << endl;
+    cout << "Nama parent 1 " << this->parentName[0] << " spesiesnya " << this->parentSpecies[0] << "." << endl;
+    cout << "Nama parent 2 " << this->parentName[1] << " spesiesnya " << this->parentSpecies[1] << "." << endl;
     cout << "Level " << this->level << endl;
     cout << "Current Exp " << this->experience << endl;
     cout << "Akumulasi Exp " << this->cumulativeExperience << endl;
