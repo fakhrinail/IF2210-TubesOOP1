@@ -6,6 +6,7 @@
 #define COBACOBATUBES_MAPS_H
 #include <iostream>
 #include "Engimon.hpp"
+#include "Player.hpp"
 #include "point.h"
 #include <list>
 #include <string>
@@ -27,13 +28,14 @@ public:
     Maps(string filename, int spawnEngi, int minLevel);
     Maps(const Maps & map);
     ~Maps();
-    void showMap();
+    void showMap(Player & p);
     int getTotalRow() const;
     void setTotalRow(int totalRow);
     int getTotalColumn() const;
     void setTotalColumn(int totalColumn);
-    void engimonRandomMove();
-    void generateEngimon();
+    void engimonRandomMove(Player & p);
+    void generateEngimon(Player & p);
+    bool isEmpty(int x, int y);
 private:
     bool loadfile(string filename);
 

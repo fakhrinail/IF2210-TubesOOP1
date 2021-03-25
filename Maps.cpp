@@ -5,6 +5,7 @@
 #include "Maps.h"
 #include "Engimon.hpp"
 #include "point.h"
+#include "Player.hpp"
 #include <iostream>
 #include <list>
 #include <string>
@@ -33,7 +34,7 @@ Maps::Maps(const Maps &map) {
     }
 }
 
-void Maps::showMap() {
+void Maps::showMap(Player & p) {
     for(int i=0;i<totalRow;i++){
         for(int j=0;j<totalColumn;j++){
             cout<<mapArea[i][j];
@@ -77,7 +78,7 @@ bool Maps::loadfile(string filename) {
     }
 }
 
-void Maps::engimonRandomMove() {
+void Maps::engimonRandomMove(Player & p) {
     list<pair<Engimon,point>>::iterator it;
     for(it=wildEngimons.begin();it!=wildEngimons.end();it++){
         //REPLACE THE OLD PLACE WITH x OR o DEPENDS ON ENGIMON ELEMENTS
@@ -106,7 +107,7 @@ void Maps::engimonRandomMove() {
     }
 }
 
-void Maps::generateEngimon() {
+void Maps::generateEngimon(Player & p) {
     if(wildEngimons.size()<this->totalEngimonSpawned){
         point loc;
         loc.randomPoint(totalRow,totalColumn);
@@ -153,4 +154,16 @@ int Maps::getTotalEngimonSpawned() const {
 
 void Maps::setTotalEngimonSpawned(int totalEngimonSpawned) {
     Maps::totalEngimonSpawned = totalEngimonSpawned;
+}
+
+bool Maps::isEmpty(int x, int y){
+    if(x>=0 && x<totalRow && y>=0 && y<totalColumn){
+        if(mapArea[x][y]=='x' || mapArea[x][y]=='o'){
+            return true;
+        }else{
+            return false;
+        }
+    }else{
+        return false;
+    }
 }
