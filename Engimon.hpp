@@ -37,7 +37,7 @@ class Engimon {
         virtual void interact() = 0;
         void addExperience(int);
         void levelUp();
-        virtual void death() = 0;
+        void death();
         void showDetail();
         void learnSkill(Skill&);
         Engimon& operator+(Engimon&);

@@ -91,8 +91,14 @@ void Engimon::levelUp(){
     if (this->level+1 <= maxLevel && this->cumulativeExperience < maxCumulativeExperience){
         this->level++;
         this->experience = this->experience-100;
+    } else {
+        this->death();
     }
-    this->death();
+}
+
+void Engimon::death(){
+    cout << "Engimon " << this->name << " mati." << endl;
+    this->~Engimon();
 }
 
 void Engimon::showDetail(){

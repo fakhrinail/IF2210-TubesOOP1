@@ -17,11 +17,6 @@ Firemon::Firemon(string _name, string _parentName, string _parentSpecies) : Engi
 
 Firemon::~Firemon(){}
 
-void Firemon::death(){
-    cout << "Firemon " << this->name << " mati." << endl;
-    this->~Firemon();
-}
-
 void Firemon::interact(){
     cout << this->name << ": " << "Ready to burn down the forest, bos?" << endl;
 }
@@ -39,11 +34,6 @@ Watermon::Watermon(string _name, string _parentName, string _parentSpecies) : En
 }
 
 Watermon::~Watermon(){}
-
-void Watermon::death(){
-    cout << "Watermon " << this->name << " mati." << endl;
-    this->~Watermon();
-}
 
 void Watermon::interact(){
     cout << this->name << ": " << "Even the atlantis was drowned." << endl;
@@ -63,11 +53,6 @@ Electricmon::Electricmon(string _name, string _parentName, string _parentSpecies
 
 Electricmon::~Electricmon(){}
 
-void Electricmon::death(){
-    cout << "Electricmon " << this->name << " mati." << endl;
-    this->~Electricmon();
-}
-
 void Electricmon::interact(){
     cout << this->name << ": " << "I'm the core of everything." << endl;
 }
@@ -86,11 +71,6 @@ Groundmon::Groundmon(string _name, string _parentName, string _parentSpecies) : 
 
 Groundmon::~Groundmon(){}
 
-void Groundmon::death(){
-    cout << "Groundmon " << this->name << " mati." << endl;
-    this->~Groundmon();
-}
-
 void Groundmon::interact(){
     cout << this->name << ": " << "Rule no.1: you make mistake, you grounded." << endl;
 }
@@ -108,11 +88,6 @@ Icemon::Icemon(string _name, string _parentName, string _parentSpecies) : Engimo
 }
 
 Icemon::~Icemon(){}
-
-void Icemon::death(){
-    cout << "Icemon " << this->name << " mati." << endl;
-    this->~Icemon();
-}
 
 void Icemon::interact(){
     cout << this->name << ": " << "Icy bitsy spider." << endl;
