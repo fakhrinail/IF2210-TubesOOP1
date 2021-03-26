@@ -9,9 +9,6 @@ using namespace std;
 Maps::Maps(string filename, int spawnEngi, int minLevel) {
     totalEngimonSpawned = spawnEngi;
     this->minLevel = minLevel;
-    prevPlayerLocation.first= point(-1,-1);
-    prevPlayerLocation.second = EMPTY;
-    prevActiveEngimonLoc = point(-1,-1);
     if(!this->loadfile(filename)){
         throw "gagal load file";
     }
@@ -73,7 +70,6 @@ bool Maps::loadfile(string filename) {
             mapTemplate[i] = new char [totalColumn];
             while(haha[j]!='\0' && j<totalColumn){
                 mapArea[i][j] = EMPTY;
-                cout << (mapArea[i][j] == EMPTY);
                 mapTemplate[i][j] = haha[j];
                 j++;
             }
@@ -308,26 +304,23 @@ void Maps::loadPlayerPos(point p, point e){
             playerPoint.getY() < totalColumn
         )
     {
+        for(int i=0; i<totalRow; i++){
+            for(int j=0; j<totalColumn; j++){
+                if(mapArea[i][j] == 'P' || mapArea[i][j] == 'X'){
+                    mapArea[i][j] = EMPTY;
+                }
+            }
+        }
         cout << playerPoint.getX() << " " << playerPoint.getY() << endl;
-        cout << (mapArea[0][0] == EMPTY) << endl;
+        for(int i=0; i<this->totalRow; i++){
+            for(int j=0; j<this->totalColumn; j++){
+                cout << mapArea[i][j];
+            }
+            cout << endl;
+        }
         if(mapArea[playerPoint.getX()][playerPoint.getY()]==EMPTY){
-            if(prevPlayerLocation.first.getY()==-1 && prevPlayerLocation.first.getX()==-1){
-                mapArea[playerPoint.getX()][playerPoint.getY()] = 'P';
-                prevPlayerLocation.first = playerPoint;
-            }else{
-                mapArea[prevPlayerLocation.first.getX()][prevPlayerLocation.first.getY()] = EMPTY;
-                prevPlayerLocation.first = playerPoint;
-                mapArea[playerPoint.getX()][playerPoint.getY()] = 'P';
-            }
-
-            if(prevActiveEngimonLoc.getY()==-1 && prevActiveEngimonLoc.getX()==-1){
-                mapArea[activeEngimonPoint.getX()][activeEngimonPoint.getY()] = 'X';
-                prevActiveEngimonLoc = activeEngimonPoint;
-            }else{
-                mapArea[prevActiveEngimonLoc.getX()][prevActiveEngimonLoc.getY()] = EMPTY;
-                mapArea[activeEngimonPoint.getX()][activeEngimonPoint.getY()] = 'X';
-                prevActiveEngimonLoc = activeEngimonPoint;
-            }
+            mapArea[playerPoint.getX()][playerPoint.getY()] = 'P';
+            mapArea[activeEngimonPoint.getX()][activeEngimonPoint.getY()] = 'X';
         }else{
             throw ("player nabrak!");
         }
@@ -343,9 +336,6 @@ void Maps::refreshMap(point p, point e){
             mapArea[i][j] = EMPTY;
         }
     }
-    prevPlayerLocation.first= point(-1,-1);
-    prevPlayerLocation.second = EMPTY;
-    prevActiveEngimonLoc = point(-1,-1);
     loadPlayerPos(p, e);
     list<pair<Engimon,point> >::iterator it;
     for(it=wildEngimons.begin();it!=wildEngimons.end();it++){

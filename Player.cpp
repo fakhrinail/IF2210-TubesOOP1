@@ -11,41 +11,21 @@ Player::~Player() {}
 void Player::w() {
     this->activeEngimonPos = this->playerPosition;
     this->playerPosition.decrementX();
-    if (this->activeEngimonPos.getX() == this->playerPosition.getX()){
-        this->activeEngimonPos.incrementX();
-    } else {
-        this->activeEngimonPos.decrementX();
-    }
 }
 
 void Player::a() {
+    this->activeEngimonPos = this->playerPosition;
     this->playerPosition.decrementY();
-	if (this->activeEngimonPos.getY() == this->playerPosition.getY()) {
-		this->activeEngimonPos.incrementY();
-	}
-	else {
-		this->activeEngimonPos.decrementY();
-	}
 }
 
 void Player::s() {
+    this->activeEngimonPos = this->playerPosition;
     this->playerPosition.incrementX();
-	if (this->activeEngimonPos.getX() == this->playerPosition.getX()) {
-		this->activeEngimonPos.decrementX();
-	}
-	else {
-		this->activeEngimonPos.incrementX();
-	}
 }
 
 void Player::d() {
+    this->activeEngimonPos = this->playerPosition;
     this->playerPosition.incrementY();
-	if (this->activeEngimonPos.getY() == this->playerPosition.getY()) {
-		this->activeEngimonPos.decrementY();
-	}
-	else {
-		this->activeEngimonPos.incrementY();
-	}
 }
 
 

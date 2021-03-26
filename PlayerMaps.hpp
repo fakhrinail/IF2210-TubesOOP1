@@ -19,8 +19,6 @@ private:
     int totalColumn;
     int totalEngimonSpawned;
     int minLevel;
-    pair<point,char> prevPlayerLocation;
-    point prevActiveEngimonLoc;
 public:
     int getTotalEngimonSpawned() const;
     void setTotalEngimonSpawned(int totalEngimonSpawned);
