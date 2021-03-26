@@ -104,6 +104,8 @@ void Player::battle(Maps& M) {
             {
                 try
                 {
+                    point wildEngimonPoint(wildEngimonX, wildEngimonY);
+                    M.deleteWildEngimon(wildEngimonPoint);
                     int expEarned = (opponent.getLevel() * 100 / activeEngimon.getLevel());
                     printAsciiArt("win");
                     cout << "Your " << activeEngimon.getName() << "got " << expEarned << " exp!" << endl;

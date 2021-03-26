@@ -211,7 +211,7 @@ ostream& operator<<(ostream& os, const Engimon& s){
     os << s.getName();
     return os;
 }
-
+/*
 Engimon Engimon::operator+(Engimon& other){
     if (this->level > 30 && other.level > 30){
         //proses
@@ -286,6 +286,7 @@ Engimon Engimon::operator+(Engimon& other){
         return NULL;
     }
 }
+*/
 
 int deleteElementS(Skill* arrS, int n, Skill x)
 {

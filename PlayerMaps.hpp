@@ -25,7 +25,7 @@ public:
     Maps(string filename, int spawnEngi, int minLevel);
     Maps(const Maps & map);
     ~Maps();
-    void showMap(point p, point e);
+    void showMap(point p, point e, int round);
     int getTotalRow() const;
     void setTotalRow(int totalRow);
     int getTotalColumn() const;
@@ -53,10 +53,6 @@ class Player {
     public :
         Player(Engimon basic);
         ~Player();
-        void w();
-        void a();
-        void s();
-        void d();
         void battle(Maps& M);
         void manageActiveEngimon();
         void setActiveEngimon();

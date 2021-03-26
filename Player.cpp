@@ -8,34 +8,13 @@ Player::Player(Engimon basic): playerPosition(), activeEngimonPos(0,1), inventor
 
 Player::~Player() {}
 
-void Player::w() {
-    this->activeEngimonPos = this->playerPosition;
-    this->playerPosition.decrementX();
-}
-
-void Player::a() {
-    this->activeEngimonPos = this->playerPosition;
-    this->playerPosition.decrementY();
-}
-
-void Player::s() {
-    this->activeEngimonPos = this->playerPosition;
-    this->playerPosition.incrementX();
-}
-
-void Player::d() {
-    this->activeEngimonPos = this->playerPosition;
-    this->playerPosition.incrementY();
-}
-
-
 void Player::manageActiveEngimon() {
     cout << "Active Engimon : \n";
     this->activeEngimon.showDetail();
     cout << endl;
     cout << "What are you going to do?\n";
     cout << "1. Change Engimon\n";
-    cout << "2. Interact\n"
+    cout << "2. Interact\n";
     cout << "3. Back\n";
     cout << "(choose the number)\n";
     int entry;
@@ -226,68 +205,73 @@ void Player::addSkill(Skill s){
 }
 
 void Player::doCommands(Maps& M){
-    int round = 0;
+    int round = 1;
     string entry;
-    M.generateEngimon(this->getPlayerPosition(), this->getActiveEngimonPos(), 5);
+    for(int i=0; i<M.getTotalEngimonSpawned(); i++){
+        M.generateEngimon(this->getPlayerPosition(), this->getActiveEngimonPos(), 50);
+    }
+    M.showMap(this->getPlayerPosition(), this->getActiveEngimonPos(), round);
     while (true) {
-        M.showMap(this->getPlayerPosition(), this->getActiveEngimonPos());
         this->showCommands();
         cout << "Enter your commands : " << endl;
         cin >> entry;
         cout << endl;
         try {
-            round++;
-            if (entry == "W" || entry == "w"){
+            if(entry.length() == 1){
+                //pasti gerak
+                int shiftx = 0;
+                int shifty = 0;
+                if (entry == "W" || entry == "w"){
+                    shiftx--;
+                } 
+                else if (entry == "A" || entry == "a"){
+                    shifty--;
+                }
+                else if (entry == "S" || entry == "s") {
+                    shiftx++;
+                }
+                else if (entry == "D" || entry == "d") {
+                    shifty++;
+                }else{
+                    throw("Invalid command");
+                }
+                point toMove(this->playerPosition.getX()+shiftx, this->playerPosition.getY()+shifty);
+                
+                
                 try{
-                    this->w();
+                    M.showMap(toMove, this->playerPosition, round);
+                    this->activeEngimonPos = this->playerPosition;
+                    this->playerPosition = toMove;
                 }catch(const char* err){
                     cout << err << endl;
+                    M.showMap(this->getPlayerPosition(), this->getActiveEngimonPos(), round);
                 }
-            } 
-            else if (entry == "A" || entry == "a"){
-				try{
-                    this->a();
-                }catch(const char* err){
-                    cout << err << endl;
+                round++;
+            }else{
+                if (entry == "Commands" || entry == "commands") {
+                    this->showCommands();
                 }
-			}
-			else if (entry == "S" || entry == "s") {
-				try{
-                    this->s();
-                }catch(const char* err){
-                    cout << err << endl;
+                else if (entry == "Inventory" || entry == "inventory") {
+                    this->detailsMenu();
                 }
-			}
-			else if (entry == "D" || entry == "d") {
-				try{
-                    this->d();
-
-                }catch(const char* err){
-                    cout << err << endl;
+                else if (entry == "Item" || entry == "item") {
+                    this->useSkill();
                 }
-			}
-            else if (entry == "Commands" || entry == "commands") {
-                this->showCommands();
-			}
-            else if (entry == "Inventory" || entry == "inventory") {
-                this->detailsMenu();
-            }
-			else if (entry == "Item" || entry == "item") {
-				this->useSkill();
-			}
-			else if (entry == "Manage" || entry == "manage") {
-				this->manageActiveEngimon();
-			}
-			else if (entry == "Breeding" || entry == "breeding") {
-				this->breedingMenu();
-			}
-			else if (entry == "Battle" || entry == "battle") {
-				this->battle(M);
-			}
-			else if (entry == "Exit" || entry == "exit") {
-				break;
-            } else {
-                throw("Invalid command");
+                else if (entry == "Manage" || entry == "manage") {
+                    this->manageActiveEngimon();
+                }
+                else if (entry == "Breeding" || entry == "breeding") {
+                    this->breedingMenu();
+                }
+                else if (entry == "Battle" || entry == "battle") {
+                    this->battle(M);
+                }
+                else if (entry == "Exit" || entry == "exit") {
+                    break;
+                } else {
+                    throw("Invalid command");
+                }
+                M.showMap(this->getPlayerPosition(), this->getActiveEngimonPos(), round);
             }
         }
         catch (const char* err) {

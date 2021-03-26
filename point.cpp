@@ -46,8 +46,8 @@ point::point(){
 }
 
 void point::randomPoint(int maxX, int maxY){
-    x = rand() % (maxX+1);
-    y = rand() % (maxY+1);
+    x = rand() % (maxX);
+    y = rand() % (maxY);
 }
 
 bool point::operator==(const point & p2){

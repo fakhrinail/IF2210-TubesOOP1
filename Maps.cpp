@@ -34,11 +34,15 @@ Maps::Maps(const Maps &map) {
     }
 }
 
-void Maps::showMap(point p, point e) {
+void Maps::showMap(point p, point e, int round) {
     try{
         this->loadPlayerPos(p, e);
     }catch(const char* err){
-        cout << err << endl;
+        throw(err);
+    }
+    if(round%3 == 0){
+        this->generateEngimon(p, e, 50);
+        this->engimonRandomMove(p, e);
     }
     for(int i=0;i<totalRow;i++){
         for(int j=0;j<totalColumn;j++){
@@ -98,51 +102,58 @@ void Maps::engimonRandomMove(point p, point e) {
         if(it->second.getX()!=-1 && it->second.getY()!=-1){
             int seedX = (rand()%3)-1;
             int seedY = (rand()%3)-1;
-            while (seedX==0 && seedY==0){
-                int seedX = (rand()%3)-1;
-                int seedY = (rand()%3)-1;
-            }
             //REPLACE THE OLD PLACE WITH x OR o DEPENDS ON ENGIMON ELEMENTS
             int nElmt = it->first.getCountElement();
             int E1 = it->first.getElements()[0].getElementID();
             int tempX = it->second.getX()+seedX;
             int tempY = it->second.getY()+seedY;
-
-            if(nElmt==1){
-                if(E1 == 1 || E1==3 || E1==4){ //fire electric ground
-                    if(mapTemplate[tempX][tempY]==GRASS && mapArea[tempX][tempY]==EMPTY){
-                        it->second.setX(tempX);
-                        it->second.setY(tempY);
+            if(tempX>=0 && tempY>=0 && tempX<totalRow && tempY<totalColumn && seedX!=0 && seedY!=0){
+                if(nElmt==1){
+                    if(E1 == 1 || E1==3 || E1==4){ //fire electric ground
+                        if(mapTemplate[tempX][tempY]==GRASS && mapArea[tempX][tempY]==EMPTY){
+                            mapArea[tempX][tempY] = mapArea[it->second.getX()][it->second.getY()];
+                            mapArea[it->second.getX()][it->second.getY()] = EMPTY;
+                            it->second.setX(tempX);
+                            it->second.setY(tempY);
+                        }
+                    }else if(E1==2 || E1 == 5){ //water ice
+                        if(mapTemplate[tempX][tempY]==WATER && mapArea[tempX][tempY]==EMPTY){
+                            mapArea[tempX][tempY] = mapArea[it->second.getX()][it->second.getY()];
+                            mapArea[it->second.getX()][it->second.getY()] = EMPTY;
+                            it->second.setX(tempX);
+                            it->second.setY(tempY);
+                        }
                     }
-                }else if(E1==2 || E1 == 5){ //water ice
-                    if(mapTemplate[tempX][tempY]==WATER && mapArea[tempX][tempY]==EMPTY){
-                        it->second.setX(tempX);
-                        it->second.setY(tempY);
+                }else if(nElmt==2){
+                    int E2 = it->first.getElements()[1].getElementID();
+                    if((E1==1 && E2==3)||(E1==3 && E2==1)){ //itachimon fire - electric
+                        if(mapTemplate[tempX][tempY]==GRASS && mapArea[tempX][tempY]==EMPTY){
+                            mapArea[tempX][tempY] = mapArea[it->second.getX()][it->second.getY()];
+                            mapArea[it->second.getX()][it->second.getY()] = EMPTY;
+                            it->second.setX(tempX);
+                            it->second.setY(tempY);
+                        }
+                    }else if((E1==2 && E2==4)||(E1==4 && E2==2)){ //narutomon water-ground
+                        if(mapArea[tempX][tempY]==EMPTY){
+                            mapArea[tempX][tempY] = mapArea[it->second.getX()][it->second.getY()];
+                            mapArea[it->second.getX()][it->second.getY()] = EMPTY;
+                            it->second.setX(tempX);
+                            it->second.setY(tempY);
+                        }
+                    }else if((E1==1 && E2==5)||(E1==5 && E2==1)){ //telermon ice-water
+                        if(mapTemplate[tempX][tempY]==WATER && mapArea[tempX][tempY]==EMPTY){
+                            mapArea[tempX][tempY] = mapArea[it->second.getX()][it->second.getY()];
+                            mapArea[it->second.getX()][it->second.getY()] = EMPTY;
+                            it->second.setX(tempX);
+                            it->second.setY(tempY);
+                        }
                     }
                 }
-            }else if(nElmt==2){
-                int E2 = it->first.getElements()[1].getElementID();
-                if((E1==1 && E2==3)||(E1==3 && E2==1)){ //itachimon fire - electric
-                    if(mapTemplate[tempX][tempY]==GRASS && mapArea[tempX][tempY]==EMPTY){
-                        it->second.setX(tempX);
-                        it->second.setY(tempY);
-                    }
-                }else if((E1==2 && E2==4)||(E1==4 && E2==2)){ //narutomon water-ground
-                    if(mapArea[tempX][tempY]==EMPTY){
-                        it->second.setX(tempX);
-                        it->second.setY(tempY);
-                    }
-                }else if((E1==1 && E2==5)||(E1==5 && E2==1)){ //telermon ice-water
-                    if(mapTemplate[tempX][tempY]==WATER && mapArea[tempX][tempY]==EMPTY){
-                        it->second.setX(tempX);
-                        it->second.setY(tempY);
-                    }
-                }
-            }
+            } 
         }
     }
 
-    refreshMap(p, e);
+    //refreshMap(p, e);
 
 }
 
@@ -155,18 +166,16 @@ void Maps::generateEngimon(point p, point e, int round) {
             cout << err << endl;
         }
 
-        point loc(1,1);
-        // loc.randomPoint(totalRow,totalColumn);
+        point loc;
+        loc.randomPoint(totalRow,totalColumn);
 
-        // //UNTUK MEMASTIKAN DIGENERATE DI LAHAN KOSONG
-        // while (mapArea[loc.getX()][loc.getY()]!=EMPTY) {
-        //     loc.randomPoint(totalRow,totalColumn);
-        // }
-
-        int lvl = (rand()%(round/2))%50;
+        //UNTUK MEMASTIKAN DIGENERATE DI LAHAN KOSONG
+        while (mapArea[loc.getX()][loc.getY()]!=EMPTY) {
+            loc.randomPoint(totalRow,totalColumn);
+        }
+        int lvl = rand()%round;
         if(mapTemplate[loc.getX()][loc.getY()]==GRASS){
-            //int pil = rand()%5+1;
-            int pil = 1;
+            int pil = rand()%5+1;
             if(pil==1){
                 Groundmon E("randomGM","","","","",lvl);
                 wildEngimons.push_back(
@@ -422,8 +431,8 @@ bool Maps::deleteWildEngimon(point p){
             it++;
         }
     }
-
     if(flag){
+        mapArea[it->second.getX()][it->second.getY()] = EMPTY;
         wildEngimons.erase(it);
     }
     return flag;
