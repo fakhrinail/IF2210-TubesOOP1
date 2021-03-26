@@ -31,6 +31,7 @@ class Engimon {
         virtual ~Engimon();
         // getter setter
         string getName() const;
+        void setName(string name);
         int getCountElement() const;
         int getCountSkill() const;
         int getLevel() const;

@@ -215,7 +215,7 @@ ostream& operator<<(ostream& os, const Engimon& s){
     os << s.getName();
     return os;
 }
-/*
+
 Engimon Engimon::operator+(Engimon& other){
     if (this->level > 30 && other.level > 30){
         //string nama; cout << "Masukan nama";
@@ -312,38 +312,46 @@ Engimon Engimon::operator+(Engimon& other){
                child.elements[1] = other.elements[0];
             }
         }
-        cout << "Error1";
         //Skill
         Skill* this_Skill = this->getLearnedSkills(); int this_size = this->getCountSkill();
         Skill* other_Skill = other.getLearnedSkills(); int other_size = other.countSkill;
         int count = 0;
+        
         while (count < 3){
-            cout << "Error2";
             int this_i = 0; int other_i = 0;
             int maxMasterythis = 0; int maxMasteryother = 0;
             while (this_i < this_size){
-                if (this_Skill[this_i].getMasteryLevel() > maxMasterythis){
+                if (this_Skill[this_i].getMasteryLevel() > this_Skill[maxMasterythis].getMasteryLevel()){
                     maxMasterythis = this_i;
                 }
                 this_i++;
             }
             while (other_i < other_size){
-                if (other_Skill[other_i].getMasteryLevel() > maxMasteryother){
+                if (other_Skill[other_i].getMasteryLevel() > other_Skill[maxMasteryother].getMasteryLevel()){
                     maxMasteryother = other_i;
                 }
                 other_i++;
             }
             if (this_Skill[maxMasterythis].getMasteryLevel() >= other_Skill[maxMasteryother].getMasteryLevel()){
                 int idx = findSkill(child.learnedSkills, this_size, this_Skill[maxMasterythis]);
+                
                 if (idx < 0){
-                    child.learnSkill(this_Skill[maxMasterythis]);
+                    try{
+                        child.learnSkill(this_Skill[maxMasterythis]);
+                    }catch(const char* err){
+                        
+                    }
                     count++;
                 }
                 this_size = deleteSkill(this_Skill, this_size, this_Skill[maxMasterythis]);
             } else {
                 int idx = findSkill(child.learnedSkills, other_size, other_Skill[maxMasteryother]);
                 if (idx < 0){
-                    child.learnSkill(other_Skill[maxMasteryother]);
+                    try{
+                        child.learnSkill(this_Skill[maxMasteryother]);
+                    }catch(const char* err){
+                        
+                    }
                     count++;
                 }
                 other_size = deleteSkill(other_Skill, other_size, other_Skill[maxMasteryother]);
@@ -353,13 +361,16 @@ Engimon Engimon::operator+(Engimon& other){
         
         this->level -= 30;
         other.level -= 30;
+        child.parentName[0] = this->name;
+        child.parentName[1] = other.name;
+        child.parentSpecies[0] = this->species;
+        child.parentSpecies[1] = other.species;
         return child;
     } else{
         //pesan kesalahan
-        throw;
+        throw("Level salah satu orang tua tidak mencukupi");
     }
 }
-*/
 
 int deleteSkill(Skill* arrS, int n, Skill x)
 {
@@ -391,7 +402,13 @@ int findSkill(Skill* arrS, int n, Skill x){
 }
 
 float max(float a, float b){
-    if (a > b){
+    if(a>b){
         return a;
-    } return b;
+    }else{
+        return b;
+    }
+}
+
+void Engimon::setName(string name){
+    this->name = name;
 }

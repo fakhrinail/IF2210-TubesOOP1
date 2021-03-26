@@ -98,7 +98,11 @@ void Player::battle(Maps& M) {
                 cout << "RIP " << activeEngimon.getName() << ", oh well anyway" << endl;
                 cout << "Choose a new Engimon!" << endl;
                 activeEngimon.death(); // ??? bisa delete langsung atau harus simpan temp dulu
-                callEngimon();
+                try{
+                    callEngimon();
+                }catch(int nol){
+                    throw 0;
+                }
             }
             else if (powerPlayer > powerOpp) // menang
             {

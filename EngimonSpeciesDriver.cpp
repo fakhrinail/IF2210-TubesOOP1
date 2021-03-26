@@ -6,39 +6,19 @@
 
 using namespace std;
 
-int main() {
-  Engimon* listEngimon[4];
-  Firemon fire("fire1", "", "", "", "", 1);
-  listEngimon[0] = &fire;
-  listEngimon[1] = new Watermon("water1", "bopak", "lady gaga", "bapok", "gagah", 1);
-
-  //detail
-  listEngimon[0]->showDetail();
-  listEngimon[1]->showDetail();
-
-  cout << "\nlearn skill" << endl;
-  Skill sharingan("sharingan", 0, 100, 1);
-  listEngimon[0]->learnSkill(sharingan);
-  listEngimon[0]->learnSkill(sharingan);
-  Skill shaingan("shaingan", 0, 100, 1);
-  listEngimon[0]->learnSkill(shaingan);
-  Skill sharinggan("sharinggan", 0, 100, 1);
-  listEngimon[0]->learnSkill(sharinggan);
-  Skill sharinan("sharinan", 0, 100, 1);
-  listEngimon[0]->learnSkill(sharinan);
-  listEngimon[0]->addExperience(4000);
-  cout << listEngimon[0]->getCountSkill() << 
-  listEngimon[1]->getCountElement() << listEngimon[1]->getName() << endl;
-
-  cout << "\ndetail setelah ditambah" << endl;
-  listEngimon[0]->showDetail();
-
-  //interact coba
-  cout << "\ninteract engimon" << endl;
-  listEngimon[0]->interact();
-  listEngimon[1]->interact();
-
-  listEngimon[0]->death();
-
-  return 0;
+int main(){
+    Firemon arcanine("archy", "", "", "", "", 31);
+    Firemon ninetales("nales", "", "", "", "", 31);
+    Skill bite("bite", 2, 60, 1); arcanine.learnSkill(bite);
+    Skill flamethrower("flamethrower", 4, 95, 1); arcanine.learnSkill(flamethrower);
+    Skill extremespeed("extremespeed", 3, 80, 1); arcanine.learnSkill(extremespeed);
+    //
+    Skill shadowball("shadowball", 2, 80, 1); ninetales.learnSkill(shadowball);
+    Skill fireblast("fireblast", 4, 120, 1); ninetales.learnSkill(fireblast);
+    Skill solarbeam("solarbeam", 3, 80, 1); ninetales.learnSkill(solarbeam);
+    //
+    arcanine.showDetail();
+    ninetales.showDetail();
+    Engimon fennekin = arcanine+ninetales;
+    fennekin.showDetail();
 }

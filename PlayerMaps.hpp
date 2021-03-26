@@ -60,7 +60,7 @@ class Player {
         void printAllInventory();
         void detailsMenu();
         void useSkill();
-        void breedingMenu();
+        void breedingMenu(string name);
         void showCommands();
         void addEngimon(Engimon e);
         void addSkill(Skill s);

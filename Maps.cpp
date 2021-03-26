@@ -173,7 +173,7 @@ void Maps::generateEngimon(point p, point e, int round) {
         while (mapArea[loc.getX()][loc.getY()]!=EMPTY) {
             loc.randomPoint(totalRow,totalColumn);
         }
-        int lvl = rand()%round;
+        int lvl = (rand()%(round-1))+1;
         if(mapTemplate[loc.getX()][loc.getY()]==GRASS){
             int pil = rand()%5+1;
             if(pil==1){

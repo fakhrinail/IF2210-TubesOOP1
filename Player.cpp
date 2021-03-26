@@ -54,13 +54,16 @@ void Player::setActiveEngimon(){
 }
 
 void Player::callEngimon() {
+    if(this->inventoryE.getLastIdx()==0){
+        throw 0;
+    }
     cout << "Your active engimon is dead\n";
 	cout << "\n" << "List Engimon : \n";
 	this->inventoryE.printItem();
 	cout << "Choose the engimon number : \n";
 	int choosenNum;
 	cin >> choosenNum;
-	this->activeEngimon = this->inventoryE.getItem(choosenNum);
+	this->activeEngimon = this->inventoryE.getItem(choosenNum-1);
 	cout  << "Change successful\n";
 }
 
@@ -156,42 +159,29 @@ void Player::useSkill(){
 	cout << "Choose the item number : \n";
 }
 
-void Player::breedingMenu() {
-    int entry1;
-    int entry2;
+void Player::breedingMenu(string name) {
+    int entry;
 	cout << "\n" << "List Engimon : \n";
-    cout << "0. " << this->activeEngimon.getName() << " (active)" << endl;
+    cout << this->activeEngimon.getName() << " (active)" << endl;
 	this->inventoryE.printItem();
-	cout << "Choose the engimon number for parent 1: ";
-	cin >> entry1;
     while (true) {
-		cout << "\n" << "Choose the engimon number for parent 2: ";
-		cin >> entry2;
-        if (entry2 == entry1) {
-            cout << "Parent 1 and parent 2 must be different\n";
-        } else break;
+		cout << "\n" << "Choose the engimon number for your active engimon's mating partner: ";
+		cin >> entry;
+        if(entry<=0 || entry>inventoryE.getLastIdx()){
+            cout << "Please enter a valid index." << endl;
+        }else{
+            break;
+        }
     }
-    Engimon parent1;
-    Engimon parent2;
-    if (entry1 == 0) {
-        parent1 = this->activeEngimon;
-    }
-    else {
-        parent1 = this->inventoryE.getItem(entry1-1);
-        if (entry2 > entry1) entry2--;
-    }
-	if (entry2 == 0) {
-		parent2 = this->activeEngimon;
-	}
-	else {
-		parent1 = this->inventoryE.getItem(entry2-1);
-	}
-    //Engimon child = breeding(parent1, parent2);
-    /*if (child != NULL){
+    Engimon partner =  this->inventoryE.getItem(entry-1);
+    try{
+        Engimon child = this->activeEngimon + partner;
+        child.setName(name);
         this->inventoryE.addItem(child);
-        if (entry1 != 0) this->inventoryE.addItem(parent1);
-        if (entry2 != 0) this->inventoryE.addItem(parent2);
-    }*/
+    }catch(const char* err){
+        cout << err << endl;
+    }
+    this->inventoryE.addItem(partner);
 }
 
 void Player::showCommands(){
@@ -282,10 +272,23 @@ void Player::doCommands(Maps& M){
                     this->manageActiveEngimon();
                 }
                 else if (entry == "Breeding" || entry == "breeding") {
-                    this->breedingMenu();
+                    if(InventoryParent::totalLoad == InventoryParent::maxCapacity){
+                        cout << "Tolong bertanggung jawab dan ikuti KB (inventory full)" << endl;
+                        cout << "Anda tidak bisa asal buat anak kalau ga mampu besarin" << endl;
+                    }else{
+                        cout << "Namakan anak anda mau siapa: " << endl;
+                        string name;
+                        cin >> name;
+                        this->breedingMenu(name);
+                    }
                 }
                 else if (entry == "Battle" || entry == "battle") {
-                    this->battle(M);
+                    try{
+                        this->battle(M);
+                    }catch(int nol){
+                        cout << "Game over" << endl;
+                        break;
+                    }
                 }
                 else if (entry == "Exit" || entry == "exit") {
                     break;
