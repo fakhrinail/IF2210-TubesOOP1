@@ -43,10 +43,14 @@ void Player::setActiveEngimon(){
     cout << "Choose the engimon number : \n";
     int choosenNum;
     cin >> choosenNum;
-    Engimon choosenEngimon = this->inventoryE.getItem(choosenNum-1);
-    this->inventoryE.addItem(this->activeEngimon);
-    this->activeEngimon = choosenEngimon;
-    cout << "Change successful\n";
+    if(choosenNum > this->inventoryE.getLastIdx() || choosenNum<=0){
+        cout << "Please choose a valid index" << endl;
+    }else{
+        Engimon choosenEngimon = this->inventoryE.getItem(choosenNum-1);
+        this->inventoryE.addItem(this->activeEngimon);
+        this->activeEngimon = choosenEngimon;
+        cout << "Change successful\n";
+    }
 }
 
 void Player::callEngimon() {
@@ -88,10 +92,18 @@ void Player::detailsMenu() {
             cin >> codeEntry.second;
             cout << endl;
             if (codeEntry.first == 'E') {
-                this->inventoryE.showDetail(codeEntry.second-1);
+                if(codeEntry.second > inventoryE.getLastIdx() || codeEntry.second <= 0){
+                    cout << "Please enter valid index" << endl;
+                }else{
+                    this->inventoryE.showDetail(codeEntry.second-1);
+                }
             }
             else if (codeEntry.first == 'S') {
-                this->inventoryS.showDetail(codeEntry.second-1);
+                if(codeEntry.second > inventoryS.getLastIdx() || codeEntry.second <= 0){
+                    cout << "Please enter valid index" << endl;
+                }else{
+                    this->inventoryS.showDetail(codeEntry.second-1);
+                }
             }
             else {
                 cout << "Invalid code\n";
@@ -109,9 +121,9 @@ void Player::detailsMenu() {
 
 void Player::useSkill(){
 	cout << "\n" << "List Item : \n";
-	this->inventoryS.printItem();
 	int entry;
     while (true) {
+        this->inventoryS.printItem();
         cout << "Choose action : \n";
         cout << "1. Use skill item\n";
         cout << "2. Back\n";
@@ -122,8 +134,17 @@ void Player::useSkill(){
 			cout << "Choose the item number : \n";
 			int choosenNum;
 			cin >> choosenNum;
-			Skill choosenItem = this->inventoryS.getItem(choosenNum - 1);
-			this->activeEngimon.learnSkill(choosenItem);
+            if(choosenNum>inventoryS.getLastIdx() || choosenNum <=0){
+                cout << "Please enter existing index" << endl;
+            }else{
+                Skill choosenItem = this->inventoryS.getItem(choosenNum - 1);
+                try{
+                    this->activeEngimon.learnSkill(choosenItem);
+                }catch(const char* err){
+                    cout << err << endl;
+                    this->inventoryS.addItem(choosenItem);
+                }
+            }
         }
         else if (entry == 2) {
             break;

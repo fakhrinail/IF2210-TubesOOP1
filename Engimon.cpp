@@ -171,34 +171,37 @@ void Engimon::learnSkill(Skill& s){
     }
     
     if (isLearned) {
-        cout << "Engimon sudah memiliki skill " << s.getSkillName() << endl;
-    } else if (this->countSkill == 4) {
-        int toReplace;
-        cout << "Skill engimon sudah penuh." << endl;
-
-        for (int k=0; k<this->countSkill; k++) {
-            cout << k+1 << ". " << this->learnedSkills[k] << endl;
-        }
-        
-        cout << "Pilih urutan skill untuk di replace(1,2,3,4): ";
-        cin >> toReplace;
-        this->learnedSkills[toReplace-1] = s;
-        cout << "Engimon berhasil mereplace skill slot " << toReplace << " dengan " << s.getSkillName() << endl;
+        throw("Engimon sudah memiliki skill tersebut");
     } else {
         bool isLearnable = false; int j = 0;
 
         while (!isLearnable && j < this->countElement) {
             if (s.learnable(this->elements[j])) {
-                this->learnedSkills[this->countSkill] = s;
-                this->countSkill++;
-                isLearnable = true;
-                cout << "Engimon berhasil mempelajari skill " << s.getSkillName() << endl;
+                if(this->countSkill == 4){
+                    int toReplace;
+                    cout << "Skill engimon sudah penuh." << endl;
+
+                    for (int k=0; k<this->countSkill; k++) {
+                        cout << k+1 << ". " << this->learnedSkills[k] << endl;
+                    }
+            
+                    cout << "Pilih urutan skill untuk di replace(1,2,3,4): ";
+                    cin >> toReplace;
+                    this->learnedSkills[toReplace-1] = s;
+                    cout << "Engimon berhasil mereplace skill slot " << toReplace << " dengan " << s.getSkillName() << endl;
+                }else{
+                    this->learnedSkills[this->countSkill] = s;
+                    this->countSkill++;
+                    isLearnable = true;
+                    cout << "Engimon berhasil mempelajari skill " << s.getSkillName() << endl;
+                }
+
             }
             j++;
         }
 
         if (!isLearnable) {
-            cout << "Engimon tidak dapat mempelajari skill" << endl;
+            throw("Engimon tidak dapat mempelajari skill");
         }
     }
 }
