@@ -1,4 +1,5 @@
 #include "Engimon.hpp"
+#include "Species.hpp"
 #include <iostream>
 
 using namespace std;
@@ -202,32 +203,87 @@ Engimon Engimon::operator+(Engimon& other){
     if (this->level > 30 && other.level > 30){
         //string nama; cout << "Masukan nama";
         //cin << nama;
-        Engimon child("fenny", "fennekin", this->getName(), *this->parentSpecies, other.getName(), *other.parentSpecies, 1);
+        Engimon child;
         //proses
         
         //Elements
-        Element* childElements = new Element[2];
+        //Element* childElements = new Element[2];
         if (this->elements[0].getElementID() == other.elements[0].getElementID()){ //operator
-            child.elements[0] == this->elements[0]; //copy?
+            if (this->elements[0].getElementID() == 1){
+                child = new Firemon("aaa","","","","",1);
+            } else if (this->elements[0].getElementID() == 2)
+            {
+                child = new Watermon("aaa","","","","",1);
+            } else if (this->elements[0].getElementID() == 3)
+            {
+                child = new Electricmon("aaa","","","","",1);
+            } else if (this->elements[0].getElementID() == 4)
+            {
+                child = new Groundmon("aaa","","","","",1);
+            } else if (this->elements[0].getElementID() == 5)
+            {
+                child = new Icemon("aaa","","","","",1);
+            }
             //childElements[1] = this->elements[1];
         } else{
             float this_over_other_adv = this->elements[0].getAdvantage(other.elements[0]);
             float other_over_this_adv = other.elements[0].getAdvantage(this->elements[0]);
             if (this_over_other_adv > other_over_this_adv){
-               child.elements[0] = this->elements[0];
+               if (this->elements[0].getElementID() == 1){
+                    child = new Firemon("aaa","","","","",1);
+                } else if (this->elements[0].getElementID() == 2)
+                {
+                    child = new Watermon("aaa","","","","",1);
+                } else if (this->elements[0].getElementID() == 3)
+                {
+                    child = new Electricmon("aaa","","","","",1);
+                } else if (this->elements[0].getElementID() == 4)
+                {
+                    child = new Groundmon("aaa","","","","",1);
+                } else if (this->elements[0].getElementID() == 5)
+                {
+                    child = new Icemon("aaa","","","","",1);
+                }
             } else if (other_over_this_adv > this_over_other_adv){
-               child.elements[0] = other.elements[0];
+               if (this->elements[0].getElementID() == 1){
+                    child = new Firemon("aaa","","","","",1);
+                } else if (other.elements[0].getElementID() == 2)
+                {
+                    child = new Watermon("aaa","","","","",1);
+                } else if (other.elements[0].getElementID() == 3)
+                {
+                    child = new Electricmon("aaa","","","","",1);
+                } else if (other.elements[0].getElementID() == 4)
+                {
+                    child = new Groundmon("aaa","","","","",1);
+                } else if (other.elements[0].getElementID() == 5)
+                {
+                    child = new Icemon("aaa","","","","",1);
+                }
             } else {
+                if ((this->elements[0].getElementID() == 1 && other.elements[0].getElementID() == 3) ||
+                    (other.elements[0].getElementID() == 1 && this->elements[0].getElementID() == 3)){
+                    child = new Itachimon("aaa","","","","",1);
+                } else if ((this->elements[0].getElementID() == 2 && other.elements[0].getElementID() == 5) ||
+                           (other.elements[0].getElementID() == 2 && this->elements[0].getElementID() == 5))
+                {
+                    child = new Telermon("aaa","","","","",1);
+                } else if ((this->elements[0].getElementID() == 2 && other.elements[0].getElementID() == 4) ||
+                           (other.elements[0].getElementID() == 2 && this->elements[0].getElementID() == 4))
+                {
+                    child = new Narutomon("aaa","","","","",1);
+                }
                child.elements[0] = this->elements[0];
                child.elements[1] = other.elements[0];
             }
         }
-        
+        cout << "Error1";
         //Skill
-        /*Skill* this_Skill = this->getLearnedSkills(); int this_size = this->getCountSkill();
+        Skill* this_Skill = this->getLearnedSkills(); int this_size = this->getCountSkill();
         Skill* other_Skill = other.getLearnedSkills(); int other_size = other.countSkill;
         int count = 0;
-        while (count < 4){
+        while (count < 3){
+            cout << "Error2";
             int this_i = 0; int other_i = 0;
             int maxMasterythis = 0; int maxMasteryother = 0;
             while (this_i < this_size){
@@ -244,19 +300,19 @@ Engimon Engimon::operator+(Engimon& other){
             }
             if (this_Skill[this_i].getMasteryLevel() >= other_Skill[this_i].getMasteryLevel()){
                 int idx = findSkill(child.learnedSkills, this_size, this_Skill[this_i]);
-                if (idx >= 0){
+                if (idx < 0){
                     child.learnSkill(this_Skill[maxMasterythis]);
                 }
                 this_size = deleteSkill(this_Skill, this_size, this_Skill[maxMasterythis]);
             } else {
                 int idx = findSkill(child.learnedSkills, other_size, other_Skill[other_i]);
-                if (idx >= 0){
+                if (idx < 0){
                     child.learnSkill(other_Skill[maxMasteryother]);
                 }
                 other_size = deleteSkill(other_Skill, other_size, other_Skill[maxMasteryother]);
             }
             count++;
-        }*/
+        }
         
         this->level -= 30;
         other.level -= 30;
