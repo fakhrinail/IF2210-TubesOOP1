@@ -33,6 +33,9 @@ class Player {
         void breedingMenu();
         void showCommands();
         void doCommands(Maps& M const);
+        void printAsciiArt(string name);
+        float calculateMaxAdvantageElement(Engimon sourceEngimon, Engimon comparedEngimon);
+        float calculateSkillPower(Engimon engimon);
         Engimon getActiveEngimon();
         Engimon& breeding(Engimon& a, Engimon& b);
         point getPlayerPosition();

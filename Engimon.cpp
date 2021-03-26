@@ -1,4 +1,5 @@
 #include "Engimon.hpp"
+#include "Species.hpp"
 #include <iostream>
 
 using namespace std;
@@ -217,19 +218,107 @@ ostream& operator<<(ostream& os, const Engimon& s){
 /*
 Engimon Engimon::operator+(Engimon& other){
     if (this->level > 30 && other.level > 30){
+        //string nama; cout << "Masukan nama";
+        //cin << nama;
+        Engimon child;
         //proses
-        //Skill //asumsi kumpulan skill pakai stl list
-        //Skill concatSkill;
-        Skill childSkill = new Skill[4];
-        //concatSkill.insert(concatSkill.end(), a.learnedSkill.begin(), a.learnedSkill.end());
-        //concatSkill.insert(concatSkill.end(), b.learnedSkill.begin(), b.learnedSkill.end());
-        Skill* this_Skill = this->getLearnedSkills(); int this_size = this->getCountSkill;
+        
+        //Elements
+        //Element* childElements = new Element[2];
+        if (this->elements[0].getElementID() == other.elements[0].getElementID()){ //operator
+            if (this->elements[0].getElementID() == 1){
+                Firemon dummy("aaa","","","","",1);
+                child = dummy;
+            } else if (this->elements[0].getElementID() == 2)
+            {
+                Watermon dummy("aaa","","","","",1);
+                child = dummy;
+            } else if (this->elements[0].getElementID() == 3)
+            {
+                Electricmon dummy("aaa","","","","",1);
+                child = dummy;
+            } else if (this->elements[0].getElementID() == 4)
+            {
+                Groundmon dummy("aaa","","","","",1);
+                child = dummy;
+            } else if (this->elements[0].getElementID() == 5)
+            {
+                Icemon dummy("aaa","","","","",1);
+                child = dummy;
+            }
+            //childElements[1] = this->elements[1];
+        } else{
+            float this_over_other_adv = this->elements[0].getAdvantage(other.elements[0]);
+            float other_over_this_adv = other.elements[0].getAdvantage(this->elements[0]);
+            if (this_over_other_adv > other_over_this_adv){
+               if (this->elements[0].getElementID() == 1){
+                    Firemon dummy("aaa","","","","",1);
+                    child = dummy;
+                } else if (this->elements[0].getElementID() == 2)
+                {
+                    Watermon dummy("aaa","","","","",1);
+                    child = dummy;
+                } else if (this->elements[0].getElementID() == 3)
+                {
+                    Electricmon dummy("aaa","","","","",1);
+                    child = dummy;
+                } else if (this->elements[0].getElementID() == 4)
+                {
+                    Groundmon dummy("aaa","","","","",1);
+                    child = dummy;
+                } else if (this->elements[0].getElementID() == 5)
+                {
+                    Icemon dummy("aaa","","","","",1);
+                    child = dummy;
+                }
+            } else if (other_over_this_adv > this_over_other_adv){
+               if (this->elements[0].getElementID() == 1){
+                    Firemon dummy("aaa","","","","",1);
+                    child = dummy;
+                } else if (other.elements[0].getElementID() == 2)
+                {
+                    Watermon dummy("aaa","","","","",1);
+                    child = dummy;
+                } else if (other.elements[0].getElementID() == 3)
+                {
+                    Electricmon dummy("aaa","","","","",1);
+                    child = dummy;
+                } else if (other.elements[0].getElementID() == 4)
+                {
+                    Groundmon dummy("aaa","","","","",1);
+                    child = dummy;
+                } else if (other.elements[0].getElementID() == 5)
+                {
+                    Icemon dummy("aaa","","","","",1);
+                    child = dummy;
+                }
+            } else {
+                if ((this->elements[0].getElementID() == 1 && other.elements[0].getElementID() == 3) ||
+                    (other.elements[0].getElementID() == 1 && this->elements[0].getElementID() == 3)){
+                    Itachimon dummy("aaa","","","","",1);
+                    child = dummy;
+                } else if ((this->elements[0].getElementID() == 2 && other.elements[0].getElementID() == 5) ||
+                           (other.elements[0].getElementID() == 2 && this->elements[0].getElementID() == 5))
+                {
+                    Telermon dummy("aaa","","","","",1);
+                    child = dummy;
+                } else if ((this->elements[0].getElementID() == 2 && other.elements[0].getElementID() == 4) ||
+                           (other.elements[0].getElementID() == 2 && this->elements[0].getElementID() == 4))
+                {
+                    Narutomon dummy("aaa","","","","",1);
+                    child = dummy;
+                }
+               child.elements[0] = this->elements[0];
+               child.elements[1] = other.elements[0];
+            }
+        }
+        cout << "Error1";
+        //Skill
+        Skill* this_Skill = this->getLearnedSkills(); int this_size = this->getCountSkill();
         Skill* other_Skill = other.getLearnedSkills(); int other_size = other.countSkill;
-        //concatSkill.sort([] (Skill * first, Skill * second) {return first.masteryLevel > second.masteryLevel;});
-        //childSkill.insert(childSkill.end(), concatSkill.begin(), 4);
-        //int limitthis = 999; int limitother = 999;
         int count = 0;
-        while (count < 4){
+        while (count < 3){
+            cout << "Error2";
             int this_i = 0; int other_i = 0;
             int maxMasterythis = 0; int maxMasteryother = 0;
             while (this_i < this_size){
@@ -238,60 +327,41 @@ Engimon Engimon::operator+(Engimon& other){
                 }
                 this_i++;
             }
-            while (other_i < this_size){
+            while (other_i < other_size){
                 if (other_Skill[other_i].getMasteryLevel() > maxMasteryother){
                     maxMasteryother = other_i;
                 }
                 other_i++;
             }
-            if (this_Skill[this_i].getMasteryLevel() >= other_Skill[this_i].getMasteryLevel()){
-                int idx = findElementS(childSkill, this_size, this_Skill[this_i]);
-                if (idx >= 0){
-                    childSkill[count] = this_Skill[maxMasterythis];
+            if (this_Skill[maxMasterythis].getMasteryLevel() >= other_Skill[maxMasteryother].getMasteryLevel()){
+                int idx = findSkill(child.learnedSkills, this_size, this_Skill[maxMasterythis]);
+                if (idx < 0){
+                    child.learnSkill(this_Skill[maxMasterythis]);
+                    count++;
                 }
-                this_size = deleteElementS(this_Skill, this_size, this_Skill[maxMasterythis])
+                this_size = deleteSkill(this_Skill, this_size, this_Skill[maxMasterythis]);
             } else {
-                int idx = findElementS(childSkill, other_size, other_Skill[other_i]);
-                if (idx >= 0){
-                    childSkill[count] = other_Skill[maxMasteryother];
+                int idx = findSkill(child.learnedSkills, other_size, other_Skill[maxMasteryother]);
+                if (idx < 0){
+                    child.learnSkill(other_Skill[maxMasteryother]);
+                    count++;
                 }
-                other_size = deleteElementS(other_Skill, other_size, other_Skill[maxMasteryother])
+                other_size = deleteSkill(other_Skill, other_size, other_Skill[maxMasteryother]);
             }
-            count++;
+            
         }
         
-        //Elements
-        Elements childElements = new Element[2];
-        if (this->elements[0].getElementID == other.elements[0].getElementID){ //operator
-            childElements[0] = this->elements[0]; //copy?
-            //childElements[1] = this->elements[1];
-        } else{
-            float this_over_other_adv = this->elements[0].getAdvantage(other.elements[0]);
-            float other_over_this_adv = other.elementsp[0].getAdvantage(this->elements[0]);
-            if (this_over_other_adv > other_over_this_adv){
-               childElements[0] = this->elements[0];
-            } else if (other_over_this_adv > this_over_other_adv){
-               childElements[0] = other.elements[0];
-            } else {
-               childElements[0] = this->elements[0];
-               childElements[] = other.elements[0];
-            }
-        }
-        
-        string nama; cout << "Masukan nama";
-        cin << nama;
-        Engimon child = new Engimon(nama, a, b, spesies, childSkill, childElements)//ini belum dibuat
-        a.level -= 30;
-        b.level -= 30;
+        this->level -= 30;
+        other.level -= 30;
         return child;
     } else{
         //pesan kesalahan
-        return NULL;
+        throw;
     }
 }
 */
 
-int deleteElementS(Skill* arrS, int n, Skill x)
+int deleteSkill(Skill* arrS, int n, Skill x)
 {
    // Search x in array
    int i;
@@ -312,7 +382,7 @@ int deleteElementS(Skill* arrS, int n, Skill x)
    return n;
 }
 
-int findElementS(Skill* arrS, int n, Skill x){
+int findSkill(Skill* arrS, int n, Skill x){
     int i;
     for (i=0; i<n; i++)
        if (arrS[i] == x)

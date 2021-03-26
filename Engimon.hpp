@@ -43,9 +43,14 @@ class Engimon {
         void death();
         void showDetail();
         void learnSkill(Skill&);
-        //Engimon operator+(Engimon&);
+        Engimon operator+(Engimon&);
         bool operator==(const Engimon&) const;
         friend ostream& operator<<(ostream&, const Engimon&);
 };
+
+
+int deleteSkill(Skill* arrS, int n, Skill x);
+int findSkill(Skill* arrS, int n, Skill x);
+float max(float a, float b);
 
 #endif

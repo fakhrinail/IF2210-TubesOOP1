@@ -69,6 +69,9 @@ class Player {
         //Engimon breeding(Engimon& a, Engimon& b);
         point getPlayerPosition();
         point getActiveEngimonPos();
+        void printAsciiArt(string name);
+        float calculateMaxAdvantageElement(Engimon sourceEngimon, Engimon comparedEngimon);
+        float calculateSkillPower(Engimon engimon);
 };
 
 #endif
