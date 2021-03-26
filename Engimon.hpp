@@ -48,4 +48,9 @@ class Engimon {
         friend ostream& operator<<(ostream&, const Engimon&);
 };
 
+
+int deleteSkill(Skill* arrS, int n, Skill x);
+int findSkill(Skill* arrS, int n, Skill x);
+float max(float a, float b);
+
 #endif
