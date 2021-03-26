@@ -35,7 +35,8 @@ void Player::manageActiveEngimon() {
     cout << endl;
     cout << "What are you going to do?\n";
     cout << "1. Change Engimon\n";
-    cout << "2. Back\n";
+    cout << "2. Interact\n"
+    cout << "3. Back\n";
     cout << "(choose the number)\n";
     int entry;
     while (true) {
@@ -45,7 +46,10 @@ void Player::manageActiveEngimon() {
             this->setActiveEngimon();
             break;
         }
-        else if (entry == 2) {
+		else if (entry == 2) {
+            this->activeEngimon.interact();
+		}
+        else if (entry == 3) {
             break;
         }
         else {
@@ -127,11 +131,29 @@ void Player::detailsMenu() {
 void Player::useSkill(){
 	cout << "\n" << "List Item : \n";
 	this->inventoryS.printItem();
+	int entry;
+    while (true) {
+        cout << "Choose action : \n";
+        cout << "1. Use skill item\n";
+        cout << "2. Back\n";
+        cout << "(choose the number)\n";
+        cout << "Command : ";
+        cin >> entry;
+        if (entry == 1) {
+			cout << "Choose the item number : \n";
+			int choosenNum;
+			cin >> choosenNum;
+			Skill choosenItem = this->inventoryS.getItem(choosenNum - 1);
+			this->activeEngimon.learnSkill(choosenItem);
+        }
+        else if (entry == 2) {
+            break;
+        } 
+        else {
+            cout << "Invalid command\n";
+        }
+    }
 	cout << "Choose the item number : \n";
-	int choosenNum;
-	cin >> choosenNum;
-	Skill choosenItem = this->inventoryS.getItem(choosenNum-1);
-	this->activeEngimon.learnSkill(choosenItem);
 }
 
 void Player::breedingMenu() {
@@ -174,18 +196,18 @@ void Player::breedingMenu() {
 
 void Player::showCommands(){
     cout << "Commands available : \n";
-    cout << "1. W\n";
-    cout << "2. A\n";
-    cout << "3. S\n";
-    cout << "4. D\n";
-    cout << "5. Show Commands\n";
-    cout << "6. Inventory and Details\n";
-    cout << "7. Use Item\n";
-    cout << "8. Manage Active Engimon\n";
-    cout << "9. Breeding\n";
-    cout << "10. Battle\n";
-    cout << "11. Exit\n";
-    cout << "(choose the number)\n";
+    cout << "1. (W)\n";
+    cout << "2. (A)\n";
+    cout << "3. (S)\n";
+    cout << "4. (D)\n";
+    cout << "5. Show (Commands)\n";
+    cout << "6. (Inventory) and Details\n";
+    cout << "7. Use Skill (Item)\n";
+    cout << "8. (Manage) Active Engimon\n";
+    cout << "9. (Breeding)\n";
+    cout << "10. (Battle)\n";
+    cout << "11. (Exit)\n";
+    cout << "(type the word in parenthesis, with/out capital)\n";
 }
 
 void Player::addEngimon(Engimon e){
@@ -205,7 +227,7 @@ void Player::addSkill(Skill s){
 
 void Player::doCommands(Maps& M){
     int round = 0;
-    int entry;
+    string entry;
     M.generateEngimon(this->getPlayerPosition(), this->getActiveEngimonPos(), 5);
     while (true) {
         M.showMap(this->getPlayerPosition(), this->getActiveEngimonPos());
@@ -215,28 +237,28 @@ void Player::doCommands(Maps& M){
         cout << endl;
         try {
             round++;
-            if (entry == 1){
+            if (entry == "W" || entry == "w"){
                 try{
                     this->w();
                 }catch(const char* err){
                     cout << err << endl;
                 }
             } 
-            else if (entry == 2){
+            else if (entry == "A" || entry == "a"){
 				try{
                     this->a();
                 }catch(const char* err){
                     cout << err << endl;
                 }
 			}
-			else if (entry == 3) {
+			else if (entry == "S" || entry == "s") {
 				try{
                     this->s();
                 }catch(const char* err){
                     cout << err << endl;
                 }
 			}
-			else if (entry == 4) {
+			else if (entry == "D" || entry == "d") {
 				try{
                     this->d();
 
@@ -244,25 +266,25 @@ void Player::doCommands(Maps& M){
                     cout << err << endl;
                 }
 			}
-            else if (entry == 5) {
+            else if (entry == "Commands" || entry == "commands") {
                 this->showCommands();
 			}
-            else if (entry == 6) {
+            else if (entry == "Inventory" || entry == "inventory") {
                 this->detailsMenu();
             }
-			else if (entry == 7) {
+			else if (entry == "Item" || entry == "item") {
 				this->useSkill();
 			}
-			else if (entry == 8) {
+			else if (entry == "Manage" || entry == "manage") {
 				this->manageActiveEngimon();
 			}
-			else if (entry == 9) {
+			else if (entry == "Breeding" || entry == "breeding") {
 				this->breedingMenu();
 			}
-			else if (entry == 10) {
+			else if (entry == "Battle" || entry == "battle") {
 				this->battle(M);
 			}
-			else if (entry == 11) {
+			else if (entry == "Exit" || entry == "exit") {
 				break;
             } else {
                 throw("Invalid command");
