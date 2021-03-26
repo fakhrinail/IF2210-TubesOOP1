@@ -35,7 +35,8 @@ void Player::manageActiveEngimon() {
     cout << endl;
     cout << "What are you going to do?\n";
     cout << "1. Change Engimon\n";
-    cout << "2. Back\n";
+    cout << "2. Interact\n"
+    cout << "3. Back\n";
     cout << "(choose the number)\n";
     int entry;
     while (true) {
@@ -45,7 +46,10 @@ void Player::manageActiveEngimon() {
             this->setActiveEngimon();
             break;
         }
-        else if (entry == 2) {
+		else if (entry == 2) {
+            this->activeEngimon.interact();
+		}
+        else if (entry == 3) {
             break;
         }
         else {
