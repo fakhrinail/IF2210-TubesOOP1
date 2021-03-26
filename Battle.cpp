@@ -2,7 +2,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-void printAsciiArt(string name) {
+void Player::printAsciiArt(string name) {
     string x;
     ifstream inFile;
     string filename = "./ascii/" + name + ".txt";
@@ -15,7 +15,7 @@ void printAsciiArt(string name) {
     inFile.close();
 }
 
-float calculateMaxAdvantageElement(Engimon sourceEngimon, Engimon comparedEngimon) {
+float Player::calculateMaxAdvantageElement(Engimon sourceEngimon, Engimon comparedEngimon) {
     float maxAdvantage = 0.0;
     Element * sourceElements = sourceEngimon.getElements();
     Element * comparedElements = comparedEngimon.getElements();
@@ -27,7 +27,7 @@ float calculateMaxAdvantageElement(Engimon sourceEngimon, Engimon comparedEngimo
     return maxAdvantage;
 }
 
-float calculateSkillPower(Engimon engimon) {
+float Player::calculateSkillPower(Engimon engimon) {
     float skillPower = 0;
     Skill* engimonSkills = engimon.getLearnedSkills();
     for (int i = 0; i < engimon.getCountSkill(); i++)
