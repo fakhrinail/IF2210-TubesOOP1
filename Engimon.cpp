@@ -197,3 +197,113 @@ ostream& operator<<(ostream& os, const Engimon& s){
     os << s.getName();
     return os;
 }
+
+Engimon Engimon::operator+(Engimon& other){
+    if (this->level > 30 && other.level > 30){
+        //proses
+        //Skill //asumsi kumpulan skill pakai stl list
+        //Skill concatSkill;
+        Skill childSkill = new Skill[4];
+        //concatSkill.insert(concatSkill.end(), a.learnedSkill.begin(), a.learnedSkill.end());
+        //concatSkill.insert(concatSkill.end(), b.learnedSkill.begin(), b.learnedSkill.end());
+        Skill* this_Skill = this->getLearnedSkills(); int this_size = this->getCountSkill;
+        Skill* other_Skill = other.getLearnedSkills(); int other_size = other.countSkill;
+        //concatSkill.sort([] (Skill * first, Skill * second) {return first.masteryLevel > second.masteryLevel;});
+        //childSkill.insert(childSkill.end(), concatSkill.begin(), 4);
+        //int limitthis = 999; int limitother = 999;
+        int count = 0;
+        while (count < 4){
+            int this_i = 0; int other_i = 0;
+            int maxMasterythis = 0; int maxMasteryother = 0;
+            while (this_i < this_size){
+                if (this_Skill[this_i].getMasteryLevel() > maxMasterythis){
+                    maxMasterythis = this_i;
+                }
+                this_i++;
+            }
+            while (other_i < this_size){
+                if (other_Skill[other_i].getMasteryLevel() > maxMasteryother){
+                    maxMasteryother = other_i;
+                }
+                other_i++;
+            }
+            if (this_Skill[this_i].getMasteryLevel() >= other_Skill[this_i].getMasteryLevel()){
+                int idx = findElementS(childSkill, this_size, this_Skill[this_i]);
+                if (idx >= 0){
+                    childSkill[count] = this_Skill[maxMasterythis];
+                }
+                this_size = deleteElementS(this_Skill, this_size, this_Skill[maxMasterythis])
+            } else {
+                int idx = findElementS(childSkill, other_size, other_Skill[other_i]);
+                if (idx >= 0){
+                    childSkill[count] = other_Skill[maxMasteryother];
+                }
+                other_size = deleteElementS(other_Skill, other_size, other_Skill[maxMasteryother])
+            }
+            count++;
+        }
+        
+        //Elements
+        Elements childElements = new Element[2];
+        if (this->elements[0].getElementID == other.elements[0].getElementID){ //operator
+            childElements[0] = this->elements[0]; //copy?
+            //childElements[1] = this->elements[1];
+        } else{
+            float this_over_other_adv = this->elements[0].getAdvantage(other.elements[0]);
+            float other_over_this_adv = other.elementsp[0].getAdvantage(this->elements[0]);
+            if (this_over_other_adv > other_over_this_adv){
+               childElements[0] = this->elements[0];
+            } else if (other_over_this_adv > this_over_other_adv){
+               childElements[0] = other.elements[0];
+            } else {
+               childElements[0] = this->elements[0];
+               childElements[] = other.elements[0];
+            }
+        }
+        
+        string nama; cout << "Masukan nama";
+        cin << nama;
+        Engimon child = new Engimon(nama, a, b, spesies, childSkill, childElements)//ini belum dibuat
+        a.level -= 30;
+        b.level -= 30;
+        return child;
+    } else{
+        //pesan kesalahan
+        return NULL;
+    }
+}
+
+int deleteElementS(Skill* arrS, int n, Skill x)
+{
+   // Search x in array
+   int i;
+   for (i=0; i<n; i++)
+      if (arrS[i] == x)
+         break;
+  
+   // If x found in array
+   if (i < n)
+   {
+     // reduce size of array and move all
+     // elements on space ahead
+     n = n - 1;
+     for (int j=i; j<n; j++)
+        arrS[j] = arrS[j+1];
+   }
+  
+   return n;
+}
+
+int findElementS(Skill* arrS, int n, Skill x){
+    int i;
+    for (i=0; i<n; i++)
+       if (arrS[i] == x)
+        return i;
+    return -1;
+}
+
+float max(float a, float b){
+    if (a > b){
+        return a;
+    } return b;
+}
