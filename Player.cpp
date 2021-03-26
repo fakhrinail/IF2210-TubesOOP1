@@ -134,7 +134,7 @@ void Player::useSkill(){
         cout << "2. Back\n";
         cout << "(choose the number)\n";
         cout << "Command : ";
-        cin >> entry
+        cin >> entry;
         if (entry == 1) {
 			cout << "Choose the item number : \n";
 			int choosenNum;
@@ -143,7 +143,7 @@ void Player::useSkill(){
 			this->activeEngimon.learnSkill(choosenItem);
         }
         else if (entry == 2) {
-            break
+            break;
         } 
         else {
             cout << "Invalid command\n";
