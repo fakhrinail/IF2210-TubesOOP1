@@ -210,19 +210,24 @@ Engimon Engimon::operator+(Engimon& other){
         //Element* childElements = new Element[2];
         if (this->elements[0].getElementID() == other.elements[0].getElementID()){ //operator
             if (this->elements[0].getElementID() == 1){
-                child = new Firemon("aaa","","","","",1);
+                Firemon dummy("aaa","","","","",1);
+                child = dummy;
             } else if (this->elements[0].getElementID() == 2)
             {
-                child = new Watermon("aaa","","","","",1);
+                Watermon dummy("aaa","","","","",1);
+                child = dummy;
             } else if (this->elements[0].getElementID() == 3)
             {
-                child = new Electricmon("aaa","","","","",1);
+                Electricmon dummy("aaa","","","","",1);
+                child = dummy;
             } else if (this->elements[0].getElementID() == 4)
             {
-                child = new Groundmon("aaa","","","","",1);
+                Groundmon dummy("aaa","","","","",1);
+                child = dummy;
             } else if (this->elements[0].getElementID() == 5)
             {
-                child = new Icemon("aaa","","","","",1);
+                Icemon dummy("aaa","","","","",1);
+                child = dummy;
             }
             //childElements[1] = this->elements[1];
         } else{
@@ -230,48 +235,61 @@ Engimon Engimon::operator+(Engimon& other){
             float other_over_this_adv = other.elements[0].getAdvantage(this->elements[0]);
             if (this_over_other_adv > other_over_this_adv){
                if (this->elements[0].getElementID() == 1){
-                    child = new Firemon("aaa","","","","",1);
+                    Firemon dummy("aaa","","","","",1);
+                    child = dummy;
                 } else if (this->elements[0].getElementID() == 2)
                 {
-                    child = new Watermon("aaa","","","","",1);
+                    Watermon dummy("aaa","","","","",1);
+                    child = dummy;
                 } else if (this->elements[0].getElementID() == 3)
                 {
-                    child = new Electricmon("aaa","","","","",1);
+                    Electricmon dummy("aaa","","","","",1);
+                    child = dummy;
                 } else if (this->elements[0].getElementID() == 4)
                 {
-                    child = new Groundmon("aaa","","","","",1);
+                    Groundmon dummy("aaa","","","","",1);
+                    child = dummy;
                 } else if (this->elements[0].getElementID() == 5)
                 {
-                    child = new Icemon("aaa","","","","",1);
+                    Icemon dummy("aaa","","","","",1);
+                    child = dummy;
                 }
             } else if (other_over_this_adv > this_over_other_adv){
                if (this->elements[0].getElementID() == 1){
-                    child = new Firemon("aaa","","","","",1);
+                    Firemon dummy("aaa","","","","",1);
+                    child = dummy;
                 } else if (other.elements[0].getElementID() == 2)
                 {
-                    child = new Watermon("aaa","","","","",1);
+                    Watermon dummy("aaa","","","","",1);
+                    child = dummy;
                 } else if (other.elements[0].getElementID() == 3)
                 {
-                    child = new Electricmon("aaa","","","","",1);
+                    Electricmon dummy("aaa","","","","",1);
+                    child = dummy;
                 } else if (other.elements[0].getElementID() == 4)
                 {
-                    child = new Groundmon("aaa","","","","",1);
+                    Groundmon dummy("aaa","","","","",1);
+                    child = dummy;
                 } else if (other.elements[0].getElementID() == 5)
                 {
-                    child = new Icemon("aaa","","","","",1);
+                    Icemon dummy("aaa","","","","",1);
+                    child = dummy;
                 }
             } else {
                 if ((this->elements[0].getElementID() == 1 && other.elements[0].getElementID() == 3) ||
                     (other.elements[0].getElementID() == 1 && this->elements[0].getElementID() == 3)){
-                    child = new Itachimon("aaa","","","","",1);
+                    Itachimon dummy("aaa","","","","",1);
+                    child = dummy;
                 } else if ((this->elements[0].getElementID() == 2 && other.elements[0].getElementID() == 5) ||
                            (other.elements[0].getElementID() == 2 && this->elements[0].getElementID() == 5))
                 {
-                    child = new Telermon("aaa","","","","",1);
+                    Telermon dummy("aaa","","","","",1);
+                    child = dummy;
                 } else if ((this->elements[0].getElementID() == 2 && other.elements[0].getElementID() == 4) ||
                            (other.elements[0].getElementID() == 2 && this->elements[0].getElementID() == 4))
                 {
-                    child = new Narutomon("aaa","","","","",1);
+                    Narutomon dummy("aaa","","","","",1);
+                    child = dummy;
                 }
                child.elements[0] = this->elements[0];
                child.elements[1] = other.elements[0];
@@ -302,16 +320,18 @@ Engimon Engimon::operator+(Engimon& other){
                 int idx = findSkill(child.learnedSkills, this_size, this_Skill[this_i]);
                 if (idx < 0){
                     child.learnSkill(this_Skill[maxMasterythis]);
+                    count++;
                 }
                 this_size = deleteSkill(this_Skill, this_size, this_Skill[maxMasterythis]);
             } else {
                 int idx = findSkill(child.learnedSkills, other_size, other_Skill[other_i]);
                 if (idx < 0){
                     child.learnSkill(other_Skill[maxMasteryother]);
+                    count++;
                 }
                 other_size = deleteSkill(other_Skill, other_size, other_Skill[maxMasteryother]);
             }
-            count++;
+            
         }
         
         this->level -= 30;
