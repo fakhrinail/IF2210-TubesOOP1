@@ -316,22 +316,24 @@ Engimon Engimon::operator+(Engimon& other){
         Skill* this_Skill = this->getLearnedSkills(); int this_size = this->getCountSkill();
         Skill* other_Skill = other.getLearnedSkills(); int other_size = other.countSkill;
         int count = 0;
-        
-        while (count < 3){
+        while (count < 3  && (this_size != 0 || other_size != 0)){
             int this_i = 0; int other_i = 0;
             int maxMasterythis = 0; int maxMasteryother = 0;
             while (this_i < this_size){
                 if (this_Skill[this_i].getMasteryLevel() > this_Skill[maxMasterythis].getMasteryLevel()){
                     maxMasterythis = this_i;
                 }
+                cout << maxMasterythis << endl;
                 this_i++;
             }
             while (other_i < other_size){
                 if (other_Skill[other_i].getMasteryLevel() > other_Skill[maxMasteryother].getMasteryLevel()){
                     maxMasteryother = other_i;
                 }
+                cout << maxMasteryother << endl;
                 other_i++;
             }
+            //cout << maxMasterythis << " <--this other-->" << maxMasteryother << endl;
             if (this_Skill[maxMasterythis].getMasteryLevel() >= other_Skill[maxMasteryother].getMasteryLevel()){
                 int idx = findSkill(child.learnedSkills, this_size, this_Skill[maxMasterythis]);
                 
@@ -342,6 +344,11 @@ Engimon Engimon::operator+(Engimon& other){
                         
                     }
                     count++;
+                } else
+                {
+                    if (this_Skill[maxMasterythis].getMasteryLevel() == child.learnedSkills[idx].getMasteryLevel()){
+                        child.learnedSkills[idx].addMasteryLevel();
+                    }
                 }
                 this_size = deleteSkill(this_Skill, this_size, this_Skill[maxMasterythis]);
             } else {
@@ -353,10 +360,14 @@ Engimon Engimon::operator+(Engimon& other){
                         
                     }
                     count++;
+                } else
+                {
+                    if (other_Skill[maxMasteryother].getMasteryLevel() == child.learnedSkills[idx].getMasteryLevel()){
+                        child.learnedSkills[idx].addMasteryLevel();
+                    }
                 }
                 other_size = deleteSkill(other_Skill, other_size, other_Skill[maxMasteryother]);
             }
-            
         }
         
         this->level -= 30;
