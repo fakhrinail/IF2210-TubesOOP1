@@ -310,21 +310,21 @@ Engimon Engimon::operator+(Engimon& other){
                 }
                 this_i++;
             }
-            while (other_i < this_size){
+            while (other_i < other_size){
                 if (other_Skill[other_i].getMasteryLevel() > maxMasteryother){
                     maxMasteryother = other_i;
                 }
                 other_i++;
             }
-            if (this_Skill[this_i].getMasteryLevel() >= other_Skill[this_i].getMasteryLevel()){
-                int idx = findSkill(child.learnedSkills, this_size, this_Skill[this_i]);
+            if (this_Skill[maxMasterythis].getMasteryLevel() >= other_Skill[maxMasteryother].getMasteryLevel()){
+                int idx = findSkill(child.learnedSkills, this_size, this_Skill[maxMasterythis]);
                 if (idx < 0){
                     child.learnSkill(this_Skill[maxMasterythis]);
                     count++;
                 }
                 this_size = deleteSkill(this_Skill, this_size, this_Skill[maxMasterythis]);
             } else {
-                int idx = findSkill(child.learnedSkills, other_size, other_Skill[other_i]);
+                int idx = findSkill(child.learnedSkills, other_size, other_Skill[maxMasteryother]);
                 if (idx < 0){
                     child.learnSkill(other_Skill[maxMasteryother]);
                     count++;
