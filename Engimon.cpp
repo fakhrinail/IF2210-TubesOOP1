@@ -5,7 +5,19 @@ using namespace std;
 
 int Engimon::maxCumulativeExperience = 5000;
 
-Engimon::Engimon() : Engimon("engimon", "engimon", "engimon", "engimon", "engimon", "engimon", 0){}
+Engimon::Engimon(){
+    this->name = "";
+    this->species = "";
+    this->parentName = new string[2];
+    this->parentSpecies = new string[2];
+    this->learnedSkills = new Skill[4];
+    this->elements = new Element[3];
+    this->level = 0;
+    this->experience = 0;
+    this->cumulativeExperience = 0;
+    this->countElement = 0;
+    this->countSkill = 0;
+}
 
 Engimon::Engimon(string _name, string _species, string _parentName, string _parentSpecies, string _parentName2, string _parentSpecies2, int _level){
     this->name = _name;
@@ -19,6 +31,8 @@ Engimon::Engimon(string _name, string _species, string _parentName, string _pare
     this->level = _level;
     this->experience = 0;
     this->cumulativeExperience = 0;
+    this->countElement = 0;
+    this->countSkill = 0;
 }
 
 Engimon::Engimon(const Engimon& e){

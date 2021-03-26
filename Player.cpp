@@ -207,10 +207,10 @@ void Player::doCommands(Maps& M){
     int round = 0;
     int entry;
     M.generateEngimon(this->getPlayerPosition(), this->getActiveEngimonPos(), 5);
-    this->showCommands();
     while (true) {
         M.showMap(this->getPlayerPosition(), this->getActiveEngimonPos());
-        cout << "Enter your commands : ";
+        this->showCommands();
+        cout << "Enter your commands : " << endl;
         cin >> entry;
         cout << endl;
         try {
@@ -261,7 +261,6 @@ void Player::doCommands(Maps& M){
 			}
 			else if (entry == 10) {
 				this->battle(M);
-                M.generateEngimon(this->getPlayerPosition(), this->getActiveEngimonPos(), round);
 			}
 			else if (entry == 11) {
 				break;

@@ -9,9 +9,9 @@ using namespace std;
 
 class Maps {
 private:
-    const char GRASS = '-';
-    const char WATER = 'o';
-    const char EMPTY = '#';
+    char GRASS;
+    char WATER;
+    char EMPTY;
     char ** mapArea;
     char ** mapTemplate;
     list<pair<Engimon,point> > wildEngimons;

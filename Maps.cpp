@@ -7,6 +7,9 @@
 using namespace std;
 
 Maps::Maps(string filename, int spawnEngi, int minLevel) {
+    GRASS = '-';
+    WATER = 'o';
+    EMPTY = '#';
     totalEngimonSpawned = spawnEngi;
     this->minLevel = minLevel;
     if(!this->loadfile(filename)){
@@ -15,6 +18,9 @@ Maps::Maps(string filename, int spawnEngi, int minLevel) {
 }
 
 Maps::Maps(const Maps &map) {
+    GRASS = '-';
+    WATER = 'o';
+    EMPTY = '#';
     this->totalEngimonSpawned = map.totalEngimonSpawned;
     this->totalColumn = map.totalColumn;
     this->totalRow = map.totalRow;
@@ -73,7 +79,6 @@ bool Maps::loadfile(string filename) {
                 mapTemplate[i][j] = haha[j];
                 j++;
             }
-            cout << endl;
             i++;
         }
 
@@ -86,6 +91,7 @@ bool Maps::loadfile(string filename) {
 }
 
 void Maps::engimonRandomMove(point p, point e) {
+    srand(time(NULL));
     this->loadPlayerPos(p, e);
     list<pair<Engimon,point> >::iterator it;
     for(it=wildEngimons.begin();it!=wildEngimons.end();it++){
@@ -141,6 +147,7 @@ void Maps::engimonRandomMove(point p, point e) {
 }
 
 void Maps::generateEngimon(point p, point e, int round) {
+    srand(time(NULL));
     if(wildEngimons.size()<this->totalEngimonSpawned){
         try{
             loadPlayerPos(p, e);
@@ -148,20 +155,22 @@ void Maps::generateEngimon(point p, point e, int round) {
             cout << err << endl;
         }
 
-        point loc;
-        loc.randomPoint(totalRow,totalColumn);
+        point loc(1,1);
+        // loc.randomPoint(totalRow,totalColumn);
 
-        //UNTUK MEMASTIKAN DIGENERATE DI LAHAN KOSONG
-        while (mapArea[loc.getX()][loc.getY()]!=EMPTY) {
-            loc.randomPoint(totalRow,totalColumn);
-        }
+        // //UNTUK MEMASTIKAN DIGENERATE DI LAHAN KOSONG
+        // while (mapArea[loc.getX()][loc.getY()]!=EMPTY) {
+        //     loc.randomPoint(totalRow,totalColumn);
+        // }
 
         int lvl = (rand()%(round/2))%50;
         if(mapTemplate[loc.getX()][loc.getY()]==GRASS){
-            int pil = rand()%5+1;
+            //int pil = rand()%5+1;
+            int pil = 1;
             if(pil==1){
+                Groundmon E("randomGM","","","","",lvl);
                 wildEngimons.push_back(
-                        pair<Engimon,point>(Groundmon("randommon","","","","",lvl),loc)
+                        pair<Engimon,point>(E,loc)
                 );
                 if(lvl>=minLevel){
                     mapArea[loc.getX()][loc.getY()] = 'G';
@@ -169,8 +178,9 @@ void Maps::generateEngimon(point p, point e, int round) {
                     mapArea[loc.getX()][loc.getY()] = 'g';
                 }
             }else if(pil==2){
+                Electricmon E("randomEM","","","","",lvl);
                 wildEngimons.push_back(
-                        pair<Engimon,point>(Electricmon("randommon","","","","",lvl),loc)
+                        pair<Engimon,point>(E,loc)
                 );
                 if(lvl>=minLevel){
                     mapArea[loc.getX()][loc.getY()] = 'E';
@@ -178,8 +188,9 @@ void Maps::generateEngimon(point p, point e, int round) {
                     mapArea[loc.getX()][loc.getY()] = 'e';
                 }
             }else if(pil==3){
+                Firemon E("randomFM","","","","",lvl);
                 wildEngimons.push_back(
-                        pair<Engimon,point>(Firemon("randommon","","","","",lvl),loc)
+                        pair<Engimon,point>(E,loc)
                 );
                 if(lvl>=minLevel){
                     mapArea[loc.getX()][loc.getY()] = 'F';
@@ -187,8 +198,9 @@ void Maps::generateEngimon(point p, point e, int round) {
                     mapArea[loc.getX()][loc.getY()] = 'f';
                 }
             }else if(pil==4){
+                Itachimon E("randomIM","","","","",lvl);
                 wildEngimons.push_back(
-                        pair<Engimon,point>(Itachimon("randommon","","","","",lvl),loc)
+                        pair<Engimon,point>(E,loc)
                 );
                 if(lvl>=minLevel){
                     mapArea[loc.getX()][loc.getY()] = 'L';
@@ -196,8 +208,9 @@ void Maps::generateEngimon(point p, point e, int round) {
                     mapArea[loc.getX()][loc.getY()] = 'l';
                 }
             }else if(pil==5){
+                Narutomon E("randomNM","","","","",lvl);
                 wildEngimons.push_back(
-                        pair<Engimon,point>(Narutomon("randommon","","","","",lvl),loc)
+                        pair<Engimon,point>(E,loc)
                 );
                 if(lvl>=minLevel){
                     mapArea[loc.getX()][loc.getY()] = 'N';
@@ -209,8 +222,9 @@ void Maps::generateEngimon(point p, point e, int round) {
         else{
             int pil = rand()%4+1;
             if(pil==1){
+                Watermon E("randomWM","","","","",lvl);
                 wildEngimons.push_back(
-                        pair<Engimon,point>(Watermon("randommon","","","","",lvl),loc)
+                        pair<Engimon,point>(E,loc)
                 );
                 if(lvl>=minLevel){
                     mapArea[loc.getX()][loc.getY()] = 'W';
@@ -218,8 +232,9 @@ void Maps::generateEngimon(point p, point e, int round) {
                     mapArea[loc.getX()][loc.getY()] = 'w';
                 }
             }else if(pil==2){
+                Icemon E("randomIM","","","","",lvl);
                 wildEngimons.push_back(
-                        pair<Engimon,point>(Icemon("randommon","","","","",lvl),loc)
+                        pair<Engimon,point>(E,loc)
                 );
                 if(lvl>=minLevel){
                     mapArea[loc.getX()][loc.getY()] = 'I';
@@ -227,8 +242,9 @@ void Maps::generateEngimon(point p, point e, int round) {
                     mapArea[loc.getX()][loc.getY()] = 'i';
                 }
             }else if(pil==3){
+                Telermon E("randomTM","","","","",lvl);
                 wildEngimons.push_back(
-                        pair<Engimon,point>(Telermon("randommon","","","","",lvl),loc)
+                        pair<Engimon,point>(E,loc)
                 );
                 if(lvl>=minLevel){
                     mapArea[loc.getX()][loc.getY()] = 'S';
@@ -236,8 +252,9 @@ void Maps::generateEngimon(point p, point e, int round) {
                     mapArea[loc.getX()][loc.getY()] = 's';
                 }
             }else if(pil==4){
+                Narutomon E("randomNM","","","","",lvl);
                 wildEngimons.push_back(
-                        pair<Engimon,point>(Narutomon("randommon","","","","",lvl),loc)
+                        pair<Engimon,point>(E,loc)
                 );
                 if(lvl>=minLevel){
                     mapArea[loc.getX()][loc.getY()] = 'N';
@@ -310,13 +327,6 @@ void Maps::loadPlayerPos(point p, point e){
                     mapArea[i][j] = EMPTY;
                 }
             }
-        }
-        cout << playerPoint.getX() << " " << playerPoint.getY() << endl;
-        for(int i=0; i<this->totalRow; i++){
-            for(int j=0; j<this->totalColumn; j++){
-                cout << mapArea[i][j];
-            }
-            cout << endl;
         }
         if(mapArea[playerPoint.getX()][playerPoint.getY()]==EMPTY){
             mapArea[playerPoint.getX()][playerPoint.getY()] = 'P';

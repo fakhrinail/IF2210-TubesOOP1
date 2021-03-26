@@ -17,11 +17,12 @@ void printAsciiArt(string name) {
 
 float calculateMaxAdvantageElement(Engimon sourceEngimon, Engimon comparedEngimon) {
     float maxAdvantage = 0.0;
-    Element * sourceElements = sourceEngimon.getElements();
-    Element * comparedElements = comparedEngimon.getElements();
+    Element E1, E2;
     for(int i=0; i<sourceEngimon.getCountElement(); i++){
         for(int j=0; j<comparedEngimon.getCountElement(); j++){
-            maxAdvantage = max(maxAdvantage, sourceElements[i].getAdvantage(comparedElements[j]));
+            E1 = sourceEngimon.getElements()[i];
+            E2 = comparedEngimon.getElements()[j];
+            maxAdvantage = max(maxAdvantage, E1.getAdvantage(E2));
         }
     }
     return maxAdvantage;
@@ -60,27 +61,13 @@ void Player::battle(Maps& M) {
         if (abs(wildEngimonX-playerPosition.getX()) + abs(wildEngimonY-playerPosition.getY()) <= 1)
         {
             isEngimonAdjacent = true;
-            Engimon opponent = pairEngimonPoint.first; // pake operator= harusnya
+            opponent = pairEngimonPoint.first; // pake operator= harusnya
+            activeEngimon.showDetail();
             printAsciiArt("battle");
             opponent.showDetail();
             break;
         }
     }
-    /*
-    for (auto const& pairEngimonPoint : wildEngimons)
-    {
-        wildEngimonX = pairEngimonPoint.second.getX();
-        wildEngimonY = pairEngimonPoint.second.getY();
-        if (abs(wildEngimonX-playerPosition.getX()) + abs(wildEngimonY-playerPosition.getY()) <= 1)
-        {
-            isEngimonAdjacent = true;
-            Engimon opponent = pairEngimonPoint.first; // pake operator= harusnya
-            printAsciiArt("battle");
-            opponent.showDetail();
-            break;
-        }
-    }*/
-    
     if (!isEngimonAdjacent)
     {
         cout << "There is no engimon adjacent to you" << endl;
@@ -93,6 +80,7 @@ void Player::battle(Maps& M) {
             // ambil advantage
             maxAdvantagePlayer = calculateMaxAdvantageElement(activeEngimon, opponent);
             maxAdvantageOpp = calculateMaxAdvantageElement(opponent, activeEngimon);
+            
             // hitung total power dari skill
             powerPlayer += calculateSkillPower(activeEngimon);
             powerOpp += calculateSkillPower(opponent);
@@ -116,13 +104,16 @@ void Player::battle(Maps& M) {
             {
                 try
                 {
-                    int expEarned = (activeEngimon.getLevel()/opponent.getLevel()) * 100;
+                    int expEarned = (opponent.getLevel() * 100 / activeEngimon.getLevel());
                     printAsciiArt("win");
                     cout << "Your " << activeEngimon.getName() << "got " << expEarned << " exp!" << endl;
+                    activeEngimon.addExperience(expEarned);
+                    
                     inventoryE.addItem(opponent);
-                    inventoryS.addItem(opponent.getLearnedSkills()[0]);
                     printAsciiArt("pokeball");
                     cout << "You got " << opponent.getName() << endl;
+                    inventoryS.addItem(opponent.getLearnedSkills()[0]);
+                    cout << "You got skill " << opponent.getLearnedSkills()[0].getSkillName() << endl;
                 }
                 catch(char* const err)
                 {
@@ -138,6 +129,18 @@ void Player::battle(Maps& M) {
                 activeEngimon.death();
                 point wildEngimonPoint(wildEngimonX, wildEngimonY);
                 M.deleteWildEngimon(wildEngimonPoint);
+                try
+                {
+                    inventoryE.addItem(opponent);
+                    printAsciiArt("pokeball");
+                    cout << "You got " << opponent.getName() << endl;
+                    inventoryS.addItem(opponent.getLearnedSkills()[0]);
+                    cout << "You got skill " << opponent.getLearnedSkills()[0].getSkillName() << endl;
+                }
+                catch(char* const err)
+                {
+                    cout << "Your inventory is already full" << endl;
+                }
                 opponent.death();
                 callEngimon();
                 battleEnded = true;

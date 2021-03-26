@@ -10,8 +10,8 @@ float Element::advantageChart[6][6] = { {0,0,0,0,0,0},
 string Element::elementNames[6] = {"None", "Fire", "Water", "Electric", "Ground", "Ice"};
 
 Element::Element(){
-    this->elementID = -1;
-    this->elementName = new char[0];
+    this->elementID = 0;
+    this->elementName = "";
 }
 Element::Element(string name){
     this->elementName = name;
